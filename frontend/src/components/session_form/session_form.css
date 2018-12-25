@@ -1,6 +1,5 @@
 .session-form-container {
-  height: 200px;
-  margin-top: 10px;
+  height: 150px;
 }
 
 .session-form input {
@@ -20,6 +19,7 @@
   border: none;
   background-color: #61dafb;
   color: white;
+  font-weight: bold;
   cursor: pointer;
   padding: 7px 0 7px 0;
   border-radius: 3px;
