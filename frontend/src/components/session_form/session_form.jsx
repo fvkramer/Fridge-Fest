@@ -19,7 +19,12 @@ class SessionForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { errors } = nextProps;
-    this.setState({ errors });
+    this.setState({
+      username: '',
+      password: '',
+      password2: '',
+      errors,
+    });
   }
 
   update(field) {
@@ -64,7 +69,7 @@ class SessionForm extends React.Component {
 
     const confirmPassword = formType === 'SIGN UP' ? (
       <>
-        <input type="text" placeholder="Confirm Password" value={password2} onChange={this.update('password2')} />
+        <input type="password" placeholder="Confirm Password" value={password2} onChange={this.update('password2')} />
         <br />
       </>
     ) : null;
@@ -74,7 +79,7 @@ class SessionForm extends React.Component {
         <form className="session-form" onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Username" value={username} onChange={this.update('username')} />
           <br />
-          <input type="text" placeholder="Password" value={password} onChange={this.update('password')} />
+          <input type="password" placeholder="Password" value={password} onChange={this.update('password')} />
           <br />
           {confirmPassword}
           <button type="submit">{formType}</button>
