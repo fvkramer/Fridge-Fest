@@ -16,7 +16,6 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
   });
 })
 
-
 router.post("/register", (req, res) => {
   User.findOne({username: req.body.username})
     .then( user => {
