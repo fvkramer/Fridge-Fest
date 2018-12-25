@@ -30,5 +30,27 @@ router.post("/register", (req, res) => {
     })
 })
 
+router.post("/login", (req, res) => {
+  const { username } = req.body;
+  const { password } = req.body;
+
+  User.findOne({username})
+    .then( user => {
+      if(!user) {
+        return res.status(404).json({username: 'This user does not exist'})
+      } else {
+
+        bcrypt.compare(password, user.password)
+          .then(isMatch => {
+            if (isMatch) {
+              res.json({msg: 'Success'})
+            } else {
+              return res.status(404).json({password: 'Incorrect password'})
+            }
+          })
+      }
+    })
+})
+
 
 module.exports = router;
