@@ -1,6 +1,8 @@
 import React from 'react';
 import { func, instanceOf, oneOf } from 'prop-types';
 
+import './session_form.css';
+
 class SessionForm extends React.Component {
   constructor() {
     super();
@@ -75,7 +77,7 @@ class SessionForm extends React.Component {
           <input type="text" placeholder="Password" value={password} onChange={this.update('password')} />
           <br />
           {confirmPassword}
-          <input type="submit" value={formType} />
+          <button type="submit">{formType}</button>
         </form>
       </div>
     );
