@@ -1,13 +1,13 @@
-.App {
+.main-page {
   text-align: center;
 }
 
-.App-logo {
+.main-page-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
 }
 
-.App-header {
+.main-page-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -18,7 +18,7 @@
   color: white;
 }
 
-.App-link {
+.main-page-link {
   color: #61dafb;
 }
 
