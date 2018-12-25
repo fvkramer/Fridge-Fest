@@ -4,8 +4,18 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 const jwt = require('jsonwebtoken');
 const secretOrKey = require('../../config/keys').secretOrKey;
+const passport = require('passport');
 
 router.get("/test", (req, res) => res.json({msg: "User has entered the game"}))
+
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({
+    id: req.user.id,
+    handle: req.user.handle,
+    email: req.user.email
+  });
+})
+
 
 router.post("/register", (req, res) => {
   User.findOne({username: req.body.username})
@@ -56,8 +66,8 @@ router.post("/login", (req, res) => {
                 (err, token) => {
                   res.json({
                     success: true,
-                    token: 'Bearer ' + token 
-                  });
+                    token: 'Bearer ' + token
+                  })
                 }
               )
               
