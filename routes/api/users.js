@@ -5,6 +5,8 @@ const User = require("../../models/User");
 const jwt = require('jsonwebtoken');
 const secretOrKey = require('../../config/keys').secretOrKey;
 const passport = require('passport');
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
 router.get("/test", (req, res) => res.json({msg: "User has entered the game"}))
 
@@ -17,6 +19,12 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 })
 
 router.post("/register", (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
+
   User.findOne({username: req.body.username})
     .then( user => {
       if (user) {
@@ -41,6 +49,13 @@ router.post("/register", (req, res) => {
 })
 
 router.post("/login", (req, res) => {
+
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
+  
   const { username } = req.body;
   const { password } = req.body;
 
