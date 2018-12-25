@@ -45,7 +45,7 @@ class MainPage extends React.Component {
         <header className="main-page-header">
           <h1>Fridge Fest</h1>
           <img src={logo} className="main-page-logo" alt="logo" />
-
+          <p>Welcome!</p>
           {this.getLinks()}
         </header>
       </div>
