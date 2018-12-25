@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
-
+const jwt = require('jsonwebtoken');
+const secretOrKey = require('../../config/keys').secretOrKey;
 
 router.get("/test", (req, res) => res.json({msg: "User has entered the game"}))
 
@@ -36,16 +37,30 @@ router.post("/login", (req, res) => {
 
   User.findOne({username})
     .then( user => {
-      if(!user) {
-        return res.status(404).json({username: 'This user does not exist'})
+      if (!user) {
+        return res.status(404).json({username: "Incorrect username"});
       } else {
 
         bcrypt.compare(password, user.password)
           .then(isMatch => {
-            if (isMatch) {
-              res.json({msg: 'Success'})
+            if (!isMatch) {
+              return res.status(404).json({password: "Incorrect password"});
             } else {
-              return res.status(404).json({password: 'Incorrect password'})
+              
+              const payload = {id: user.id, username: user.username}
+
+              jwt.sign(
+                payload,
+                secretOrKey,
+                {expiresIn: 3600},
+                (err, token) => {
+                  res.json({
+                    success: true,
+                    token: 'Bearer ' + token 
+                  });
+                }
+              )
+              
             }
           })
       }
