@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
 
-export default class fridge extends Component {
+export default class Fridge {
   constructor(id) {
     this.x = 250;
     this.y = 250;
     this.id = id;
-    this.image = new Image().src ="../../assets/images/fridge.png";
-
+    this.image = new Image();
+    this.image.src = require('../assets/images/fridge.png');
+    this.image.width = "200";
+    this.image.height = "200";
     this.pressingRight = false;
     this.pressingLeft = false;
     this.pressingUp = false;
@@ -29,12 +30,5 @@ export default class fridge extends Component {
     if (this.pressingDown) {
       this.y += this.maxSpd;
     }
-  }
-
-  render() {
-    const image = this.image;
-    return (
-      {image}
-    )
   }
 }
