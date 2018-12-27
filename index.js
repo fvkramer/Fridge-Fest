@@ -11,7 +11,10 @@ const httpServer = require("http").Server(app)
 const io = require("socket.io")(httpServer);
 
 io.on('connection', socket => {
-  console.log("Socket connected correctly");
+  console.log("User has connected");
+  socket.on('disconnect', () => {
+    console.log("User has disconnected");
+  })
 })
 
 const port = process.env.PORT || 5000;
