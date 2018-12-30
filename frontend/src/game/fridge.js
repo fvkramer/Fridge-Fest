@@ -1,6 +1,8 @@
+import io from "socket.io-client";
 
 export default class Fridge {
   constructor(id) {
+    const socket = io("http://localhost:5000");
     this.x = 250;
     this.y = 250;
     this.id = id;

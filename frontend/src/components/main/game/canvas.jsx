@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
-import io from "socket.io-client";
 import Fridge from "../../../game/fridge";
 
 export default class canvas extends Component {
+  constructor() {
+    super() 
+
+    this.state = {
+      SOCKET_LIST: {},
+      PLAYER_LIST: {}
+    }
+  }
+
   componentDidMount() {
     const canvas = this.refs.canvas;
     const ctx = canvas.getContext("2d");
-    const socket = io("http://localhost:5000");
     this.draw(ctx)
   }
 
