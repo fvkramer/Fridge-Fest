@@ -10,6 +10,7 @@ import io from 'socket.io-client';
 import Game from './game/game';
 
 import './index.css';
+import { receivePlayer } from './game/redux/actions/player';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,4 +46,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const game = new Game(ctx, socket);
   game.start(ctx);
 
+  
+  socket.on("startGame", ({ playerIds }) => {
+    const player = {
+      [id]: {
+        id,
+        physics: new Physics(20, 20),
+        sprite: "T",
+        speed: 20,
+      }
+    };
+
+    store.dispatch(receivePlayer(player));
+  });
 });
