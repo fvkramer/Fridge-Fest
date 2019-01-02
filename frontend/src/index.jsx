@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
     <Root store={store} />,
     document.getElementById('root'),
   );
+  
+  let canvas = document.getElementById("canvas");
+  let ctx = canvas.getContext("2d");
+  var socket = io("localhost:5000");
+  const game = new Game(ctx, socket);
+  game.start(ctx);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    let canvas = document.getElementById("canvas");
-    let ctx = canvas.getContext("2d");
-    var socket = io();
-    new Game(ctx, socket);
-  })
 });

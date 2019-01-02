@@ -4,7 +4,7 @@ export default class canvas extends Component {
  
   render() {
     return (
-      <canvas ref="canvas"
+      <canvas id="canvas"
         height="900px"
         width="900px"
         style={{border: "1px solid black"}}

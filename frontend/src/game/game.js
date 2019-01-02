@@ -1,7 +1,19 @@
+
 //draw onto canvas 
 
 export default class Game {
-  constructor(ctx, socket) {}
+  constructor(ctx, socket) {
+    this.ctx = ctx;
+    this.socket = socket;
+
+  }
+
+
+  start(ctx) {
+    ctx.clearRect(0,0,400, 400);
+    ctx.font = "40px Helvetica";
+    ctx.fillText("Hello", Math.random() * 100, Math.random() * 100);
+  }
 
   // draw(fps, ctx) {
   //   const allPlayerIds = this.props;
