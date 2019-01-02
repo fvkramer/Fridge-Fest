@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
-import Canvas from './main/game/canvas';
+import Canvas from './canvas';
 import Lobby from './main/lobby';
 
 import MainPageContainer from './main/main_page_container';
