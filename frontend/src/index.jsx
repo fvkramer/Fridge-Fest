@@ -39,8 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('root'),
   );
 
-  let canvas = document.getElementById("canvas")
-  let ctx = canvas.getContext("2d");
-  var socket = io();
-  new Game(ctx, socket);
+  document.addEventListener("DOMContentLoaded", () => {
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    var socket = io();
+    new Game(ctx, socket);
+  })
 });

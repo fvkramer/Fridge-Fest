@@ -1,33 +1,33 @@
 //draw onto canvas 
 
-class Game {
+export default class Game {
   constructor(ctx, socket) {}
 
-  draw(fps, ctx) {
-    const allPlayerIds = this.props;
+  // draw(fps, ctx) {
+  //   const allPlayerIds = this.props;
 
-    const fpsInterval = 1000 / fps;
-    let then = performance.now();
+  //   const fpsInterval = 1000 / fps;
+  //   let then = performance.now();
 
-    const animate = () => {
-      requestAnimationFrame(animate);
+  //   const animate = () => {
+  //     requestAnimationFrame(animate);
 
-      const now = performance.now();
-      const elapsed = now - then;
+  //     const now = performance.now();
+  //     const elapsed = now - then;
 
-      if (elapsed > fpsInterval) {
-        then = now - (elapsed % fpsInterval);
+  //     if (elapsed > fpsInterval) {
+  //       then = now - (elapsed % fpsInterval);
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+  //       ctx.clearRect(0, 0, ctx.width, ctx.height);
 
-        for (let i = 0; i < allPlayerIds.length; i += 1) {
-          drawPlayer(allPlayerIds[i]);
-        }
-      }
-    };
+  //       for (let i = 0; i < allPlayerIds.length; i += 1) {
+  //         drawPlayer(allPlayerIds[i]);
+  //       }
+  //     }
+  //   };
 
-    animate();
-  }
+  //   animate();
+  // }
 }
 
 
