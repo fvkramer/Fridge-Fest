@@ -6,6 +6,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
+import io from 'socket.io-client';
+import Game from './game/game';
 
 import './index.css';
 
@@ -36,4 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <Root store={store} />,
     document.getElementById('root'),
   );
+
+  let canvas = document.getElementById("canvas")
+  let ctx = canvas.getContext("2d");
+  var socket = io();
+  new Game(ctx, socket);
 });
