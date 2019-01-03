@@ -2,8 +2,8 @@ import handleStartGame from './socket_actions/start_game';
 import { handleKeyDown, handleKeyUp } from './socket_actions/fridge_movement';
 
 const setupReceivers = (socket, store) => {
-  socket.on('startGame', ({ fridgeIds }) => {
-    handleStartGame(store, fridgeIds);
+  socket.on('startGame', (data) => {
+    handleStartGame(store, data);
   });
 
   socket.on('removeFridge', (fridgeId) => {

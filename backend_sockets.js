@@ -1,4 +1,5 @@
 let fridgeIds = [];
+const instantRamenIds = [1];
 
 const setupSockets = io => (
   io.on('connection', (socket) => {
@@ -12,7 +13,7 @@ const setupSockets = io => (
       io.sockets.emit('removeFridge', socket.id);
     });
 
-    socket.on('startGame', () => io.sockets.emit('startGame', { fridgeIds }));
+    socket.on('startGame', () => io.sockets.emit('startGame', { fridgeIds, instantRamenIds }));
 
     socket.on('keydown', (data) => {
       io.sockets.emit('keydown', data);
