@@ -11,7 +11,7 @@ const App = () => (
     <Switch>
       <Route path="/game" component={Canvas} />
       <Route path="/lobby" component={Lobby} />
-      <Route path="/" component={MainPageContainer} />
+      <AuthRoute path="/" component={MainPageContainer} />
     </Switch>
   </>
 );
