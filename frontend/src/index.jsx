@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import jwtDecode from 'jwt-decode';
 
-import Root from './components/root';
+import Root from './react_redux/components/root';
 import configureStore from './store/store';
-import { setAuthToken } from './util/session_api_util';
-import { logout } from './actions/session_actions';
+import { setAuthToken } from './react_redux/util/session_api_util';
+import { logout } from './react_redux/actions/session_actions';
+import { setupGameSockets } from './game/sockets/sockets';
 
 import './index.css';
-
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -36,4 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <Root store={store} />,
     document.getElementById('root'),
   );
+
+  setupGameSockets(store);
 });

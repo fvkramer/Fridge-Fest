@@ -1,34 +1,15 @@
+import { Physics, Sprite } from './class_util';
 
-export default class Fridge {
-  constructor(id) {
-    this.x = 250;
-    this.y = 250;
-    this.id = id;
-    this.image = new Image();
-    this.image.src = require('../assets/images/fridge.png');
-    this.image.width = "200";
-    this.image.height = "200";
-    this.pressingRight = false;
-    this.pressingLeft = false;
-    this.pressingUp = false;
-    this.pressingDown = false;
-    this.maxSpd = 10;
+const fridgeSprite = new Image();
+fridgeSprite.src = 'https://www.dropbox.com/s/lkt2o9b9kkfdd70/fridge.png?dl=1';
 
-    this.updatePosition = this.updatePosition.bind(this);
-  }
+const createFridge = id => ({
+  [id]: {
+    id,
+    physics: new Physics(20, 20),
+    sprite: new Sprite(fridgeSprite, 128, 384, 1, 3),
+    speed: 20,
+  },
+});
 
-  updatePosition() {
-    if (this.pressingRight) {
-      this.x += this.maxSpd;
-    }
-    if (this.pressingLeft) {
-      this.x -= this.maxSpd;
-    }
-    if (this.pressingUp) {
-      this.y -= this.maxSpd;
-    }
-    if (this.pressingDown) {
-      this.y += this.maxSpd;
-    }
-  }
-}
+export default createFridge;
