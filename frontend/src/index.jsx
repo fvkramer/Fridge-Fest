@@ -2,16 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import jwtDecode from 'jwt-decode';
 
-import Root from './components/root';
+import Root from './react_redux/components/root';
 import configureStore from './store/store';
-import { setAuthToken } from './util/session_api_util';
-import { logout } from './actions/session_actions';
-import io from 'socket.io-client';
-import Game from './game/game';
+import { setAuthToken } from './react_redux/util/session_api_util';
+import { logout } from './react_redux/actions/session_actions';
+import { setupGameSockets } from './game/sockets/sockets';
 
 import './index.css';
-import { receivePlayer } from './game/redux/actions/player';
-
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -39,24 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <Root store={store} />,
     document.getElementById('root'),
   );
-  
-  let canvas = document.getElementById("canvas");
-  let ctx = canvas.getContext("2d");
-  var socket = io("localhost:5000");
-  const game = new Game(ctx, socket);
-  game.start(ctx);
 
-  
-  socket.on("startGame", ({ playerIds }) => {
-    const player = {
-      [id]: {
-        id,
-        physics: new Physics(20, 20),
-        sprite: "T",
-        speed: 20,
-      }
-    };
-
-    store.dispatch(receivePlayer(player));
-  });
+  setupGameSockets(store);
 });

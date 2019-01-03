@@ -1,18 +1,28 @@
-class Physics {
+export class Physics {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.dx = 0;
-    this.dy = 0;
+    this.dLeft = 0;
+    this.dRight = 0;
+    this.dUp = 0;
+    this.dDown = 0;
+  }
+
+  dX() {
+    return -this.dLeft + this.dRight;
+  }
+
+  dY() {
+    return -this.dUp + this.dDown;
   }
 
   updatePos() {
-    this.x += this.dx;
-    this.y += this.dy;
+    this.x += this.dX();
+    this.y += this.dY();
   }
 }
 
-class Sprite {
+export class Sprite {
   constructor(image, sheetHeight, sheetWidth, rows, frameCount) {
     this.image = image;
     this.height = sheetHeight / rows;
@@ -31,26 +41,14 @@ class Sprite {
     return this.isMoveLeft ? this.height : 0;
   }
 
-  updateSprite(image, sheetHeight, sheetWidth, rows) {
+  updateSprite(image, sheetHeight, sheetWidth, rows, frameCount) {
     this.image = image;
     this.height = sheetHeight / rows;
     this.width = sheetWidth / frameCount;
+    this.frameCount = frameCount;
   }
 
   updateFrame() {
-    if (this.isStop) {
-      this.updateSprite();
-    } else {
-      this.updateSprite();
-    }
-
     this.currentFrame = (this.currentFrame + 1) % this.frameCount;
   }
 }
-
-
-module.exports = {
-  Physics, 
-  Sprite
-}
-
