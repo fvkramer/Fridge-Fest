@@ -1,5 +1,5 @@
 let fridgeIds = [];
-const instantRamenIds = [1];
+const instantRamenIds = [];
 
 const setupSockets = io => (
   io.on('connection', (socket) => {
