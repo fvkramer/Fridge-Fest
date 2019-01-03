@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "MERN stack multiplayer application",
   "main": "index.js",
+  "engines": {
+    "node": "10.13.0"
+  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
