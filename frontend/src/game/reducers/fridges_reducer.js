@@ -11,6 +11,11 @@ const fridgesReducer = (state = {}, action) => {
 
       return newState;
     }
+    case 'INCREASE COUNT':
+      return {
+        ...state,
+        [action.foodType]: state.foodType + 1,
+      };
     default:
       return state;
   }
