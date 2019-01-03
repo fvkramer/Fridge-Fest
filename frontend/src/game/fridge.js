@@ -9,7 +9,11 @@ const createFridge = id => ({
     physics: new Physics(20, 20),
     sprite: new Sprite(fridgeSprite, 128, 384, 1, 3),
     speed: 20,
-    foodItems: [],
+    instantRamenCount: 0,
+    milkShakeCount: 0,
+    snickerCount: 0,
+    donutCount: 0,
+    pizzaCount: 0,
   },
 });
 
