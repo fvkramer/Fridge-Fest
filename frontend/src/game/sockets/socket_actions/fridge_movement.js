@@ -18,6 +18,7 @@ export const handleKeyDown = (key, player) => {
   if (key === 's') {
     physics.dDown = speed;
   }
+  console.log({ right: physics.dRight });
 };
 
 export const handleKeyUp = (key, player) => {

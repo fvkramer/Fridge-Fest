@@ -14,6 +14,7 @@ const setupReceivers = (socket, store) => {
   const getFridgeById = fridgeId => store.getState().game.fridges[fridgeId];
 
   socket.on('keydown', ({ key, fridgeId }) => {
+    console.log(fridgeId, key);
     const player = getFridgeById(fridgeId);
     handleKeyDown(key, player);
   });
