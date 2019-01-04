@@ -1,3 +1,5 @@
+import { isCollided } from './util/util';
+
 export default class GameCanvas {
   constructor(store, canvas, ctx) {
     this.store = store;
@@ -16,15 +18,24 @@ export default class GameCanvas {
     ];
   }
 
-  drawAsset(asset) {
+  drawAsset(asset, allAssets) {
     if (!asset) return;
 
-    const { physics, sprite } = asset;
+    const { physics, sprite, type } = asset;
 
     this.ctx.drawImage(
       sprite.image, sprite.srcX(), sprite.srcY(), sprite.width, sprite.height,
       physics.x, physics.y, sprite.width, sprite.height,
     );
+
+    for (let i = 0; i < allAssets.length; i += 1) {
+      if (type === 'fridge' && type !== allAssets[i].type) {
+        if (isCollided(asset, allAssets[i])) {
+          console.log('collided');
+          // resolveCollision(asset, allAssets[i]);
+        }
+      }
+    }
 
     physics.updatePos();
     sprite.updateFrame();
@@ -48,7 +59,7 @@ export default class GameCanvas {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         for (let i = 0; i < assets.length; i += 1) {
-          this.drawAsset(assets[i]);
+          this.drawAsset(assets[i], assets);
         }
       }
     };

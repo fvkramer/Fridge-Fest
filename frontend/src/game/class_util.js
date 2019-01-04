@@ -30,7 +30,6 @@ export class Sprite {
     this.frameCount = frameCount;
     this.currentFrame = 0;
     this.isMoveLeft = false;
-    // this.isStop = true;
   }
 
   srcX() {
