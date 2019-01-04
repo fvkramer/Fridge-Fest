@@ -27,7 +27,8 @@ export const fridgeMoveSprite = {
 const createFridge = id => ({
   [id]: {
     id,
-    physics: new Physics(20, 20),
+    type: 'fridge',
+    physics: new Physics(100, 100),
     sprite: new Sprite(fridgeStatic, 300, 150, 2, 1),
     speed: 20,
     instantRamen: 0,

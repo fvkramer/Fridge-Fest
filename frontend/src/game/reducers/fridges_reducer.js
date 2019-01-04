@@ -14,12 +14,12 @@ const fridgesReducer = (state = {}, action) => {
     case 'INCREASE_COUNT':
       return {
         ...state,
-        [action.foodType]: state.foodType + 1,
+        fridgeId: action.newFridge,
       };
     case 'DECREASE_SPEED':
       return {
         ...state,
-        speed: state.speed - action.speed,
+        speed: state.speed - action.speedOffset,
       };
     default:
       return state;

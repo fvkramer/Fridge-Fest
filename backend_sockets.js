@@ -1,5 +1,5 @@
 let fridgeIds = [];
-const instantRamenIds = [];
+const instantRamenIds = [1];
 
 const setupSockets = io => (
   io.on('connection', (socket) => {
@@ -20,6 +20,10 @@ const setupSockets = io => (
     });
     socket.on('keyup', (data) => {
       io.sockets.emit('keyup', data);
+    });
+
+    socket.on('resolveCollision', (data) => {
+      io.sockets.emit('resolveCollision', data);
     });
   })
 );

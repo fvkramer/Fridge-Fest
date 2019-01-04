@@ -5,8 +5,8 @@ export default class Canvas extends Component {
     return (
       <canvas
         id="canvas"
-        height="900px"
-        width="900px"
+        height="500px"
+        width="500px"
         style={{ border: '1px solid black' }}
       />
     );
