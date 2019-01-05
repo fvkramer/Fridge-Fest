@@ -33,19 +33,24 @@ function FridgeDefinedContainer(props) {
   return (
     <div className="food-container">
       <div className="food-container-subclass">
-        <div>{`Instant Ramen ${props.currentFridge.instantRamen}`}</div>
+        <div className="food-item-container">{`Instant Ramen ${props.currentFridge.instantRamen}`}</div>
+        <div className="food-item-progress-bar" style={{ width: `${props.currentFridge.instantRamen * 100}%` }} />
       </div>
       <div className="food-container-subclass">
-        <div>Milk Shake</div>
+        <div className="food-item-container">{`Milk Shake ${props.currentFridge.milkshake}`}</div>
+        <div className="food-item-progress-bar" style={{ width: `${props.currentFridge.milkShake * 33.33}%` }} />
       </div>
       <div className="food-container-subclass">
-        <div>Snickers</div>
+        <div className="food-item-container">{`Snickers ${props.currentFridge.snicker}`}</div>
+        <div className="food-item-progress-bar" style={{ width: `${props.currentFridge.snicker * 20}%` }} />
       </div>
       <div className="food-container-subclass">
-        <div>Donut</div>
+        <div className="food-item-container">{`Donut ${props.currentFridge.donut}`}</div>
+        <div className="food-item-progress-bar" style={{ width: `${props.currentFridge.donut * 20}%` }} />
       </div>
       <div className="food-container-subclass">
-        <div>Pizza</div>
+        <div className="food-item-container">{`Pizza ${props.currentFridge.pizza}`}</div>
+        <div className="food-item-progress-bar" style={{ width: `${props.currentFridge.pizza * 20}%` }} />
       </div>
     </div>
   );

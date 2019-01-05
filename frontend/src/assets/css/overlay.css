@@ -30,3 +30,15 @@
   box-shadow: 3px 1px #eee;
   z-index: 1
 }
+
+.food-item-container {
+  display: inline-block;
+  width: 100%;
+}
+
+.food-item-progress-bar {
+  display: inline-block;
+  height: 100%;
+  background-color: yellow;
+  z-index: 1;
+}
