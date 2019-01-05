@@ -11,5 +11,4 @@ const setupEmitters = (socket) => {
   });
 };
 
-
 export default setupEmitters;

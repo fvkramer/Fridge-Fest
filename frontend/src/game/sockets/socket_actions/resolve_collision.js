@@ -17,18 +17,20 @@ const isEatTooMuch = (fridge) => {
 };
 
 const handleCollision = (store, fridge, asset) => {
-  store.dispatch({ type: 'REMOVE_FOOD', foodId: asset.id });
-
+  // debugger;
   if (FOOD.includes(asset.type)) {
+    // debugger;
+    store.dispatch({ type: 'REMOVE_FOOD', foodId: asset.id });
     store.dispatch({ type: 'INCREASE_COUNT', fridgeId: fridge.id, foodType: asset.type });
   }
 
   if (asset.type === 'slow') {
+    store.dispatch({ type: 'REMOVE_SKILL', skillId: asset.id });
     const skill = {
       type: 'slow',
       speedOffset: asset.speedOffset,
     };
-    store.dispatch({ type: 'RECEIVE_SKILL', fridgeId: fridge.id, skill });
+    store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
 
   if (isEatTooMuch(fridge)) {

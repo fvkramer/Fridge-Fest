@@ -11,7 +11,7 @@ const fridgesReducer = (state = {}, action) => {
 
       return newState;
     }
-    case 'RECEIVE_SKILL': {
+    case 'PICKUP_SKILL': {
       const { fridgeId, skill } = action;
 
       return {

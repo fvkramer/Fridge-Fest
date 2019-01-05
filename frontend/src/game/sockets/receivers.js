@@ -14,7 +14,7 @@ const setupReceivers = (socket, store) => {
 
   // utils
   const getFridgeById = fridgeId => store.getState().game.fridges[fridgeId];
-  const getAssetById = assetId => store.getState().game.food[assetId];
+  const getAssetById = (assetId, assetType) => store.getState().game[assetType][assetId];
   // utils end
 
   // Fridge movement
@@ -31,7 +31,9 @@ const setupReceivers = (socket, store) => {
 
   socket.on('resolveCollision', ({ fridgeId, assetId }) => {
     const fridge = getFridgeById(fridgeId);
-    const asset = getAssetById(assetId);
+
+    const assetType = assetId.split('-')[0];
+    const asset = getAssetById(assetId, assetType);
 
     if (!asset) return;
 
