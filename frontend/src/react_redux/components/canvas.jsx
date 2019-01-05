@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
-
+import Abilities from './gameOverlay/abilities';
+import FoodPyramid from './gameOverlay/foodPyramid';
 // const HEIGHT = `${window.innerHeight}px`;
 // const WIDTH = `${window.innerWidth}px`;
 
 export default class Canvas extends Component {
+  componentDidMount() {}
+
   render() {
     return (
-      <canvas
-        id="canvas"
-        height="800px"
-        width="800px"
-        style={{ border: '1px solid black' }}
-      />
+      <div>
+        <canvas
+          id="canvas"
+          height="800px"
+          width="800px"
+          style={{ border: '1px solid black' }}
+        />
+        <Abilities />
+        <FoodPyramid />
+      </div>
     );
   }
 }

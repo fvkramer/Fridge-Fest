@@ -21,6 +21,8 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('./assets/css'));
+app.use(express.static('./frontend/css'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
