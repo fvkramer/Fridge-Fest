@@ -1,15 +1,18 @@
+import { fridgeStaticSprite, fridgeMoveSprite } from '../../fridge';
+
 export const handleKeyDown = (key, player) => {
   if (!player) return;
 
   const { sprite, physics, speed } = player;
-  sprite.isStop = false;
+  sprite.isMove = true;
+  sprite.updateSprite(fridgeMoveSprite);
 
   if (key === 'a') {
-    // sprite.isMoveLeft = true;
+    sprite.isMoveLeft = true;
     physics.dLeft = speed;
   }
   if (key === 'd') {
-    // sprite.isMoveLeft = false;
+    sprite.isMoveLeft = false;
     physics.dRight = speed;
   }
   if (key === 'w') {
@@ -38,5 +41,8 @@ export const handleKeyUp = (key, player) => {
     physics.dDown = 0;
   }
 
-  if (physics.dX() === 0 && physics.dY() === 0) sprite.isStop = true;
+  if (physics.dX() === 0 && physics.dY() === 0) {
+    sprite.isMove = false;
+    sprite.updateSprite(fridgeStaticSprite);
+  }
 };

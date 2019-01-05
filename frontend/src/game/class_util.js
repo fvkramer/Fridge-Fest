@@ -30,7 +30,7 @@ export class Sprite {
     this.frameCount = frameCount;
     this.currentFrame = 0;
     this.isMoveLeft = false;
-    this.isStop = true;
+    this.isMove = false;
   }
 
   srcX() {
@@ -41,7 +41,11 @@ export class Sprite {
     return this.isMoveLeft ? this.height : 0;
   }
 
-  updateSprite(image, sheetHeight, sheetWidth, rows, frameCount) {
+  updateSprite(newSprite) {
+    const {
+      image, sheetHeight, sheetWidth, rows, frameCount,
+    } = newSprite;
+
     this.image = image;
     this.height = sheetHeight / rows;
     this.width = sheetWidth / frameCount;
