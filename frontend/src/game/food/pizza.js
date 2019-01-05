@@ -10,7 +10,7 @@ const createPizza = ({ id, x, y }) => ({
     physics: new Physics(x, y),
     sprite: new Sprite(pizzaSprite, 128, 384, 1, 3),
     speed: 0,
-    speedOffset: 4,
+    speedOffset: 1,
   },
 });
 
