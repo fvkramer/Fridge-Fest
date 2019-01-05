@@ -11,9 +11,7 @@ export default class Abilities extends Component {
 
   render() {
     return (
-      <div className="abilities-container">
-        Abilities Container
-      </div>
+      <div className="abilities-container" />
     );
   }
 }

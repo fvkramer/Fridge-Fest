@@ -11,7 +11,7 @@ export default class Canvas extends Component {
 
   render() {
     return (
-      <div>
+      <div id="canvas-container">
         <canvas
           id="canvas"
           height="800px"
