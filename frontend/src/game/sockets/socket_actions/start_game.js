@@ -14,7 +14,7 @@ const handleStartGame = (socket, store, { fridgeIds, instantRamen }) => {
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     const game = new GameCanvas(socket, store, canvas, ctx);
-
+    window.socketId = socket.id;
     game.draw(10);
   }, 1000);
 };
