@@ -21,6 +21,7 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('./assets'));
 
 
 if (process.env.NODE_ENV === 'production') {

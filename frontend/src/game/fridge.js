@@ -1,12 +1,13 @@
 import { Physics, Sprite } from './class_util';
 
 const fridgeStatic = new Image();
-fridgeStatic.src = '../assets/game/fridge_static.png';
+// fridgeStatic.src = '../assets/game/fridge_static.png';
 // fridgeStatic.src = 'https://www.dropbox.com/s/8nww33urctzwz1y/Front%20Facing%20Fridge%20Sprite%20Stationary.png?dl=1';
-// fridgeStatic.src = '../../../assets/game/fridge_static.png';
+fridgeStatic.src = '/game/fridge_static.png';
 
 const fridgeMove = new Image();
-fridgeMove.src = 'https://www.dropbox.com/s/gt3v21a61chjhw6/Front%20Facing%20Fridge%20Sprite%20Naruto%20Run.png?dl=1';
+fridgeMove.src = 'game/fridge_move.png';
+// fridgeMove.src = 'https://www.dropbox.com/s/gt3v21a61chjhw6/Front%20Facing%20Fridge%20Sprite%20Naruto%20Run.png?dl=1';
 // fridgeStatic.src = '../../../assets/game/fridge_move.png';
 
 export const fridgeStaticSprite = {
