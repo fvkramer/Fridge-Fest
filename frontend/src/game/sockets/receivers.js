@@ -1,6 +1,7 @@
 import handleStartGame from './socket_actions/start_game';
 import { handleKeyDown, handleKeyUp } from './socket_actions/fridge_movement';
 import handleCollision from './socket_actions/resolve_collision';
+import activateSkill from './socket_actions/activate_skill';
 
 const setupReceivers = (socket, store) => {
   socket.on('startGame', (data) => {
@@ -36,6 +37,11 @@ const setupReceivers = (socket, store) => {
     if (!asset) return;
 
     handleCollision(store, fridge, asset);
+  });
+
+  socket.on('activateSkill', ({ fridgeId, fridgeIds }) => {
+    const fridge = getFridgeById(fridgeId);
+    activateSkill(store, fridge, fridgeIds);
   });
 };
 

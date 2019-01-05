@@ -6,7 +6,7 @@ snickerSprite.src = '';
 const createSnicker = ({ id, x, y }) => ({
   [id]: {
     id,
-    type: 'milkshake',
+    type: 'snicker',
     physics: new Physics(x, y),
     sprite: new Sprite(snickerSprite, 128, 384, 1, 3),
     speed: 0,

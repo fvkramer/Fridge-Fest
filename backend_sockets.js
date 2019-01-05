@@ -27,12 +27,20 @@ const setupSockets = io => (
 
     socket.on('startGame', () => io.sockets.emit('startGame', { fridgeIds, instantRamen }));
 
-    socket.on('keydown', (data) => {
-      io.sockets.emit('keydown', data);
+    socket.on('keydown', ({ key, fridgeId }) => {
+      if (key === '1') {
+        io.sockets.emit('activateSkill', { fridgeId, fridgeIds });
+      } else {
+        io.sockets.emit('keydown', { key, fridgeId });
+      }
     });
-    socket.on('keyup', (data) => {
-      io.sockets.emit('keyup', data);
+    socket.on('keyup', ({ key, fridgeId }) => {
+      io.sockets.emit('keyup', { key, fridgeId });
     });
+
+    // socket.on('massSlow', (data) => {
+    //   socket.broadcast.emit('massSlow', data);
+    // });
 
     socket.on('collisionDetected', (data) => {
       io.sockets.emit('resolveCollision', data);

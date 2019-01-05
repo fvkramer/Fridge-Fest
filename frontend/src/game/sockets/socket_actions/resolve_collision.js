@@ -27,7 +27,7 @@ const handleCollision = (store, fridge, asset) => {
     store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: asset.speedOffset });
 
     window.setTimeout(
-      () => store.dispatch({ type: 'UPDATE_SPEED', frideId: fridge.id, speedOffset: -asset.speedOffset }),
+      () => store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: -asset.speedOffset }),
       5000,
     );
   }
