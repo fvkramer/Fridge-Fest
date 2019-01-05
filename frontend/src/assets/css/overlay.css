@@ -1,0 +1,13 @@
+#canvas {
+  position: relative;
+}
+
+.food-container {
+  background-color: red;
+  display: inline-block;
+}
+
+.abilities-container {
+  background-color: blue;
+  display: inline-block;
+}

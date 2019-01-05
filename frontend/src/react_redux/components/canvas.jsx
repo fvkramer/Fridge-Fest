@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Abilities from './gameOverlay/abilities';
 import FoodPyramid from './gameOverlay/foodPyramid';
+import '../../assets/css/overlay.css';
+
 // const HEIGHT = `${window.innerHeight}px`;
 // const WIDTH = `${window.innerWidth}px`;
 
