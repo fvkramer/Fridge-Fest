@@ -30,7 +30,6 @@ const setupReceivers = (socket, store) => {
   // Fridge movement ends
 
   socket.on('resolveCollision', ({ fridgeId, assetId }) => {
-    // debugger;
     const fridge = getFridgeById(fridgeId);
     const asset = getAssetById(assetId);
 
