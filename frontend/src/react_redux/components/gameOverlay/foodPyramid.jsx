@@ -13,7 +13,11 @@ export default class FoodPyramid extends Component {
   render() {
     return (
       <div className="food-container">
-        Food Pyramid Container
+        <div className="food-container-subclass">Instant Ramen</div>
+        <div className="food-container-subclass">Milk Shake</div>
+        <div className="food-container-subclass">Snickers</div>
+        <div className="food-container-subclass">Donut</div>
+        <div className="food-container-subclass">Pizza</div>
       </div>
     );
   }
