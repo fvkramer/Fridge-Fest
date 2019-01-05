@@ -25,7 +25,14 @@ const handleCollision = (store, fridge, asset) => {
 
   if (isEatTooMuch(fridge)) {
     store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: asset.speedOffset });
+
+    window.setTimeout(
+      () => store.dispatch({ type: 'UPDATE_SPEED', frideId: fridge.id, speedOffset: -asset.speedOffset }),
+      5000,
+    );
   }
+
+  // Add timer to react component //
 };
 
 export default handleCollision;
