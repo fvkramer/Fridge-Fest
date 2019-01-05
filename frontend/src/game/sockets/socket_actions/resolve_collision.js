@@ -2,16 +2,16 @@ const FOOD = ['instantRamen', 'pizza', 'milkshake', 'donut', 'snicker'];
 
 const isEatTooMuch = (fridge) => {
   const {
-    instantRamen, milkshake, snicker, donut, pizza,
+    speed, instantRamen, milkshake, snicker, donut, pizza,
   } = fridge;
 
-  if (
+  if ((
     instantRamen >= 5
     || milkshake >= 10
     || snicker >= 15
     || donut >= 20
     || pizza >= 25
-  ) return true;
+  ) && (speed > 5)) return true;
 
   return false;
 };
