@@ -17,7 +17,3 @@ export const startGame = () => {
   socket.emit('startGame');
 };
 window.startGame = startGame;
-
-export const resolveCollision = (data) => {
-  socket.emit('resolveCollision', data);
-};

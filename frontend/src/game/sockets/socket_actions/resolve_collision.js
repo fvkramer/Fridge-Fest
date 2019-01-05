@@ -1,11 +1,31 @@
-// const handleCollision = (store, fridge, asset) => {
-//   const newFridge = {
-//     ...fridge,
-//     [`${asset.type}Count`]: fridge[`${assetType}Count`] += 1,
-//   };
+const FOOD = ['instantRamen', 'pizza', 'milkshake', 'donut', 'snicker'];
 
-//   store.dispatch({ type: 'DECREASE_SPEED', speedOffset: asset.speedOffset });
-//   store.dispatch({ type: `REMOVE_${asset.type.toUpperCase()}`, id: asset.id });
-// };
+const isEatTooMuch = (fridge) => {
+  const {
+    instantRamen, milkshake, snicker, donut, pizza,
+  } = fridge;
 
-// export default handleCollision;
+  if (
+    instantRamen >= 5
+    || milkshake >= 10
+    || snicker >= 15
+    || donut >= 20
+    || pizza >= 25
+  ) return true;
+
+  return false;
+};
+
+const handleCollision = (store, fridge, asset) => {
+  store.dispatch({ type: 'REMOVE_FOOD', foodId: asset.id });
+
+  if (FOOD.includes(asset.type)) {
+    store.dispatch({ type: 'INCREASE_COUNT', fridgeId: fridge.id, foodType: asset.type });
+  }
+
+  if (isEatTooMuch(fridge)) {
+    store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: asset.speedOffset });
+  }
+};
+
+export default handleCollision;

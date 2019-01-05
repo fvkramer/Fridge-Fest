@@ -1,10 +1,16 @@
 const foodReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'RECEIVE_INSTANT_RAMEN':
+    case 'RECEIVE_FOOD':
       return {
         ...state,
         ...action.food,
       };
+    case 'REMOVE_FOOD': {
+      const newState = Object.assign({}, state);
+      delete newState[action.foodId];
+
+      return newState;
+    }
     default:
       return state;
   }

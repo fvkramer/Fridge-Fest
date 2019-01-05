@@ -4,7 +4,7 @@ import handleCollision from './socket_actions/resolve_collision';
 
 const setupReceivers = (socket, store) => {
   socket.on('startGame', (data) => {
-    handleStartGame(store, data);
+    handleStartGame(socket, store, data);
   });
 
   socket.on('removeFridge', (fridgeId) => {
@@ -13,7 +13,7 @@ const setupReceivers = (socket, store) => {
 
   // utils
   const getFridgeById = fridgeId => store.getState().game.fridges[fridgeId];
-  const getAssetById = (assetId, assetType) => store.getState().game[assetType][assetId];
+  const getAssetById = assetId => store.getState().game.food[assetId];
   // utils end
 
   // Fridge movement
@@ -28,9 +28,12 @@ const setupReceivers = (socket, store) => {
   });
   // Fridge movement ends
 
-  socket.on('resolveCollision', ({ fridgeId, assetId, assetType }) => {
+  socket.on('resolveCollision', ({ fridgeId, assetId }) => {
+    // debugger;
     const fridge = getFridgeById(fridgeId);
-    const asset = getAssetById(assetId, assetType);
+    const asset = getAssetById(assetId);
+
+    if (!asset) return;
 
     handleCollision(store, fridge, asset);
   });

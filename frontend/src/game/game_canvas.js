@@ -1,7 +1,9 @@
 import { isCollided } from './util/util';
 
 export default class GameCanvas {
-  constructor(store, canvas, ctx) {
+  constructor(socket, store, canvas, ctx) {
+    this.socket = socket;
+    this.playerId = socket.id;
     this.store = store;
     this.canvas = canvas;
     this.ctx = ctx;
@@ -20,51 +22,43 @@ export default class GameCanvas {
     ];
   }
 
-  drawAsset(asset, allAssets) {
+  checkCollision(fridge, allAssets) {
+    for (let i = 0; i < allAssets.length; i += 1) {
+      if (allAssets[i].type !== 'fridge') {
+        if (isCollided(fridge, allAssets[i])) {
+          console.log('collided');
+          this.socket.emit(
+            'collisionDetected',
+            { fridgeId: fridge.id, assetId: allAssets[i].id, assetType: allAssets[i].type },
+          );
+        }
+      }
+    }
+  }
+
+  drawAsset(asset) {
     if (!asset) return;
 
     const { physics, sprite, type } = asset;
-    if (type === 'fridge') {
-      this.ctx.save();
+
+    if (type === 'fridge' && asset.id === this.playerId) {
       if (sprite.isMove) {
         this.totalOffsetX += physics.dX();
         this.totalOffsetY += physics.dY();
         this.ctx.translate(physics.dX(), physics.dY());
-
-        this.ctx.drawImage(
-          sprite.image, sprite.srcX(), sprite.srcY(), sprite.width, sprite.height,
-          20 - this.totalOffsetX, 20 - this.totalOffsetY, sprite.width, sprite.height,
-        // physics.x, physics.y, sprite.width, sprite.height,
-        );
-
-        // physics.updatePos()
-        // this.ctx.restore();
-      } else {
-        this.ctx.drawImage(
-          sprite.image, sprite.srcX(), sprite.srcY(), sprite.width, sprite.height,
-          20 - this.totalOffsetX, 20 - this.totalOffsetY, sprite.width, sprite.height,
-        // physics.x, physics.y, sprite.width, sprite.height,
-        );
-        // this.ctx.restore();
       }
-
-      // this.ctx.restore();
-    } else {
       this.ctx.drawImage(
         sprite.image, sprite.srcX(), sprite.srcY(), sprite.width, sprite.height,
-        physics.x - 2 * this.totalOffsetX, physics.y - 2 * this.totalOffsetY, sprite.width, sprite.height,
+        150 - 1 * this.totalOffsetX, 150 - 1 * this.totalOffsetY, sprite.width, sprite.height,
+      );
+    } else {
+      this.ctx.drawImage(
+        sprite.image, sprite.srcX(), sprite.srcY(),
+        sprite.width, sprite.height,
+        physics.x - 2 * this.totalOffsetX, physics.y - 2 * this.totalOffsetY,
+        sprite.width, sprite.height,
       );
     }
-
-    for (let i = 0; i < allAssets.length; i += 1) {
-      if (type === 'fridge' && type !== allAssets[i].type) {
-        if (isCollided(asset, allAssets[i])) {
-          console.log('collided');
-          // resolveCollision(asset, allAssets[i]);
-        }
-      }
-    }
-
 
     physics.updatePos();
     sprite.updateFrame();
@@ -85,10 +79,14 @@ export default class GameCanvas {
       if (elapsed > fpsInterval) {
         then = now - (elapsed % fpsInterval);
 
-        this.ctx.clearRect(0 - this.totalOffsetX, 0 - this.totalOffsetY, this.canvas.width, this.canvas.height);
+        this.ctx.clearRect(
+          0 - this.totalOffsetX, 0 - this.totalOffsetY,
+          this.canvas.width, this.canvas.height,
+        );
 
         for (let i = 0; i < assets.length; i += 1) {
-          this.drawAsset(assets[i], assets);
+          this.drawAsset(assets[i]);
+          if (assets[i].type === 'fridge') this.checkCollision(assets[i], assets);
         }
       }
     };

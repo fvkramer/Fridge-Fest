@@ -11,16 +11,28 @@ const fridgesReducer = (state = {}, action) => {
 
       return newState;
     }
-    case 'INCREASE_COUNT':
+    case 'INCREASE_COUNT': {
+      const { fridgeId, foodType } = action;
+
       return {
         ...state,
-        fridgeId: action.newFridge,
+        [fridgeId]: {
+          ...state[fridgeId],
+          [foodType]: state[fridgeId][foodType] + 1,
+        },
       };
-    case 'DECREASE_SPEED':
+    }
+    case 'UPDATE_SPEED': {
+      const { fridgeId, speedOffset } = action;
+
       return {
         ...state,
-        speed: state.speed - action.speedOffset,
+        [fridgeId]: {
+          ...state[fridgeId],
+          speed: state[fridgeId].speed - speedOffset,
+        },
       };
+    }
     default:
       return state;
   }
