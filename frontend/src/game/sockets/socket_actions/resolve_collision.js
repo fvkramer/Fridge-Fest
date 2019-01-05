@@ -23,6 +23,14 @@ const handleCollision = (store, fridge, asset) => {
     store.dispatch({ type: 'INCREASE_COUNT', fridgeId: fridge.id, foodType: asset.type });
   }
 
+  if (asset.type === 'slow') {
+    const skill = {
+      type: 'slow',
+      speedOffset: asset.speedOffset,
+    };
+    store.dispatch({ type: 'RECEIVE_SKILL', fridgeId: fridge.id, skill });
+  }
+
   if (isEatTooMuch(fridge)) {
     store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: asset.speedOffset });
 
