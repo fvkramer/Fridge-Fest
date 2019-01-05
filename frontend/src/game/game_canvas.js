@@ -29,7 +29,8 @@ export default class GameCanvas {
           console.log('collided');
           this.socket.emit(
             'collisionDetected',
-            { fridgeId: fridge.id, assetId: allAssets[i].id, assetType: allAssets[i].type },
+            // { fridgeId: fridge.id, assetId: allAssets[i].id, assetType: allAssets[i].type },
+            { fridgeId: fridge.id, assetId: allAssets[i].id },
           );
         }
       }
