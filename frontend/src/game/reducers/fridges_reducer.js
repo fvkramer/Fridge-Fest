@@ -11,6 +11,17 @@ const fridgesReducer = (state = {}, action) => {
 
       return newState;
     }
+    case 'RECEIVE_SKILL': {
+      const { fridgeId, skill } = action;
+
+      return {
+        ...state,
+        [fridgeId]: {
+          ...state[fridgeId],
+          skill,
+        },
+      };
+    }
     case 'INCREASE_COUNT': {
       const { fridgeId, foodType } = action;
 
