@@ -8,7 +8,7 @@ const createSnicker = ({ id, x, y }) => ({
     id,
     type: 'snicker',
     physics: new Physics(x, y),
-    sprite: new Sprite(snickerSprite, 128, 384, 1, 3),
+    sprite: new Sprite(snickerSprite, 128, 384, 1, 1),
     speed: 0,
     speedOffset: 3,
   },
