@@ -14,17 +14,6 @@ export const randomFromRange = (min, max) => (
   Math.floor(Math.random() * (max - min + 1) + min)
 );
 
-const storeInSession = (store) => {
-  const { fridges } = store.getState().game;
-  const payload = {};
-
-  Object.values(fridges).forEach((fridge) => {
-    payload[fridge.id] = fridge.instantRamen + fridge.donut + fridge.pizza + fridge.milkshake + fridge.snicker;
-  });
-
-  return payload;
-};
-
 export const isRoundOver = (store, socketId) => {
   const state = store.getState();
   const fridge = state.game.fridges[socketId];
@@ -36,7 +25,6 @@ export const isRoundOver = (store, socketId) => {
   const snickerCount = fridge.snicker;
 
   if (iRCount >= 1 && donutCount >= 5 && pizzaCount >= 5 && milkshakeCount >= 3 && snickerCount >= 3) {
-    store.dispatch({ type: 'ROUND_OVER', data: storeInSession(store) });
     return true;
   }
 

@@ -115,6 +115,18 @@ const setupSockets = io => (
     socket.on('collisionDetected', (data) => {
       io.sockets.emit('resolveCollision', data);
     });
+
+    let roundOver = false;
+    socket.on('roundOver', () => {
+      if (roundOver === false) {
+        roundOver = true;
+        io.sockets.emit('roundOver');
+        setTimeout(() => {
+          io.sockets.emit('startGame');
+          roundOver = false;
+        }, 10000);
+      }
+    });
   })
 );
 

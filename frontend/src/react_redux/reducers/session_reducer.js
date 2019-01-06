@@ -14,6 +14,8 @@ const sessionReducer = (state = initialState, action) => {
       };
     case RECEIVE_USER_LOGOUT:
       return initialState;
+    case 'ROUND_OVER':
+      return Object.assign({}, initialState, { players: action.payload });
     default:
       return state;
   }
