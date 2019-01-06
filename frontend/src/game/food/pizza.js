@@ -1,14 +1,14 @@
 import { Physics, Sprite } from '../class_util';
 
 const pizzaSprite = new Image();
-pizzaSprite.src = '';
+pizzaSprite.src = '/game/Pizza.png';
 
 const createPizza = ({ id, x, y }) => ({
   [id]: {
     id,
     type: 'pizza',
     physics: new Physics(x, y),
-    sprite: new Sprite(pizzaSprite, 128, 384, 1, 3),
+    sprite: new Sprite(pizzaSprite, 64, 64, 1, 1),
     speed: 0,
     speedOffset: 1,
   },
