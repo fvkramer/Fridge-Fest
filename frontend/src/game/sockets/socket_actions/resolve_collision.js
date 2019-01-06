@@ -27,6 +27,17 @@ const handleCollision = (store, fridge, asset) => {
     const skill = {
       type: asset.type,
       speedOffset: asset.speedOffset,
+      src: '/game/Slow.png',
+    };
+    store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
+  }
+
+  if (asset.type === 'fast') {
+    store.dispatch({ type: 'REMOVE_SKILL', skillId: asset.id });
+    const skill = {
+      type: asset.type,
+      speedOffset: asset.speedOffset,
+      src: '/game/Fast.png',
     };
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }

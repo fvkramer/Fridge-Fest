@@ -39,6 +39,7 @@ const createFridge = id => ({
     snicker: 0,
     donut: 0,
     pizza: 0,
+    points: 0,
   },
 });
 

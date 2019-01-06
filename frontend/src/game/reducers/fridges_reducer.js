@@ -45,7 +45,6 @@ const fridgesReducer = (state = {}, action) => {
     }
     case 'UPDATE_SPEED': {
       const { fridgeId, speedOffset } = action;
-
       return {
         ...state,
         [fridgeId]: {
