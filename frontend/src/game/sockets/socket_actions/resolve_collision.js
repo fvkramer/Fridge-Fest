@@ -39,6 +39,7 @@ const handleCollision = (store, fridge, asset) => {
       type: 'teleport',
       positionX: asset.positionX,
       positionY: asset.positionY,
+      src: '/game/Teleport.png',
     };
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
