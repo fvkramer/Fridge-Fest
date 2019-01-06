@@ -4,22 +4,8 @@ const activateSkill = (store, fridge, fridgeIds) => {
 
   store.dispatch({ type: 'USE_SKILL', fridgeId: fridge.id });
 
-  if (skill.type === 'fast') {
-    store.dispatch({
-      type: 'UPDATE_SPEED',
-      speedOffset: skill.speedOffset,
-      fridgeId: fridge.id,
-    });
 
-    window.setTimeout(
-      () => store.dispatch({
-        type: 'UPDATE_SPEED',
-        speedOffset: skill.speedOffset,
-        fridgeId: fridge.id,
-      }),
-      5000,
-    );
-  } else {
+  if (skill.type === 'slow' || skill.type === 'lightning') {
     for (let i = 0; i < otherFridgeIds.length; i += 1) {
       if (skill.type === 'slow') {
         store.dispatch({
@@ -37,8 +23,36 @@ const activateSkill = (store, fridge, fridgeIds) => {
           5000,
         );
       }
+
+      }
+    }
+  } else {
+    switch (skill.type) {
+      case 'teleport':
+        fridge.physics.x = skill.positionX;
+        fridge.physics.y = skill.positionY;
+        fridge.sprite.isTeleport = true;
+        break;
+      case 'fast':
+         store.dispatch({
+            type: 'UPDATE_SPEED',
+            speedOffset: skill.speedOffset,
+            fridgeId: fridge.id,
+          });
+        
+        window.setTimeout(
+          () => store.dispatch({
+          type: 'UPDATE_SPEED',
+          speedOffset: skill.speedOffset,
+          fridgeId: fridge.id,
+          }), 5000);
+        break;
+      default:
     }
   }
 };
 
+   
+
+  
 export default activateSkill;

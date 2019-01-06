@@ -2,19 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-// const msp = state => ({
-//   skill: state.game.skills,
-// });
+const msp = state => ({
+  currentFridge: state.game.fridges[window.socketId],
+});
 
-export default class Abilities extends Component {
-  componentDidMount() {}
+class Abilities extends Component {
+  componentDidMount() {
+  }
 
   render() {
-    return (
-      <div className="abilities-container" />
-    );
+    const { currentFridge } = this.props;
+
+    if (currentFridge) {
+      if (Object.keys(currentFridge.skill).length >= 1) {
+        return (
+          <div className="abilities-container">
+            <img src={currentFridge.skill.src} alt="" />
+          </div>
+        );
+      }
+      return <div className="abilities-container" />;
+    }
+
+    return <div className="abilities-container" />;
   }
 }
 
 
-// export default connect(msp)(Abilities);
+export default connect(msp)(Abilities);

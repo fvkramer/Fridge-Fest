@@ -5,9 +5,10 @@ import createPizza from '../../food/pizza';
 import createDonut from '../../food/donut';
 import createSlow from '../../abilities/slow';
 import createFast from '../../abilities/fast';
+import createTeleport from '../../abilities/teleport';
 
 const handleStartGame = (socket, store, {
-  fridgeIds, instantRamen, slow, fast, pizza, donut,
+  fridgeIds, instantRamen, slow, fast, pizza, donut, teleport
 }) => {
   for (let i = 0; i < instantRamen.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_FOOD', food: createInstantRamen(instantRamen[i]) });
@@ -27,6 +28,11 @@ const handleStartGame = (socket, store, {
   for (let i = 0; i < fast.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createFast(fast[i]) });
   }
+
+  for (let i = 0; i < teleport.length; i += 1) {
+    store.dispatch({ type: 'RECEIVE_SKILL', skill: createTeleport(teleport[i]) });
+  }
+
 
   window.setTimeout(() => {
     const canvas = document.getElementById('canvas');

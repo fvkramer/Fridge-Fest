@@ -47,6 +47,15 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 
+const teleport = [];
+for (let i = 0; i < 10; i += 1) {
+  teleport.push({
+    id: `skills-teleport-${i}`,
+    x: randomFromRange(0, 1000),
+    y: randomFromRange(0, 1000),
+  });
+}
+
 
 const setupSockets = io => (
   io.on('connection', (socket) => {
@@ -67,12 +76,11 @@ const setupSockets = io => (
       donut,
       slow,
       fast,
+      teleport,
     }));
 
     socket.on('keydown', ({ key }) => {
-      // debugger;
       if (key === '1') {
-        // debugger;
         io.sockets.emit('activateSkill', { fridgeId: socket.id, fridgeIds });
       } else {
         io.sockets.emit('keydown', { key, fridgeId: socket.id });
