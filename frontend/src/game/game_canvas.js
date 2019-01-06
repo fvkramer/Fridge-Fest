@@ -36,7 +36,7 @@ export default class GameCanvas {
       }
     }
 
-    if (isRoundOver(this.store)) {
+    if (isRoundOver(this.store, this.socket.id)) {
       this.socket.emit('roundOver');
     }
   }
