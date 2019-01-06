@@ -43,20 +43,22 @@ export default class GameCanvas {
     const { physics, sprite, type } = asset;
 
     if (type === 'fridge' && asset.id === this.playerId) {
-      if (sprite.isMove) {
+      if (sprite.isMove || sprite.isTeleport) {
+        sprite.isTeleport = false;
+
         this.totalOffsetX += physics.dX();
         this.totalOffsetY += physics.dY();
-        window.x = physics.x;
-        window.y = physics.y;
+        // window.x = physics.x;
+        // window.y = physics.y;
         this.ctx.translate(physics.dX(), physics.dY());
       }
+      // if (sprite.isTeleport) {
 
-      if (sprite.isTeleport) {
-        this.totalOffsetX += physics.x - window.x;
-        this.totalOffsetY += physics.y - window.y;
-        this.ctx.translate(physics.x - window.x, physics.y - window.y);
-        sprite.isTeleport = false;
-      }
+      // this.totalOffsetX += physics.x - window.x;
+      // this.totalOffsetY += physics.y - window.y;
+
+      // this.ctx.translate(physics.x - window.x, physics.y - window.y);
+      // }
 
       this.ctx.drawImage(
         sprite.image, sprite.srcX(), sprite.srcY(), sprite.width, sprite.height,

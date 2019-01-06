@@ -4,7 +4,6 @@ const activateSkill = (store, fridge, fridgeIds) => {
 
   store.dispatch({ type: 'USE_SKILL', fridgeId: fridge.id });
 
-
   if (skill.type === 'slow' || skill.type === 'lightning') {
     for (let i = 0; i < otherFridgeIds.length; i += 1) {
       if (skill.type === 'slow') {
@@ -26,11 +25,17 @@ const activateSkill = (store, fridge, fridgeIds) => {
     }
   } else {
     switch (skill.type) {
-      case 'teleport':
-        fridge.physics.x = skill.positionX;
-        fridge.physics.y = skill.positionY;
-        fridge.sprite.isTeleport = true;
+      case 'teleport': {
+        const { physics, sprite } = fridge;
+
+        window.positionX = skill.positionX;
+        window.positionY = skill.positionY;
+
+        sprite.isTeleport = true;
+        physics.isTeleport = true;
+
         break;
+      }
       case 'fast':
         store.dispatch({
           type: 'UPDATE_SPEED',
