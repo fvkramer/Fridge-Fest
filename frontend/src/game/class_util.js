@@ -9,19 +9,27 @@ export class Physics {
     this.dRight = 0;
     this.dUp = 0;
     this.dDown = 0;
+    this.isTeleport = false;
   }
 
   dX() {
+    if (this.isTeleport) {
+      return window.positionX - this.x;
+    }
     return -this.dLeft + this.dRight;
   }
 
   dY() {
+    if (this.isTeleport) {
+      return window.positionY - this.y;
+    }
     return -this.dUp + this.dDown;
   }
 
   updatePos() {
     this.x += this.dX();
     this.y += this.dY();
+    if (this.isTeleport) this.isTeleport = false;
   }
 }
 

@@ -53,6 +53,8 @@ for (let i = 0; i < 10; i += 1) {
     id: `skills-teleport-${i}`,
     x: randomFromRange(0, 1000),
     y: randomFromRange(0, 1000),
+    toX: randomFromRange(0, 1000),
+    toY: randomFromRange(0, 1000),
   });
 }
 
