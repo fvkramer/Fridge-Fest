@@ -1,7 +1,7 @@
 import { Physics, Sprite } from '../class_util';
 
 const snickerSprite = new Image();
-snickerSprite.src = '';
+snickerSprite.src = '/game/Candy_Bar.png';
 
 const createSnicker = ({ id, x, y }) => ({
   [id]: {

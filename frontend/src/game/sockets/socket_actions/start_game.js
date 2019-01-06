@@ -3,6 +3,8 @@ import GameCanvas from '../../game_canvas';
 import createInstantRamen from '../../food/instantRamen';
 import createPizza from '../../food/pizza';
 import createDonut from '../../food/donut';
+import createMilkshake from '../../food/milkShake';
+import createSnicker from '../../food/snickers';
 import createSlow from '../../abilities/slow';
 import createFast from '../../abilities/fast';
 import createTeleport from '../../abilities/teleport';

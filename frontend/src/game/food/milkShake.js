@@ -1,7 +1,9 @@
 import { Physics, Sprite } from '../class_util';
 
 const milkshakeSprite = new Image();
-milkshakeSprite.src = '';
+// milkshakeSprite.src = '/game/Pizza.png';
+milkshakeSprite.src = '/game/Milkshake.png';
+// milkshakeSprite.src = 'https://pngtree.com/freepng/milkshake_839066/preview-png.html';
 
 const createMilkshake = ({ id, x, y }) => ({
   [id]: {
