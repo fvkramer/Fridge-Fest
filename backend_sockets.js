@@ -5,18 +5,43 @@ const randomFromRange = (min, max) => (
 let fridgeIds = [];
 
 const instantRamen = [];
-for (let i = 0; i < 10; i += 1) {
+for (let i = 0; i < 5; i += 1) {
   instantRamen.push({
     id: `food-ramen-${i}`,
     x: randomFromRange(0, 1000),
     y: randomFromRange(0, 1000),
   });
 }
+const pizza = [];
+for (let i = 0; i < 20; i += 1) {
+  pizza.push({
+    id: `food-pizza-${i}`,
+    x: randomFromRange(0, 500),
+    y: randomFromRange(0, 500),
+  });
+}
+const donut = [];
+for (let i = 0; i < 15; i += 1) {
+  donut.push({
+    id: `food-donut-${i}`,
+    x: randomFromRange(0, 1000),
+    y: randomFromRange(0, 1000),
+  });
+}
 
 const slow = [];
-for (let i = 0; i < 1; i += 1) {
+for (let i = 0; i < 10; i += 1) {
   slow.push({
     id: `skills-slow-${i}`,
+    x: randomFromRange(0, 1000),
+    y: randomFromRange(0, 1000),
+  });
+}
+
+const fast = [];
+for (let i = 0; i < 10; i += 1) {
+  fast.push({
+    id: `skills-fast-${i}`,
     x: randomFromRange(0, 1000),
     y: randomFromRange(0, 1000),
   });
@@ -35,7 +60,14 @@ const setupSockets = io => (
       io.sockets.emit('removeFridge', socket.id);
     });
 
-    socket.on('startGame', () => io.sockets.emit('startGame', { fridgeIds, instantRamen, slow }));
+    socket.on('startGame', () => io.sockets.emit('startGame', {
+      fridgeIds,
+      instantRamen,
+      pizza,
+      donut,
+      slow,
+      fast,
+    }));
 
     socket.on('keydown', ({ key }) => {
       // debugger;
@@ -49,10 +81,6 @@ const setupSockets = io => (
     socket.on('keyup', ({ key }) => {
       io.sockets.emit('keyup', { key, fridgeId: socket.id });
     });
-
-    // socket.on('massSlow', (data) => {
-    //   socket.broadcast.emit('massSlow', data);
-    // });
 
     socket.on('collisionDetected', (data) => {
       io.sockets.emit('resolveCollision', data);

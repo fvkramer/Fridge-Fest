@@ -17,17 +17,15 @@ const isEatTooMuch = (fridge) => {
 };
 
 const handleCollision = (store, fridge, asset) => {
-  // debugger;
   if (FOOD.includes(asset.type)) {
-    // debugger;
     store.dispatch({ type: 'REMOVE_FOOD', foodId: asset.id });
     store.dispatch({ type: 'INCREASE_COUNT', fridgeId: fridge.id, foodType: asset.type });
   }
 
-  if (asset.type === 'slow') {
+  if (asset.type === 'slow' || asset.type === 'fast') {
     store.dispatch({ type: 'REMOVE_SKILL', skillId: asset.id });
     const skill = {
-      type: 'slow',
+      type: asset.type,
       speedOffset: asset.speedOffset,
     };
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
