@@ -1,3 +1,6 @@
+export const CANVAS_HEIGHT = 800;
+export const CANVAS_WIDTH = 800;
+
 export class Physics {
   constructor(x, y) {
     this.x = x;
@@ -31,6 +34,7 @@ export class Sprite {
     this.currentFrame = 0;
     this.isMoveLeft = false;
     this.isMove = false;
+    this.isTeleport = false;
   }
 
   srcX() {

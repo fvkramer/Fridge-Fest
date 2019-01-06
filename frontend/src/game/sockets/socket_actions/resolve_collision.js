@@ -33,6 +33,16 @@ const handleCollision = (store, fridge, asset) => {
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
 
+  if (asset.type === 'teleport') {
+    store.dispatch({ type: 'REMOVE_SKILL', skillId: asset.id });
+    const skill = {
+      type: 'teleport',
+      positionX: asset.positionX,
+      positionY: asset.positionY,
+    };
+    store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
+  }
+
   if (isEatTooMuch(fridge)) {
     store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: asset.speedOffset });
 
