@@ -8,7 +8,7 @@ import createFast from '../../abilities/fast';
 import createTeleport from '../../abilities/teleport';
 
 const handleStartGame = (socket, store, {
-  fridgeIds, instantRamen, slow, fast, pizza, donut, teleport,
+  fridgeIds, instantRamen, milkshake, snicker, slow, fast, pizza, donut, teleport,
 }) => {
   for (let i = 0; i < instantRamen.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_FOOD', food: createInstantRamen(instantRamen[i]) });
@@ -18,6 +18,12 @@ const handleStartGame = (socket, store, {
   }
   for (let i = 0; i < donut.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_FOOD', food: createDonut(donut[i]) });
+  }
+  for (let i = 0; i < milkshake.length; i += 1) {
+    store.dispatch({ type: 'RECEIVE_FOOD', food: createMilkshake(milkshake[i]) });
+  }
+  for (let i = 0; i < snicker.length; i += 1) {
+    store.dispatch({ type: 'RECEIVE_FOOD', food: createSnicker(snicker[i]) });
   }
   for (let i = 0; i < fridgeIds.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_FRIDGE', fridge: createFridge(fridgeIds[i]) });
