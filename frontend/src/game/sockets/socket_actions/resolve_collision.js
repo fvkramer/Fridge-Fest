@@ -62,6 +62,7 @@ const handleCollision = (store, fridge, asset) => {
     );
   }
 
+
   // Add timer to react component //
 };
 

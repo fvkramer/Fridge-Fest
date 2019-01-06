@@ -1,3 +1,4 @@
+
 const setupEmitters = (socket) => {
   document.addEventListener('keydown', ({ key, repeat }) => {
     if (repeat) return;

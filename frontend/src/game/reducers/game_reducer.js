@@ -10,7 +10,7 @@ const gameReducer = combineReducers({
   food: foodReducer,
   skills: skillsReducer,
   crates: cratesReducer,
-  roundsCompleted: 0,
+  // roundsCompleted: roundReducer,
 });
 
 export default gameReducer;

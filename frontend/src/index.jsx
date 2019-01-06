@@ -7,6 +7,7 @@ import configureStore from './store/store';
 import { setAuthToken } from './react_redux/util/session_api_util';
 import { logout } from './react_redux/actions/session_actions';
 import { setupGameSockets } from './game/sockets/sockets';
+// import { isRoundOver } from './game/util/util';
 
 import './index.css';
 

@@ -1,4 +1,4 @@
-import { isCollided } from './util/util';
+import { isCollided, isRoundOver } from './util/util';
 
 export default class GameCanvas {
   constructor(socket, store, canvas, ctx) {
@@ -34,6 +34,10 @@ export default class GameCanvas {
           );
         }
       }
+    }
+
+    if (isRoundOver(this.store)) {
+      this.socket.emit('roundOver');
     }
   }
 

@@ -1,3 +1,4 @@
+
 export const isCollided = (asset1, asset2) => {
   if (
     asset1.physics.x < asset2.physics.x + asset2.sprite.width
@@ -12,3 +13,22 @@ export const isCollided = (asset1, asset2) => {
 export const randomFromRange = (min, max) => (
   Math.floor(Math.random() * (max - min + 1) + min)
 );
+
+export const isRoundOver = (store, socketId) => {
+  const state = store.getState();
+  const fridge = state.game.fridges[socketId];
+
+  const iRCount = fridge.instantRamen;
+  const donutCount = fridge.donut;
+  const pizzaCount = fridg.pizza;
+  const milkshakeCount = fridge.milkshake;
+  const snickerCount = fridge.snicker;
+
+  if (iRCount >= 1 && donutCount >= 5 && pizzaCount >= 5 && milkshakeCount >= 3 && snickerCount >= 3) {
+    store.dispatch({ type: 'ROUND_OVER' });
+    return true;
+  }
+}
+
+  return false;
+};
