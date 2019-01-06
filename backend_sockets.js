@@ -29,6 +29,24 @@ for (let i = 0; i < 15; i += 1) {
   });
 }
 
+const milkshake = [];
+for (let i = 0; i < 10; i += 1) {
+  milkshake.push({
+    id: `food-milkshake-${i}`,
+    x: randomFromRange(0, 1000),
+    y: randomFromRange(0, 1000),
+  });
+}
+
+const snicker = [];
+for (let i = 0; i < 10; i += 1) {
+  snicker.push({
+    id: `food-snicker-${i}`,
+    x: randomFromRange(0, 1000),
+    y: randomFromRange(0, 1000),
+  });
+}
+
 const slow = [];
 for (let i = 0; i < 10; i += 1) {
   slow.push({
@@ -76,6 +94,8 @@ const setupSockets = io => (
       instantRamen,
       pizza,
       donut,
+      milkshake,
+      snicker,
       slow,
       fast,
       teleport,

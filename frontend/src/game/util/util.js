@@ -20,7 +20,7 @@ export const isRoundOver = (store, socketId) => {
 
   const iRCount = fridge.instantRamen;
   const donutCount = fridge.donut;
-  const pizzaCount = fridg.pizza;
+  const pizzaCount = fridge.pizza;
   const milkshakeCount = fridge.milkshake;
   const snickerCount = fridge.snicker;
 
@@ -28,7 +28,6 @@ export const isRoundOver = (store, socketId) => {
     store.dispatch({ type: 'ROUND_OVER' });
     return true;
   }
-}
 
   return false;
 };
