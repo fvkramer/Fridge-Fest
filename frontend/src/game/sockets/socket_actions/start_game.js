@@ -28,7 +28,6 @@ const handleStartGame = (socket, store, {
   for (let i = 0; i < fast.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createFast(fast[i]) });
   }
-
   for (let i = 0; i < teleport.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createTeleport(teleport[i]) });
   }

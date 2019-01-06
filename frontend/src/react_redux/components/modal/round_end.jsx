@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  shape, number, string, func,
-} from 'prop-types';
+import { shape, number, string } from 'prop-types';
+
+import startGame from '../../../game/sockets/sockets';
 
 class RoundEnd extends React.Component {
   constructor() {
@@ -15,7 +15,6 @@ class RoundEnd extends React.Component {
 
   componentDidMount() {
     const { timer } = this.state;
-    const { startGame } = this.props;
 
     this.timerInteval = window.setInterval(
       () => this.setState({ timer: timer - 1 }),
@@ -51,7 +50,6 @@ class RoundEnd extends React.Component {
 }
 
 RoundEnd.propTypes = {
-  startGame: func.isRequired,
   playersInfo: shape({
     id: string,
     points: number,
