@@ -52,17 +52,8 @@ export default class GameCanvas {
 
         this.totalOffsetX += physics.dX();
         this.totalOffsetY += physics.dY();
-        // window.x = physics.x;
-        // window.y = physics.y;
         this.ctx.translate(physics.dX(), physics.dY());
       }
-      // if (sprite.isTeleport) {
-
-      // this.totalOffsetX += physics.x - window.x;
-      // this.totalOffsetY += physics.y - window.y;
-
-      // this.ctx.translate(physics.x - window.x, physics.y - window.y);
-      // }
 
       this.ctx.drawImage(
         sprite.image, sprite.srcX(), sprite.srcY(), sprite.width, sprite.height,
