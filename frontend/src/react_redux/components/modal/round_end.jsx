@@ -1,22 +1,57 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { shape, number, string } from 'prop-types';
+import {
+  shape, number, string, func,
+} from 'prop-types';
 
-const RoundEnd = ({ playersInfo }) => (
-  <>
-    <ul>
-      {playersInfo.map(player => (
-        <li key={player.id}>
-          {`${player.id}: ${player.points}`}
-        </li>
-      ))}
-    </ul>
+class RoundEnd extends React.Component {
+  constructor() {
+    super();
 
-    <button type="button">Spinning image waiting for next round here</button>
-  </>
-);
+    this.state = {
+      timer: 5,
+    };
+  }
+
+  componentDidMount() {
+    const { timer } = this.state;
+    const { startGame } = this.props;
+
+    this.timerInteval = window.setInterval(
+      () => this.setState({ timer: timer - 1 }),
+      1000,
+    );
+
+    this.startGameTimeOut = window.setTimeout(() => startGame, 6000);
+  }
+
+  componentWillUnmount() {
+    window.clearInterval(this.timerInteval);
+    window.clearTimeout(this.startGameTimeOut);
+  }
+
+  render() {
+    const { timer } = this.state;
+    const { playersInfo } = this.props;
+
+    return (
+      <>
+        <ul>
+          {playersInfo.map(player => (
+            <li key={player.id}>
+              {`${player.id}: ${player.points}`}
+            </li>
+          ))}
+        </ul>
+
+        <button type="button">{`New Round In: ${timer} seconds`}</button>
+      </>
+    );
+  }
+}
 
 RoundEnd.propTypes = {
+  startGame: func.isRequired,
   playersInfo: shape({
     id: string,
     points: number,
