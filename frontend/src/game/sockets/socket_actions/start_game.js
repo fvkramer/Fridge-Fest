@@ -51,7 +51,6 @@ const handleStartGame = (socket, store, {
   let ctx;
   let game;
 
-
   window.setTimeout(() => {
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
