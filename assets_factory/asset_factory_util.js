@@ -16,20 +16,27 @@ const isCollision = (asset1, asset2) => {
 };
 
 const makeXY = () => {
-  let x = randomFromRange(0, 2000);
-  let y = randomFromRange(0, 2000);
+  let x = randomFromRange(100, 1900);
+  let y = randomFromRange(100, 1900);
 
-  const mockAsset = {
+  let mockAsset = {
     x,
     y,
-    width: 156, // width && height of the largest asset(i.e. fridge)
-    height: 190,
+    width: 300, // make sure assets are at least 300px away from walls
+    height: 300,
   };
 
   for (let i = 0; i < walls.length; i += 1) {
     while (isCollision(mockAsset, walls[i])) {
-      x = randomFromRange(0, 2000);
-      y = randomFromRange(0, 2000);
+      x = randomFromRange(100, 1900);
+      y = randomFromRange(100, 1900);
+
+      mockAsset = {
+        x,
+        y,
+        width: 300,
+        height: 300,
+      };
     }
   }
 
