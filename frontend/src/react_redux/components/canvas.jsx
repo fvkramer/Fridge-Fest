@@ -5,7 +5,9 @@ import FoodPyramid from './gameOverlay/foodPyramid';
 import Modal from './modal/modal';
 
 // css
-import '../../assets/css/overlay.css';
+import '../../assets/css/overlay.scss';
+import '../../assets/css/reset.scss';
+import '../../assets/css/canvas.scss';
 // import { debug } from 'util';
 
 // const msp = state => ({
@@ -29,12 +31,12 @@ export default class Canvas extends Component {
 
   render() {
     return (
-      <div id="canvas-container">
+      <div className="canvas-container outer">
         <canvas
+          className="main-canvas"
           id="canvas"
           height="800px"
           width="800px"
-          style={{ border: '1px solid black' }}
         />
         <Abilities />
         <FoodPyramid />

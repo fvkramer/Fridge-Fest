@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../../../assets/css/overlay.css';
+import '../../../assets/css/overlay.scss';
 
 
 const msp = state => ({
