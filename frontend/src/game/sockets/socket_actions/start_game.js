@@ -40,16 +40,28 @@ const handleStartGame = (socket, store, {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createTeleport(teleport[i]) });
   }
 
+  // const gameRunning = false;
+  let canvas;
+  let ctx;
+  let game;
+
 
   window.setTimeout(() => {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const game = new GameCanvas(socket, store, canvas, ctx);
-    window.socketId = socket.id;
-    if (!window.animationId) {
-      game.draw(10);
-    }
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    game = new GameCanvas(socket, store, canvas, ctx);
+    game.draw(10);
   }, 0);
+
+  // if (!gameRunning) {
+  //   gameRunning = true;
+  //   window.setTimeout(() => {
+  //     canvas = document.getElementById('canvas');
+  //     ctx = canvas.getContext('2d');
+  //     game = new GameCanvas(socket, store, canvas, ctx);
+  //     game.draw(10);
+  //   }, 0);
+  // }
 };
 
 export default handleStartGame;

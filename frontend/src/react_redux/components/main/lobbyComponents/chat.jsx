@@ -15,7 +15,7 @@ class Chat extends Component {
       message: '',
     };
 
-    this.socket = io('localhost:5000');
+    // this.socket = io('localhost:5000');
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -31,10 +31,13 @@ class Chat extends Component {
   }
 
   render() {
+    const { messages } = this.props;
     return (
       <div>
         Chat Component
-        <ul id="messages" />
+        <ul id="messages">
+          <Messages messages={messages} />
+        </ul>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} id="messages" />
           <input type="submit" value="Send" />
@@ -43,5 +46,10 @@ class Chat extends Component {
     );
   }
 }
+
+const Messages = ({ messages }) => {
+  const messageList = messages.map(message => <li>{message[1]}</li>);
+  return messageList;
+};
 
 export default connect(msp)(Chat);
