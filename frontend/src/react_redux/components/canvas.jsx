@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Abilities from './gameOverlay/abilities';
 import FoodPyramid from './gameOverlay/foodPyramid';
+import Modal from './modal/modal';
+
+// css
 import '../../assets/css/overlay.css';
 
 // const HEIGHT = `${window.innerHeight}px`;
@@ -20,6 +23,7 @@ export default class Canvas extends Component {
         />
         <Abilities />
         <FoodPyramid />
+        <Modal />
       </div>
     );
   }

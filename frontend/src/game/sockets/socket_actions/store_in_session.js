@@ -13,6 +13,7 @@ const storeInSession = (store) => {
   });
 
   store.dispatch({ type: 'ROUND_OVER', payload });
+  store.dispatch({ type: 'OPEN_MODAL', modal: 'roundEnd' });
   store.dispatch({ type: 'CLEAR_GAME' });
 };
 
