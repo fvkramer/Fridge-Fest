@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
 import { connect } from 'react-redux';
 
 
@@ -26,7 +26,7 @@ class Chat extends Component {
 
   handleSubmit(event) {
     event.preventDefault('');
-    this.socket.emit('chat message', [this.socket.id, this.state.message]);
+    window.socket.emit('chat message', [window.socket.id, this.state.message]);
     this.setState({ message: '' });
   }
 
