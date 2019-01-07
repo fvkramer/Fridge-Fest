@@ -4,7 +4,11 @@ import LeaderBoard from './lobbyComponents/leaderboard';
 import PlayersLoaded from './lobbyComponents/loaded_players';
 import Chat from './lobbyComponents/chat';
 
-export default class lobby extends Component {
+export default class Lobby extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() { }
 
   render() {
