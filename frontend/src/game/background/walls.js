@@ -1,7 +1,7 @@
 import { Physics, Sprite } from '../class_util';
 
 const wall = new Image();
-wall.src = '';
+wall.src = '/game/transparent2000x2000.png';
 
 const createWall = ({
   id, x, y, height, width,
