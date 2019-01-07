@@ -6,7 +6,7 @@ import Root from './react_redux/components/root';
 import configureStore from './store/store';
 import { setAuthToken } from './react_redux/util/session_api_util';
 import { logout } from './react_redux/actions/session_actions';
-import { setupGameSockets } from './game/sockets/sockets';
+
 // import { isRoundOver } from './game/util/util';
 
 import './index.css';
@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  window.store = store;
+
   // testing
   window.getState = store.getState;
 
@@ -40,7 +42,4 @@ document.addEventListener('DOMContentLoaded', () => {
     <Root store={store} />,
     document.getElementById('root'),
   );
-
-  window.store = store;
-  setupGameSockets(store);
 });

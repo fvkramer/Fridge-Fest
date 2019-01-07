@@ -26,6 +26,7 @@ const setupReceivers = (socket, store) => {
   });
 
   // utils
+  // debugger;
   const getFridgeById = fridgeId => store.getState().game.fridges[fridgeId];
   const getAssetById = (assetId, assetType) => store.getState().game[assetType][assetId];
   // utils end
