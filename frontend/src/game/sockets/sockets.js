@@ -4,6 +4,7 @@ import setupReceivers from './receivers';
 import setupEmitters from './emitters';
 
 const socket = io('localhost:5000');
+window.socket = socket;
 // const socket = io(window.location.hostname);
 
 export const setupGameSockets = (store) => {

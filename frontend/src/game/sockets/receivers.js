@@ -9,6 +9,11 @@ const setupReceivers = (socket, store) => {
     handleStartGame(socket, store, data);
   });
 
+
+  socket.on('chat message', (data) => {
+    store.dispatch({ type: 'RECEIVE_MESSAGE', data });
+  });
+
   socket.on('removeFridge', (fridgeId) => {
     store.dispatch({ type: 'REMOVE_FRIDGE', fridgeId });
   });
