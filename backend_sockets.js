@@ -54,6 +54,10 @@ const setupSockets = io => (
       io.sockets.emit('resolveCollision', data);
     });
 
+    socket.on('chat message', (data) => {
+      io.sockets.emit('chat message', data);
+    });
+
     let roundOver = false;
     socket.on('roundOver', () => {
       if (roundOver === false) {
