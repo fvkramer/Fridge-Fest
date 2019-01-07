@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { shape, number, string } from 'prop-types';
 
-import startGame from '../../../game/sockets/sockets';
-
 class RoundEnd extends React.Component {
   constructor() {
     super();
@@ -20,13 +18,10 @@ class RoundEnd extends React.Component {
       () => this.setState({ timer: timer - 1 }),
       1000,
     );
-
-    this.startGameTimeOut = window.setTimeout(() => startGame, 6000);
   }
 
   componentWillUnmount() {
     window.clearInterval(this.timerInteval);
-    window.clearTimeout(this.startGameTimeOut);
   }
 
   render() {
