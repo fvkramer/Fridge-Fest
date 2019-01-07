@@ -31,14 +31,17 @@ export default class GameCanvas {
             'collisionDetected',
             { fridgeId: fridge.id, assetId: allAssets[i].id },
           );
+          if (isRoundOver(this.store, this.socket.id)) {
+            window.cancelAnimationFrame(window.test);
+            this.ctx.clearRect(
+              0 - this.totalOffsetX, 0 - this.totalOffsetY,
+              this.canvas.width, this.canvas.height,
+            );
+            this.socket.emit('roundOver');
+          }
         }
       }
     }
-    if (isRoundOver(this.store, this.socket.id)) {
-      // cancelAnimationFrame(window.animationId);
-      this.socket.emit('roundOver');
-    }
-  }
 
   drawAsset(asset) {
     if (!asset) return;
@@ -78,9 +81,8 @@ export default class GameCanvas {
     const animate = () => {
       const assets = GameCanvas.getAllAssets(this.store.getState().game);
 
-      const animationId = requestAnimationFrame(animate);
-      window.animationId = animationId;
-
+      const test = requestAnimationFrame(animate);
+      window.test = test;
 
       const now = performance.now();
       const elapsed = now - then;
