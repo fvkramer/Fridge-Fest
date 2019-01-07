@@ -8,7 +8,6 @@ for (let i = 0; i < 10; i += 1) {
     y: randomFromRange(0, 2000),
   });
 }
-
 const fast = [];
 for (let i = 0; i < 10; i += 1) {
   fast.push({
@@ -17,7 +16,6 @@ for (let i = 0; i < 10; i += 1) {
     y: randomFromRange(0, 2000),
   });
 }
-
 const teleport = [];
 for (let i = 0; i < 10; i += 1) {
   teleport.push({

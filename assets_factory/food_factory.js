@@ -24,7 +24,6 @@ for (let i = 0; i < 15; i += 1) {
     y: randomFromRange(0, 2000),
   });
 }
-
 const milkshake = [];
 for (let i = 0; i < 10; i += 1) {
   milkshake.push({
@@ -33,7 +32,6 @@ for (let i = 0; i < 10; i += 1) {
     y: randomFromRange(0, 2000),
   });
 }
-
 const snicker = [];
 for (let i = 0; i < 10; i += 1) {
   snicker.push({
