@@ -47,7 +47,7 @@ const horizontal3 = {
   id: 'background-wall-h3', x: 925, y: 475, height: 50, width: 250,
 };
 const horizontal4 = {
-  id: 'background-wall-h4', x: 1175, y: 475, height: 50, width: 800,
+  id: 'background-wall-h4', x: 1375, y: 475, height: 50, width: 800,
 };
 const horizontal5 = {
   id: 'background-wall-h5', x: 0, y: 1050, height: 50, width: 300,
