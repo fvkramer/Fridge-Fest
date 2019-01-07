@@ -11,6 +11,12 @@ const setupReceivers = (socket, store) => {
 
 
   socket.on('chat message', (data) => {
+    // test
+
+    const messages = document.getElementById('messages');
+    const li = document.createElement('li');
+    messages.append(data, li);
+    // test
     store.dispatch({ type: 'RECEIVE_MESSAGE', data });
   });
 
