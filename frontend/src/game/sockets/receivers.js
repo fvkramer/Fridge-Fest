@@ -10,6 +10,9 @@ const setupReceivers = (socket, store) => {
     handleStartGame(socket, store, data);
   });
 
+  socket.on('receive player', (player) => {
+    store.dispatch({ type: 'PLAYER JOINED', player });
+  });
 
   socket.on('chat message', (data) => {
     // test

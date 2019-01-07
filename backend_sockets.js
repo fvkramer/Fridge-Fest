@@ -15,6 +15,8 @@ const setupSockets = io => (
     fridgeIds.push(socket.id);
     console.log(`${socket.id}has connected`);
 
+    io.sockets.emit('receive player', socket.id);
+
     socket.on('disconnect', () => {
       console.log('User has disconnected');
       fridgeIds = fridgeIds.filter(id => id !== socket.id);
@@ -61,12 +63,11 @@ const setupSockets = io => (
     });
 
 
-
     socket.on('chat message', (data) => {
       io.sockets.emit('chat message', data);
     });
 
-    let roundOver = false;
+    const roundOver = false;
 
     socket.on('roundOver', () => {
       io.sockets.emit('roundOver');

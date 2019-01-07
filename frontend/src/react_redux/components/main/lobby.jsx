@@ -9,7 +9,6 @@ import { setupGameSockets } from '../../../game/sockets/sockets';
 
 export default class Lobby extends Component {
   componentDidMount() {
-    debugger;
     setupGameSockets(window.store);
   }
 
