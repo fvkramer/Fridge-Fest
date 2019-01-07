@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Abilities from './gameOverlay/abilities';
 import FoodPyramid from './gameOverlay/foodPyramid';
 import Modal from './modal/modal';
@@ -48,4 +47,3 @@ const mapStateToProps = ({ game }) => ({
 });
 
 export default connect(mapStateToProps, null)(Canvas);
-
