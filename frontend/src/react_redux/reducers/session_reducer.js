@@ -17,7 +17,7 @@ const sessionReducer = (state = initialState, action) => {
       return initialState;
     case 'ROUND_OVER':
       return Object.assign({}, initialState, { players: action.payload });
-    case 'PLAYER_JOINED':
+    case 'PLAYER JOINED':
       const receivedPlayers = initialState.activePlayers;
       receivedPlayers.push(action.player);
       return Object.assign({}, initialState, { activePlayers: receivedPlayers });

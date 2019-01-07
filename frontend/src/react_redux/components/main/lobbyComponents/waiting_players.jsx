@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// const msp = (state) => {
-//   players: state.
-// };
+const msp = state => ({
+  players: state.session.activePlayers,
+});
 
-export default class WaitingForPlayer extends Component {
+class WaitingForPlayer extends Component {
   componentDidMount() { }
 
   render() {
     return (
-      <div> WaitingForPlayer </div>
+      <div />
     );
   }
 }
+
+export default connect(msp)(WaitingForPlayer);
