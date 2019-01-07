@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Abilities from './gameOverlay/abilities';
 import FoodPyramid from './gameOverlay/foodPyramid';
@@ -6,10 +7,14 @@ import '../../assets/css/overlay.css';
 // const HEIGHT = `${window.innerHeight}px`;
 // const WIDTH = `${window.innerWidth}px`;
 
-export default class Canvas extends Component {
+class Canvas extends Component {
   componentDidMount() {}
 
+
   render() {
+    const { isRoundOver } = this.props;
+    if (isRoundOver) return null;
+
     return (
       <div id="canvas-container">
         <canvas
@@ -24,3 +29,9 @@ export default class Canvas extends Component {
     );
   }
 }
+
+const mapStateToProps = ({ game }) => ({
+  isRoundOver: game.isRoundOver,
+});
+
+export default connect(mapStateToProps, null)(Canvas);

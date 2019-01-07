@@ -56,29 +56,47 @@ const setupSockets = io => (
       io.sockets.emit('resolveCollision', data);
     });
 
-    // let roundOver = false;
-    // socket.on('roundOver', () => {
-    //   if (roundOver === false) {
-    //     roundOver = true;
-    //     io.sockets.emit('roundOver');
-    //     setTimeout(() => {
-    //       io.sockets.emit('startGame', {
-    //         fridgeIds,
-    //         instantRamen,
-    //         pizza,
-    //         donut,
-    //         milkshake,
-    //         snicker,
-    //         slow,
-    //         fast,
-    //         teleport,
-    //         floor,
-    //         walls,
-    //       });
-    //       roundOver = false;
-    //     }, 3000);
-    //   }
-    // });
+    socket.on('roundOver', () => {
+      io.sockets.emit('roundOver');
+
+      const {
+        instantRamen, pizza, donut, milkshake, snicker,
+      } = makeFood();
+      const { fast, slow, teleport } = makeSkills();
+      const floor = makeBackground();
+      const walls = makeWalls();
+
+      // window.setTimeout(() => {
+      //   io.sockets.emit('startGame', {
+      //   fridgeIds,
+      //   instantRamen,
+      //   pizza,
+      //   donut,
+      //   milkshake,
+      //   snicker,
+      //   slow,
+      //   fast,
+      //   teleport,
+      //   floor,
+      //   walls,
+      // });
+
+      setTimeout(() => {
+        io.sockets.emit('startGame', {
+          fridgeIds,
+          instantRamen,
+          pizza,
+          donut,
+          milkshake,
+          snicker,
+          slow,
+          fast,
+          teleport,
+          floor,
+          walls,
+        });
+      }, 10000);
+    });
   })
 );
 

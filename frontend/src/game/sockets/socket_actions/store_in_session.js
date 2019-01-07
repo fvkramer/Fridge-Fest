@@ -14,6 +14,7 @@ const storeInSession = (store) => {
 
   store.dispatch({ type: 'ROUND_OVER', payload });
   store.dispatch({ type: 'CLEAR_GAME' });
+  window.setTimeout(() => store.dispatch({ type: 'NEW_ROUND' }), 5000);
 };
 
 export default storeInSession;

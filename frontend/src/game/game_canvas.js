@@ -27,18 +27,20 @@ export default class GameCanvas {
     for (let i = 0; i < allAssets.length; i += 1) {
       if (allAssets[i].type !== 'fridge') {
         if (isCollided(fridge, allAssets[i])) {
-          // console.log('collided');
           this.socket.emit(
             'collisionDetected',
-            // { fridgeId: fridge.id, assetId: allAssets[i].id, assetType: allAssets[i].type },
             { fridgeId: fridge.id, assetId: allAssets[i].id },
           );
+          if (isRoundOver(this.store, this.socket.id)) {
+            window.cancelAnimationFrame(window.test);
+            this.ctx.clearRect(
+              0 - this.totalOffsetX, 0 - this.totalOffsetY,
+              this.canvas.width, this.canvas.height,
+            );
+            this.socket.emit('roundOver');
+          }
         }
       }
-    }
-    if (isRoundOver(this.store, this.socket.id)) {
-      cancelAnimationFrame(window.animationId);
-      this.socket.emit('roundOver');
     }
   }
 
@@ -80,9 +82,8 @@ export default class GameCanvas {
     const animate = () => {
       const assets = GameCanvas.getAllAssets(this.store.getState().game);
 
-      const animationId = requestAnimationFrame(animate);
-      window.animationId = animationId;
-
+      const test = requestAnimationFrame(animate);
+      window.test = test;
 
       const now = performance.now();
       const elapsed = now - then;

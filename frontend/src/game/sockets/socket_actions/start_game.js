@@ -11,6 +11,10 @@ import createTeleport from '../../abilities/teleport';
 import createFloor from '../../background/floor';
 import createWall from '../../background/walls';
 
+// let canvas;
+// let ctx;
+// let game;
+
 const handleStartGame = (socket, store, {
   fridgeIds, instantRamen, milkshake, snicker, slow, fast, pizza, donut, teleport, floor, walls,
 }) => {
@@ -48,10 +52,12 @@ const handleStartGame = (socket, store, {
 
 
   window.setTimeout(() => {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const game = new GameCanvas(socket, store, canvas, ctx);
-    game.draw(10);
+    if (window.ctx) window.ctx = undefined;
+    if (window.game) window.game = undefined;
+    window.canvas = document.getElementById('canvas');
+    window.ctx = window.canvas.getContext('2d');
+    window.game = new GameCanvas(socket, store, window.canvas, window.ctx);
+    window.game.draw(10);
   }, 0);
 };
 
