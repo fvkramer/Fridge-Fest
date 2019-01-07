@@ -122,9 +122,19 @@ const setupSockets = io => (
         roundOver = true;
         io.sockets.emit('roundOver');
         setTimeout(() => {
-          io.sockets.emit('startGame');
+          io.sockets.emit('startGame', {
+            fridgeIds,
+            instantRamen,
+            pizza,
+            donut,
+            milkshake,
+            snicker,
+            slow,
+            fast,
+            teleport,
+          });
           roundOver = false;
-        }, 10000);
+        }, 3000);
       }
     });
   })

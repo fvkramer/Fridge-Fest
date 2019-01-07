@@ -53,6 +53,9 @@ const fridgesReducer = (state = {}, action) => {
         },
       };
     }
+
+    case 'CLEAR_GAME':
+      return {};
     default:
       return state;
   }

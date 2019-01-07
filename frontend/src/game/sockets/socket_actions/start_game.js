@@ -47,8 +47,10 @@ const handleStartGame = (socket, store, {
     const ctx = canvas.getContext('2d');
     const game = new GameCanvas(socket, store, canvas, ctx);
     window.socketId = socket.id;
-    game.draw(10);
-  }, 1000);
+    if (!window.animationId) {
+      game.draw(10);
+    }
+  }, 0);
 };
 
 export default handleStartGame;

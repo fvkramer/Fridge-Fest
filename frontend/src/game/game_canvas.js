@@ -78,7 +78,9 @@ export default class GameCanvas {
     const animate = () => {
       const assets = GameCanvas.getAllAssets(this.store.getState().game);
 
-      requestAnimationFrame(animate);
+      const animationId = requestAnimationFrame(animate);
+      window.animationId = animationId;
+
 
       const now = performance.now();
       const elapsed = now - then;

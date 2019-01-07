@@ -11,6 +11,8 @@ const skillsReducer = (state = {}, action) => {
 
       return newState;
     }
+    case 'CLEAR_GAME':
+      return {};
     default:
       return state;
   }
