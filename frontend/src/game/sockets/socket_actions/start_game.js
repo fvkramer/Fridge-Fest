@@ -50,6 +50,10 @@ const handleStartGame = (socket, store, {
     store.dispatch({ type: 'RECEIVE_BACKGROUND', background: createWall(walls[i]) });
   }
 
+  // const gameRunning = false;
+  let canvas;
+  let ctx;
+  let game;
 
   window.setTimeout(() => {
     if (window.ctx) window.ctx = undefined;
@@ -59,6 +63,17 @@ const handleStartGame = (socket, store, {
     window.game = new GameCanvas(socket, store, window.canvas, window.ctx);
     window.game.draw(10);
   }, 0);
+
+
+  // if (!gameRunning) {
+  //   gameRunning = true;
+  //   window.setTimeout(() => {
+  //     canvas = document.getElementById('canvas');
+  //     ctx = canvas.getContext('2d');
+  //     game = new GameCanvas(socket, store, canvas, ctx);
+  //     game.draw(10);
+  //   }, 0);
+  // }
 };
 
 export default handleStartGame;

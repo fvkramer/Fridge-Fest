@@ -30,6 +30,7 @@ class RoundEnd extends React.Component {
 
     return (
       <>
+        hello
         <ul>
           {playersInfo.map(player => (
             <li key={player.id}>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 
 const msp = state => ({
-  currentFridge: state.game.fridges[window.socketId],
+  currentFridge: state.game.fridges[window.socket.id],
 });
 
 class Abilities extends Component {

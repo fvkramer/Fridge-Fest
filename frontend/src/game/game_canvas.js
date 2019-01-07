@@ -42,7 +42,6 @@ export default class GameCanvas {
         }
       }
     }
-  }
 
   drawAsset(asset) {
     if (!asset) return;

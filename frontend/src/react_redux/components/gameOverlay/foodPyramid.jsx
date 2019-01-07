@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../../../assets/css/overlay.css';
+import '../../../assets/css/overlay.scss';
 
 
 const msp = state => ({
-  currentFridge: state.game.fridges[window.socketId],
+  currentFridge: state.game.fridges[window.socket.id],
 });
 
 function FridgeUndefinedContainer() {

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { string } from 'prop-types';
+import RoundEnd from './round_end';
+import GameEnd from './game_end';
 
 const Modal = ({ modal }) => {
   let component;
