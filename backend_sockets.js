@@ -1,17 +1,16 @@
 const walls = require('./assets_factory/wall_factory');
 const { slow, fast, teleport } = require('./assets_factory/skill_factory');
 const {
-  instantRamen,
-  pizza,
-  donut,
-  milkshake,
-  snicker,
+  makeFood,
 } = require('./assets_factory/food_factory');
 
 const floor = { id: 'background-floor' };
 
 // ======================================================================= //
 let fridgeIds = [];
+const {
+  instantRamen, pizza, donut, milkshake, snicker,
+} = makeFood();
 
 const setupSockets = io => (
   io.on('connection', (socket) => {

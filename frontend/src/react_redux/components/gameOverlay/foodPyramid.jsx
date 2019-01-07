@@ -4,7 +4,7 @@ import '../../../assets/css/overlay.css';
 
 
 const msp = state => ({
-  currentFridge: state.game.fridges[window.socketId],
+  currentFridge: state.game.fridges[window.socket.id],
 });
 
 function FridgeUndefinedContainer() {

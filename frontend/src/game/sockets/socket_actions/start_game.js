@@ -58,6 +58,7 @@ const handleStartGame = (socket, store, {
     game.draw(10);
   }, 0);
 
+
   // if (!gameRunning) {
   //   gameRunning = true;
   //   window.setTimeout(() => {
