@@ -1,4 +1,5 @@
-import walls from './assets_factory/wall_factory';
+// import walls from './assets_factory/wall_factory';
+const walls = require('./assets_factory/wall_factory');
 
 const randomFromRange = (min, max) => (
   Math.floor(Math.random() * (max - min + 1) + min)

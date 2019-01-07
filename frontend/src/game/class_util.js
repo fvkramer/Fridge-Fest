@@ -10,14 +10,12 @@ export class Physics {
     this.dUp = 0;
     this.dDown = 0;
     this.isTeleport = false;
-    this.ishitWall = false;
   }
 
   dX() {
     if (this.isTeleport) {
       return window.positionX - this.x;
     }
-    if (this.ishitWall) return 0;
     return -this.dLeft + this.dRight;
   }
 
@@ -25,7 +23,6 @@ export class Physics {
     if (this.isTeleport) {
       return window.positionY - this.y;
     }
-    if (this.ishitWall) return 0;
     return -this.dUp + this.dDown;
   }
 

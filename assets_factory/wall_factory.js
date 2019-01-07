@@ -1,14 +1,14 @@
 const topWall = {
-  id: 'top-wall', x: 0, y: 0, height: 50, width: 2000,
+  id: 'background-wall-top', x: 0, y: 0, height: 50, width: 2000,
 };
 const bottomWall = {
-  id: 'bottom-wall', x: 0, y: 2000, height: 50, width: 2000,
+  id: 'background-wall-bottom', x: 0, y: 2000, height: 50, width: 2000,
 };
 const leftWall = {
-  id: 'left-wall', x: 0, y: 0, height: 2000, width: 50,
+  id: 'background-wall-left', x: 0, y: 0, height: 2000, width: 50,
 };
 const rightWall = {
-  id: 'right-wall', x: 2000, y: 0, height: 2000, width: 50,
+  id: 'background-wall-right', x: 2000, y: 0, height: 2000, width: 50,
 };
 const vertical1 = {
   id: 'wall-v1', x: 475, y: 0, height: 500, width: 50,
@@ -90,4 +90,4 @@ const walls = [
   horizontal9,
 ];
 
-export default walls;
+module.exports = walls;

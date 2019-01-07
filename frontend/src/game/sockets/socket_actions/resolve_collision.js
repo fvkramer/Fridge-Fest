@@ -55,7 +55,10 @@ const handleCollision = (store, fridge, asset) => {
 
   if (asset.type === 'wall') {
     const { physics } = fridge;
-    physics.isHitWall = true;
+    physics.dLeft = -physics.dLeft;
+    physics.dRight = -physics.dRight;
+    physics.dUp = -physics.dUp;
+    physics.dDown = -physics.dDown;
   }
 
   if (isEatTooMuch(fridge)) {

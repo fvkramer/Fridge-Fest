@@ -27,7 +27,7 @@ export default class GameCanvas {
     for (let i = 0; i < allAssets.length; i += 1) {
       if (allAssets[i].type !== 'fridge') {
         if (isCollided(fridge, allAssets[i])) {
-          console.log('collided');
+          // console.log('collided');
           this.socket.emit(
             'collisionDetected',
             // { fridgeId: fridge.id, assetId: allAssets[i].id, assetType: allAssets[i].type },
