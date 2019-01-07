@@ -20,10 +20,6 @@ class Chat extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() { 
-    
-  }
-
   handleChange(event) {
     this.setState({message: event.target.value})
   }
