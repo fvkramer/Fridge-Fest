@@ -1,7 +1,8 @@
-const messageReducer = (state = {}, action) => {
+const messageReducer = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_MESSAGE':
-      return Object.assign(state, action.data);
+      state.push(action.data);
+      return state;
     default:
       return state;
   }

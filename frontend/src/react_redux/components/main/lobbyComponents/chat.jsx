@@ -10,9 +10,11 @@ const msp = state => ({
 class Chat extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       message: '',
     };
+
     this.socket = io('localhost:5000');
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +26,7 @@ class Chat extends Component {
 
   handleSubmit(event) {
     event.preventDefault('');
-    this.socket.emit('chat message', this.state.message);
+    this.socket.emit('chat message', [this.socket.id, this.state.message]);
     this.setState({ message: '' });
   }
 
@@ -34,7 +36,7 @@ class Chat extends Component {
         Chat Component
         <ul id="messages" />
         <form onSubmit={this.handleSubmit}>
-          <input id="messages" />
+          <input onChange={this.handleChange} id="messages" />
           <input type="submit" value="Send" />
         </form>
       </div>
