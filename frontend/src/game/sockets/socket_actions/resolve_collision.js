@@ -53,6 +53,14 @@ const handleCollision = (store, fridge, asset) => {
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
 
+  if (asset.type === 'wall') {
+    const { physics } = fridge;
+    physics.dLeft -= 2 * physics.dLeft;
+    physics.dRight -= 2 * physics.dRight;
+    physics.dUp -= 2 * physics.dUp;
+    physics.dDown -= 2 * physics.dDown;
+  }
+
   if (isEatTooMuch(fridge)) {
     store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: asset.speedOffset });
 

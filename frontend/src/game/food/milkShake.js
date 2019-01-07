@@ -10,7 +10,7 @@ const createMilkshake = ({ id, x, y }) => ({
     id,
     type: 'milkshake',
     physics: new Physics(x, y),
-    sprite: new Sprite(milkshakeSprite, 128, 384, 1, 1),
+    sprite: new Sprite(milkshakeSprite, 106, 50, 1, 1),
     speed: 0,
     speedOffset: 4,
   },
