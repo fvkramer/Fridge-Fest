@@ -12,9 +12,10 @@ export default class GameCanvas {
   }
 
   static getAllAssets({
-    fridges, food, skills, crates,
+    fridges, food, skills, crates, background,
   }) {
     return [
+      ...Object.values(background),
       ...Object.values(fridges),
       ...Object.values(food),
       ...Object.values(skills),

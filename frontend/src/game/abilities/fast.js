@@ -8,7 +8,7 @@ const createFast = ({ id, x, y }) => ({
     id,
     type: 'fast',
     physics: new Physics(x, y),
-    sprite: new Sprite(fastSprite, 128, 512, 1, 4),
+    sprite: new Sprite(fastSprite, 68, 320, 1, 4),
     speed: 0,
     speedOffset: -5,
   },

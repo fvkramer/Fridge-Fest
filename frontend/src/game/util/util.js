@@ -1,5 +1,7 @@
 
 export const isCollided = (asset1, asset2) => {
+  if (asset1.type === 'floor' || asset2.type === 'floor') return false;
+
   if (
     asset1.physics.x < asset2.physics.x + asset2.sprite.width
     && asset1.physics.x + asset1.sprite.width > asset2.physics.x
@@ -24,7 +26,7 @@ export const isRoundOver = (store, socketId) => {
   const milkshakeCount = fridge.milkshake;
   const snickerCount = fridge.snicker;
 
-  if (iRCount >= 1 && donutCount >= 1 && pizzaCount >= 1 && milkshakeCount >= 1 && snickerCount >= 1) {
+  if (iRCount >= 5 && donutCount >= 5 && pizzaCount >= 5 && milkshakeCount >= 5 && snickerCount >= 5) {
     return true;
   }
 

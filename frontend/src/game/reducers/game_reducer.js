@@ -5,6 +5,7 @@ import foodReducer from './food_reducer';
 import skillsReducer from './skills_reducer';
 import cratesReducer from './crates_reducer';
 import roundReducer from './round_reducer';
+import backgroundReducer from './background_reducer';
 
 export default combineReducers({
   fridges: fridgesReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   skills: skillsReducer,
   crates: cratesReducer,
   roundsCompleted: roundReducer,
+  background: backgroundReducer,
 });

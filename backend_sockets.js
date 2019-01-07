@@ -8,24 +8,24 @@ const instantRamen = [];
 for (let i = 0; i < 5; i += 1) {
   instantRamen.push({
     id: `food-ramen-${i}`,
-    x: randomFromRange(0, 1000),
-    y: randomFromRange(0, 1000),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
   });
 }
 const pizza = [];
 for (let i = 0; i < 20; i += 1) {
   pizza.push({
     id: `food-pizza-${i}`,
-    x: randomFromRange(0, 500),
-    y: randomFromRange(0, 500),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
   });
 }
 const donut = [];
 for (let i = 0; i < 15; i += 1) {
   donut.push({
     id: `food-donut-${i}`,
-    x: randomFromRange(0, 1000),
-    y: randomFromRange(0, 1000),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
   });
 }
 
@@ -33,8 +33,8 @@ const milkshake = [];
 for (let i = 0; i < 10; i += 1) {
   milkshake.push({
     id: `food-milkshake-${i}`,
-    x: randomFromRange(0, 1000),
-    y: randomFromRange(0, 1000),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
   });
 }
 
@@ -42,8 +42,8 @@ const snicker = [];
 for (let i = 0; i < 10; i += 1) {
   snicker.push({
     id: `food-snicker-${i}`,
-    x: randomFromRange(0, 1000),
-    y: randomFromRange(0, 1000),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
   });
 }
 
@@ -51,8 +51,8 @@ const slow = [];
 for (let i = 0; i < 10; i += 1) {
   slow.push({
     id: `skills-slow-${i}`,
-    x: randomFromRange(0, 1000),
-    y: randomFromRange(0, 1000),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
   });
 }
 
@@ -60,8 +60,8 @@ const fast = [];
 for (let i = 0; i < 10; i += 1) {
   fast.push({
     id: `skills-fast-${i}`,
-    x: randomFromRange(0, 1000),
-    y: randomFromRange(0, 1000),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
   });
 }
 
@@ -69,12 +69,14 @@ const teleport = [];
 for (let i = 0; i < 10; i += 1) {
   teleport.push({
     id: `skills-teleport-${i}`,
-    x: randomFromRange(0, 1000),
-    y: randomFromRange(0, 1000),
-    toX: randomFromRange(0, 1000),
-    toY: randomFromRange(0, 1000),
+    x: randomFromRange(0, 2000),
+    y: randomFromRange(0, 2000),
+    toX: randomFromRange(0, 2000),
+    toY: randomFromRange(0, 2000),
   });
 }
+
+const floor = { id: 1 };
 
 
 const setupSockets = io => (
@@ -99,6 +101,7 @@ const setupSockets = io => (
       slow,
       fast,
       teleport,
+      floor,
     }));
 
     socket.on('keydown', ({ key }) => {
