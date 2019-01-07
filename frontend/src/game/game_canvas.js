@@ -37,6 +37,7 @@ export default class GameCanvas {
       }
     }
     if (isRoundOver(this.store, this.socket.id)) {
+      cancelAnimationFrame(window.animationId);
       this.socket.emit('roundOver');
     }
   }

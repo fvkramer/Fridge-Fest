@@ -26,7 +26,7 @@ export const isRoundOver = (store, socketId) => {
   const milkshakeCount = fridge.milkshake;
   const snickerCount = fridge.snicker;
 
-  if (iRCount >= 5 && donutCount >= 5 && pizzaCount >= 5 && milkshakeCount >= 5 && snickerCount >= 5) {
+  if (iRCount >= 1 && donutCount >= 1 && pizzaCount >= 1 && milkshakeCount >= 1 && snickerCount >= 1) {
     return true;
   }
 

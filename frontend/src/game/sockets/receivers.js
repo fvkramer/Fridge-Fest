@@ -6,6 +6,7 @@ import storeInSession from './socket_actions/store_in_session';
 
 const setupReceivers = (socket, store) => {
   socket.on('startGame', (data) => {
+    // debugger;
     handleStartGame(socket, store, data);
   });
 

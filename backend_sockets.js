@@ -1,14 +1,7 @@
-const walls = require('./assets_factory/wall_factory');
-const { slow, fast, teleport } = require('./assets_factory/skill_factory');
-const {
-  instantRamen,
-  pizza,
-  donut,
-  milkshake,
-  snicker,
-} = require('./assets_factory/food_factory');
-
-const floor = { id: 'background-floor' };
+const makeBackground = require('./assets_factory/background_factory');
+const makeWalls = require('./assets_factory/wall_factory');
+const makeFood = require('./assets_factory/food_factory');
+const makeSkills = require('./assets_factory/skill_factory');
 
 // ======================================================================= //
 let fridgeIds = [];
@@ -25,19 +18,28 @@ const setupSockets = io => (
       io.sockets.emit('removeFridge', socket.id);
     });
 
-    socket.on('startGame', () => io.sockets.emit('startGame', {
-      fridgeIds,
-      instantRamen,
-      pizza,
-      donut,
-      milkshake,
-      snicker,
-      slow,
-      fast,
-      teleport,
-      floor,
-      walls,
-    }));
+    socket.on('startGame', () => {
+      const {
+        instantRamen, pizza, donut, milkshake, snicker,
+      } = makeFood();
+      const { fast, slow, teleport } = makeSkills();
+      const floor = makeBackground();
+      const walls = makeWalls();
+
+      io.sockets.emit('startGame', {
+        fridgeIds,
+        instantRamen,
+        pizza,
+        donut,
+        milkshake,
+        snicker,
+        slow,
+        fast,
+        teleport,
+        floor,
+        walls,
+      });
+    });
 
     socket.on('keydown', ({ key }) => {
       if (key === '1') {
@@ -54,29 +56,29 @@ const setupSockets = io => (
       io.sockets.emit('resolveCollision', data);
     });
 
-    let roundOver = false;
-    socket.on('roundOver', () => {
-      if (roundOver === false) {
-        roundOver = true;
-        io.sockets.emit('roundOver');
-        setTimeout(() => {
-          io.sockets.emit('startGame', {
-            fridgeIds,
-            instantRamen,
-            pizza,
-            donut,
-            milkshake,
-            snicker,
-            slow,
-            fast,
-            teleport,
-            floor,
-            walls,
-          });
-          roundOver = false;
-        }, 3000);
-      }
-    });
+    // let roundOver = false;
+    // socket.on('roundOver', () => {
+    //   if (roundOver === false) {
+    //     roundOver = true;
+    //     io.sockets.emit('roundOver');
+    //     setTimeout(() => {
+    //       io.sockets.emit('startGame', {
+    //         fridgeIds,
+    //         instantRamen,
+    //         pizza,
+    //         donut,
+    //         milkshake,
+    //         snicker,
+    //         slow,
+    //         fast,
+    //         teleport,
+    //         floor,
+    //         walls,
+    //       });
+    //       roundOver = false;
+    //     }, 3000);
+    //   }
+    // });
   })
 );
 
