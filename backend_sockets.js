@@ -1,3 +1,5 @@
+import walls from './assets_factory/wall_factory';
+
 const randomFromRange = (min, max) => (
   Math.floor(Math.random() * (max - min + 1) + min)
 );
@@ -102,6 +104,7 @@ const setupSockets = io => (
       fast,
       teleport,
       floor,
+      walls,
     }));
 
     socket.on('keydown', ({ key }) => {
@@ -135,6 +138,8 @@ const setupSockets = io => (
             slow,
             fast,
             teleport,
+            floor,
+            walls,
           });
           roundOver = false;
         }, 3000);

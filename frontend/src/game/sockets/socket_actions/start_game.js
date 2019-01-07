@@ -8,10 +8,11 @@ import createSnicker from '../../food/snickers';
 import createSlow from '../../abilities/slow';
 import createFast from '../../abilities/fast';
 import createTeleport from '../../abilities/teleport';
-import createFloor from '../../floor';
+import createFloor from '../../background/floor';
+import createWall from '../../background/walls';
 
 const handleStartGame = (socket, store, {
-  fridgeIds, instantRamen, milkshake, snicker, slow, fast, pizza, donut, teleport, floor,
+  fridgeIds, instantRamen, milkshake, snicker, slow, fast, pizza, donut, teleport, floor, walls,
 }) => {
   for (let i = 0; i < instantRamen.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_FOOD', food: createInstantRamen(instantRamen[i]) });
@@ -41,6 +42,9 @@ const handleStartGame = (socket, store, {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createTeleport(teleport[i]) });
   }
   store.dispatch({ type: 'RECEIVE_BACKGROUND', background: createFloor(floor.id) });
+  for (let i = 0; i < walls.length; i += 1) {
+    store.dispatch({ type: 'RECEIVE_BACKGROUND', background: createWall(walls[i]) });
+  }
 
 
   window.setTimeout(() => {
