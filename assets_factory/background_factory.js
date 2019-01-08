@@ -1,3 +1,3 @@
-const makeBackground = () => ({ id: 'backround-floor' });
+const makeBackground = () => ({ id: 'background-floor' });
 
 module.exports = makeBackground;

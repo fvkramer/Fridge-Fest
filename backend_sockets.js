@@ -71,29 +71,8 @@ const setupSockets = io => (
 
     socket.on('roundOver', () => {
       io.sockets.emit('roundOver');
+      socket.emit('startGameIn10s');
 
-      const {
-        instantRamen, pizza, donut, milkshake, snicker,
-      } = makeFood();
-      const { fast, slow, teleport } = makeSkills();
-      const floor = makeBackground();
-      const walls = makeWalls();
-
-      setTimeout(() => {
-        io.sockets.emit('startGame', {
-          fridgeIds,
-          instantRamen,
-          pizza,
-          donut,
-          milkshake,
-          snicker,
-          slow,
-          fast,
-          teleport,
-          floor,
-          walls,
-        });
-      }, 10000);
     });
   })
 );
