@@ -7,6 +7,7 @@ import cratesReducer from './crates_reducer';
 import roundReducer from './round_reducer';
 import backgroundReducer from './background_reducer';
 import isRoundOverReducer from './is_round_over_reducer';
+import isGameOverReducer from './is_game_over_reducer';
 
 export default combineReducers({
   fridges: fridgesReducer,
@@ -16,4 +17,5 @@ export default combineReducers({
   roundsCompleted: roundReducer,
   background: backgroundReducer,
   isRoundOver: isRoundOverReducer,
+  isGameOver: isGameOverReducer,
 });
