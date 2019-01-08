@@ -64,15 +64,13 @@ const setupSockets = io => (
       io.sockets.emit('chat message', data);
     });
 
-    socket.on('roundOver', () => {
-      io.sockets.emit('roundOver');
-      socket.emit('startGameIn5');
-
     socket.on('gameOver', () => {
       io.sockets.emit('gameOver');
     });
 
- 
+    socket.on('roundOver', () => {
+      io.sockets.emit('roundOver');
+      socket.emit('startGameIn5');
     });
   })
 );

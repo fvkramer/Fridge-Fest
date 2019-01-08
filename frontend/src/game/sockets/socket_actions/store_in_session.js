@@ -38,6 +38,7 @@ export const gameOver = (store) => {
     payload[fridge.id] = ramenPoints + pizzaPoints + donutPoints + milkshakePoints + snickerPoints;
   });
 
+
   // store.dispatch({ type: 'ROUND_OVER', payload });
   store.dispatch({ type: 'GAME_OVER', payload });
   store.dispatch({ type: 'OPEN_MODAL', modal: 'gameEnd' });
