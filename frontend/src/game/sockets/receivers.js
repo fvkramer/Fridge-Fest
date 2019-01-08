@@ -1,4 +1,5 @@
 import handleStartGame from './socket_actions/start_game';
+import populateMoreAssets from './socket_actions/populate_more_assets';
 import { handleKeyDown, handleKeyUp } from './socket_actions/fridge_movement';
 import handleCollision from './socket_actions/resolve_collision';
 import activateSkill from './socket_actions/activate_skill';
@@ -7,6 +8,10 @@ import { storeInSession, gameOver } from './socket_actions/store_in_session';
 const setupReceivers = (socket, store) => {
   socket.on('startGame', (data) => {
     handleStartGame(socket, store, data);
+  });
+
+  socket.on('populateMoreAssets', (data) => {
+    populateMoreAssets(socket, store, data);
   });
 
   socket.on('receive player', (player) => {

@@ -47,6 +47,28 @@ const setupSockets = io => (
       });
     });
 
+    socket.on('needMoreAssets', () => {
+      const {
+        instantRamen, pizza, donut, milkshake, snicker,
+      } = makeFood();
+      const {
+        fast, slow, teleport, lightning,
+      } = makeSkills();
+
+      io.sockets.emit('populateMoreAssets', {
+        fridgeIds,
+        instantRamen,
+        pizza,
+        donut,
+        milkshake,
+        snicker,
+        slow,
+        fast,
+        teleport,
+        lightning,
+      });
+    });
+
     socket.on('keydown', ({ key }) => {
       if (key === '1') {
         io.sockets.emit('activateSkill', { fridgeId: socket.id, fridgeIds });
@@ -61,7 +83,6 @@ const setupSockets = io => (
     socket.on('collisionDetected', (data) => {
       io.sockets.emit('resolveCollision', data);
     });
-
 
     socket.on('chat message', (data) => {
       io.sockets.emit('chat message', data);
