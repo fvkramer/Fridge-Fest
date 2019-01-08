@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  shape, number, string, func,
+  shape, number, string, func, arrayOf,
 } from 'prop-types';
 
 class RoundEnd extends React.Component {
@@ -30,6 +30,7 @@ class RoundEnd extends React.Component {
   render() {
     const { timer } = this.state;
     const { playersInfo } = this.props;
+    // debugger;
 
     return (
       <>
@@ -50,16 +51,16 @@ class RoundEnd extends React.Component {
 
 RoundEnd.propTypes = {
   closeModal: func.isRequired,
-  playersInfo: shape({
+  playersInfo: arrayOf(shape({
     id: string,
     points: number,
-  }).isRequired,
+  })).isRequired,
 };
 
-const mapStateToProps = ({ game: { fridges } }) => {
-  const playersInfo = Object.values(fridges).map(fridge => ({
-    id: fridge.id,
-    points: fridge.points,
+const mapStateToProps = ({ session: { players } }) => {
+  const playersInfo = Object.keys(players).map(playerId => ({
+    id: playerId,
+    points: players[playerId],
   }));
 
   return {
