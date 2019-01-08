@@ -15,7 +15,7 @@ class RoundEnd extends React.Component {
     const { timer } = this.state;
 
     this.timerInteval = window.setInterval(
-      () => this.setState({ timer: timer - 1 }).bind(this),
+      () => this.setState({ timer: timer - 1 }),
       1000,
     );
   }
