@@ -11,6 +11,11 @@ import { logout } from './react_redux/actions/session_actions';
 
 import './index.css';
 
+// for development
+import { setupGameSockets } from './game/sockets/sockets';
+// for development
+
+
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -32,6 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
+  // for development
+  setupGameSockets(store);
+  // for development
 
   window.store = store;
 

@@ -9,6 +9,7 @@ import '../../assets/css/overlay.scss';
 import '../../assets/css/reset.scss';
 import '../../assets/css/canvas.scss';
 import '../../assets/css/abilities.scss';
+
 // import { debug } from 'util';
 
 // const msp = state => ({
@@ -29,12 +30,12 @@ class Canvas extends Component {
     return (
       <div className="outer">
 
-          <div className="abilities-div">
+        <div className="abilities-div">
           <Abilities />
-          </div>
+        </div>
 
         <div className="canvas-container inner">
-          
+
           <canvas
             className="main-canvas"
             id="canvas"
@@ -43,11 +44,11 @@ class Canvas extends Component {
           />
         </div>
 
-          <div className="pyramid-div">
+        <div className="pyramid-div">
           <FoodPyramid />
-          </div>
+        </div>
 
-          <Modal />
+        <Modal />
       </div>
     );
   }
