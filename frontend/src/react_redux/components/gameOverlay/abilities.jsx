@@ -17,7 +17,7 @@ class Abilities extends Component {
       if (Object.keys(currentFridge.skill).length >= 1) {
         return (
           <div className="abilities-container">
-            <img src={currentFridge.skill.src} alt="" />
+            <img className="ability-sprite" src={currentFridge.skill.src} alt="" />
           </div>
         );
       }
