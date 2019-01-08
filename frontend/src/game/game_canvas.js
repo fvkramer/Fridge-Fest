@@ -38,7 +38,12 @@ export default class GameCanvas {
             );
             this.totalOffsetX = 0;
             this.totalOffsetY = 0;
-            this.socket.emit('roundOver');
+            const state = this.store.getState();
+            if (state.game.roundsCompleted === 0) {
+              this.socket.emit('gameOver');
+            } else {
+              this.socket.emit('roundOver');
+            }
           }
         }
       }
