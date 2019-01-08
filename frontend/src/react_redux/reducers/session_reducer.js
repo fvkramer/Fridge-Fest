@@ -12,7 +12,7 @@ const initialState = {
 const sumPoints = (players, newPayload) => {
   const keys = Object.keys(newPayload);
   const playerObj = Object.assign({}, players);
-  // debugger;
+
   keys.forEach((key) => {
     if (playerObj[key]) {
       playerObj[key] += newPayload[key];
@@ -20,7 +20,7 @@ const sumPoints = (players, newPayload) => {
       playerObj[key] = newPayload[key];
     }
   });
-  // debugger;
+
   return playerObj;
 };
 
