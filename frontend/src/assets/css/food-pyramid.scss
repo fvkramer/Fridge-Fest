@@ -3,6 +3,8 @@
     width: 250px;
     border-bottom: 1px solid black;
     display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
 }
 
 .pyramid-div {
@@ -15,8 +17,11 @@
 
 .food-container {
     background-color: #eee;
-    display: inline-block;
+    display: flex;
     margin: auto 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     z-index: 1;
     /* clip-path: polygon(50% 0, 0% 100%, 100% 100%); */
 }
@@ -24,15 +29,15 @@
 .food-item-container {
     display: inline-block;
     width: 150px;
-    margin: auto 0 auto 8px;
+    margin: 16px 0 0 8px;
+    position: absolute;
     z-index: 5;
 }
 
 .food-item-progress-bar {
-    display: inline-block;
+    // display: inline-block;
+    min-width: 0px;
     height: 50px;
     background-color: yellow;
     z-index: 1;
-    position: relative;
-    left: -153px;
 }
