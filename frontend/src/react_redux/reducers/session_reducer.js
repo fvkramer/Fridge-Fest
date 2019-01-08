@@ -7,6 +7,23 @@ const initialState = {
   players: {},
 };
 
+
+// adds new payload to previous points
+const sumPoints = (players, newPayload) => {
+  const keys = Object.keys(newPayload);
+  const playerObj = Object.assign({}, players);
+  // debugger;
+  keys.forEach((key) => {
+    if (playerObj[key]) {
+      playerObj[key] += newPayload[key];
+    } else {
+      playerObj[key] = newPayload[key];
+    }
+  });
+  // debugger;
+  return playerObj;
+};
+
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
@@ -17,10 +34,11 @@ const sessionReducer = (state = initialState, action) => {
     case RECEIVE_USER_LOGOUT:
       return initialState;
     case 'ROUND_OVER':
-      const updatedPoints = Object.assign({}, initialState.players);
-      return Object.assign({}, initialState, { players: action.payload });
+      const { players } = initialState;
+      initialState.players = sumPoints(players, action.payload);
+      return Object.assign({}, initialState, { players: initialState.players });
     case 'GAME_OVER':
-      return Object.assign({}, initialState, { players: action.payload });
+      return Object.assign({}, initialState, { players: sumPoints(players, action.payload) });
     case 'PLAYER JOINED': {
       const receivedPlayers = initialState.activePlayers;
       receivedPlayers.push(action.player);
