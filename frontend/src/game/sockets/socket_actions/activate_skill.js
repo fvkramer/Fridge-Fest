@@ -1,3 +1,4 @@
+// const setSkillTimeOut = () => window
 const activateSkill = (store, fridge, fridgeIds) => {
   const otherFridgeIds = fridgeIds.filter(id => id !== fridge.id);
   const { skill } = fridge;
@@ -13,14 +14,30 @@ const activateSkill = (store, fridge, fridgeIds) => {
           fridgeId: otherFridgeIds[i],
         });
 
-        // window.setTimeout(
-        //   () => store.dispatch({
-        //     type: 'UPDATE_SPEED',
-        //     speedOffset: -skill.speedOffset,
-        //     fridgeId: otherFridgeIds,
-        //   }),
-        //   5000,
-        // );
+        window.myTimeOuts[Date.now()] = window.setTimeout(
+          () => store.dispatch({
+            type: 'UPDATE_SPEED',
+            speedOffset: -skill.speedOffset,
+            fridgeId: otherFridgeIds,
+          }),
+          5000,
+        );
+      }
+      if (skill.type === 'lightning') {
+        store.dispatch({
+          type: 'UPDATE_SPEED',
+          speedOffset: skill.speedOffset,
+          fridgeId: otherFridgeIds[i],
+        });
+
+        window.myTimeOuts[Date.now()] = window.setTimeout(
+          () => store.dispatch({
+            type: 'UPDATE_SPEED',
+            speedOffset: -skill.speedOffset,
+            fridgeId: otherFridgeIds,
+          }),
+          5000,
+        );
       }
     }
   } else {
@@ -43,13 +60,13 @@ const activateSkill = (store, fridge, fridgeIds) => {
           fridgeId: fridge.id,
         });
 
-        // window.setTimeout(
-        //   () => store.dispatch({
-        //     type: 'UPDATE_SPEED',
-        //     speedOffset: -skill.speedOffset,
-        //     fridgeId: fridge.id,
-        //   }), 5000,
-        // );
+        window.myTimeOuts[Date.now()] = window.setTimeout(
+          () => store.dispatch({
+            type: 'UPDATE_SPEED',
+            speedOffset: -skill.speedOffset,
+            fridgeId: fridge.id,
+          }), 5000,
+        );
         break;
       }
       default:

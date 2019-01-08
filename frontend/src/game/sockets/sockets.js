@@ -9,7 +9,7 @@ export const setupGameSockets = (store) => {
 
   window.socket = socket;
   setupReceivers(socket, store);
-  setupEmitters(socket);
+  setupEmitters(socket, store);
 };
 
 // Manual Emmitters

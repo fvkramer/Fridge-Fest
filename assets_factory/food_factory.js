@@ -10,7 +10,7 @@ const makeFood = () => {
     });
   }
   const pizza = [];
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 25; i += 1) {
     pizza.push({
       id: `food-pizza-${i}`,
       x: makeXY().x,
@@ -18,7 +18,7 @@ const makeFood = () => {
     });
   }
   const donut = [];
-  for (let i = 0; i < 15; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     donut.push({
       id: `food-donut-${i}`,
       x: makeXY().x,
@@ -34,7 +34,7 @@ const makeFood = () => {
     });
   }
   const snicker = [];
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < 15; i += 1) {
     snicker.push({
       id: `food-snicker-${i}`,
       x: makeXY().x,

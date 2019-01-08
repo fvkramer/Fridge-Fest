@@ -37,7 +37,7 @@ export default class GameCanvas {
           }
         }
 
-        if (isRoundOver(this.store, this.socket.id)) {
+        if (isRoundOver(this.store, this.socket.id) && fridge.id === this.socket.id) {
           this.ctx.clearRect(
             0 - this.totalOffsetX, 0 - this.totalOffsetY,
             this.canvas.width, this.canvas.height,
@@ -46,12 +46,13 @@ export default class GameCanvas {
           this.totalOffsetY = 0;
           const state = this.store.getState();
 
-          if (state.game.roundsCompleted === 2) {
+          if (state.game.roundsCompleted === 3) {
             this.socket.emit('gameOver');
+            break;
           } else {
             this.socket.emit('roundOver');
+            break;
           }
-          break;
         }
       }
     }
@@ -96,8 +97,7 @@ export default class GameCanvas {
     const animate = () => {
       const assets = GameCanvas.getAllAssets(this.store.getState().game);
 
-      const test = requestAnimationFrame(animate);
-      window.test = test;
+      window.test = requestAnimationFrame(animate);
 
       const now = performance.now();
       const elapsed = now - then;

@@ -10,9 +10,14 @@ import createFast from '../../abilities/fast';
 import createTeleport from '../../abilities/teleport';
 import createFloor from '../../background/floor';
 import createWall from '../../background/walls';
+import createLightning from '../../abilities/lightning';
 
 const handleStartGame = (socket, store, {
-  fridgeIds, instantRamen, milkshake, snicker, slow, fast, pizza, donut, teleport, floor, walls,
+  fridgeIds, instantRamen,
+  milkshake, snicker, slow,
+  fast, pizza, donut,
+  teleport, lightning,
+  floor, walls,
 }) => {
   for (let i = 0; i < instantRamen.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_FOOD', food: createInstantRamen(instantRamen[i]) });
@@ -41,6 +46,10 @@ const handleStartGame = (socket, store, {
   for (let i = 0; i < teleport.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createTeleport(teleport[i]) });
   }
+  for (let i = 0; i < lightning.length; i += 1) {
+    store.dispatch({ type: 'RECEIVE_SKILL', skill: createLightning(lightning[i]) });
+  }
+
 
   store.dispatch({ type: 'RECEIVE_BACKGROUND', background: createFloor(floor.id) });
   for (let i = 0; i < walls.length; i += 1) {

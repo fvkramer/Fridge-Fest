@@ -27,7 +27,9 @@ const setupSockets = io => (
       const {
         instantRamen, pizza, donut, milkshake, snicker,
       } = makeFood();
-      const { fast, slow, teleport } = makeSkills();
+      const {
+        fast, slow, teleport, lightning,
+      } = makeSkills();
       const floor = makeBackground();
       const walls = makeWalls();
 
@@ -41,8 +43,31 @@ const setupSockets = io => (
         slow,
         fast,
         teleport,
+        lightning,
         floor,
         walls,
+      });
+    });
+
+    socket.on('needMoreAssets', () => {
+      const {
+        instantRamen, pizza, donut, milkshake, snicker,
+      } = makeFood();
+      const {
+        fast, slow, teleport, lightning,
+      } = makeSkills();
+
+      io.sockets.emit('populateMoreAssets', {
+        fridgeIds,
+        instantRamen,
+        pizza,
+        donut,
+        milkshake,
+        snicker,
+        slow,
+        fast,
+        teleport,
+        lightning,
       });
     });
 
@@ -60,7 +85,6 @@ const setupSockets = io => (
     socket.on('collisionDetected', (data) => {
       io.sockets.emit('resolveCollision', data);
     });
-
 
     socket.on('chat message', (data) => {
       io.sockets.emit('chat message', data);
