@@ -8,7 +8,7 @@ const createDonut = ({ id, x, y }) => ({
     id,
     type: 'donut',
     physics: new Physics(x, y),
-    sprite: new Sprite(donutSprite, 75, 82, 1, 1),
+    sprite: new Sprite(donutSprite, 49, 54, 1, 1),
     speed: 0,
     speedOffset: 2,
   },

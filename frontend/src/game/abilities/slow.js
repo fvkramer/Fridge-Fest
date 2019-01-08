@@ -8,7 +8,7 @@ const createSlow = ({ id, x, y }) => ({
     id,
     type: 'slow',
     physics: new Physics(x, y),
-    sprite: new Sprite(slowSprite, 80, 272, 1, 4),
+    sprite: new Sprite(slowSprite, 52, 180, 1, 4),
     speed: 0,
     speedOffset: 5,
   },

@@ -60,8 +60,15 @@ class MainPage extends React.Component {
           </header>
         </div>
         <div className="main-page">
-            <h1>Fridge Fest</h1>
-          
+            
+          <div className="ff-sign">
+          <h1 className="fridge-fest-logo">Fridge Fest</h1>
+          </div>
+
+          <div className="details-div">
+            <h2>What is Fridge Fest?</h2>
+            
+          </div>
         </div>
       </div>
     );
