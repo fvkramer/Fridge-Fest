@@ -39,7 +39,6 @@ export const gameOver = (store) => {
   });
 
   store.dispatch({ type: 'ROUND_OVER', payload });
-  store.dispatch({ type: 'OPEN_MODAL', modal: 'roundEnd' });
+  store.dispatch({ type: 'OPEN_MODAL', modal: 'gameEnd' });
   store.dispatch({ type: 'CLEAR_GAME' });
-  window.setTimeout(() => store.dispatch({ type: 'NEW_ROUND' }), 5000);
 };
