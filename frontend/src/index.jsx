@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // for development
-  setupGameSockets(store);
+  // setupGameSockets(store);
   // for development
 
   window.store = store;
