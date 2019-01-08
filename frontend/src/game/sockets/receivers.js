@@ -6,7 +6,6 @@ import storeInSession from './socket_actions/store_in_session';
 
 const setupReceivers = (socket, store) => {
   socket.on('startGame', (data) => {
-    // debugger;
     handleStartGame(socket, store, data);
   });
 
@@ -65,10 +64,10 @@ const setupReceivers = (socket, store) => {
   socket.on('roundOver', () => {
     storeInSession(store);
   });
-  socket.on('startGameIn10s', () => {
+  socket.on('startGameIn5', () => {
     setTimeout(() => {
       socket.emit('startGame');
-    }, 10000);
+    }, 5000);
   });
 };
 

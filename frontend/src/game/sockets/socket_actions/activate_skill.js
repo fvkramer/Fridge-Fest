@@ -13,14 +13,14 @@ const activateSkill = (store, fridge, fridgeIds) => {
           fridgeId: otherFridgeIds[i],
         });
 
-        window.setTimeout(
-          () => store.dispatch({
-            type: 'UPDATE_SPEED',
-            speedOffset: -skill.speedOffset,
-            fridgeId: otherFridgeIds,
-          }),
-          5000,
-        );
+        // window.setTimeout(
+        //   () => store.dispatch({
+        //     type: 'UPDATE_SPEED',
+        //     speedOffset: -skill.speedOffset,
+        //     fridgeId: otherFridgeIds,
+        //   }),
+        //   5000,
+        // );
       }
     }
   } else {
@@ -36,21 +36,22 @@ const activateSkill = (store, fridge, fridgeIds) => {
 
         break;
       }
-      case 'fast':
+      case 'fast': {
         store.dispatch({
           type: 'UPDATE_SPEED',
           speedOffset: skill.speedOffset,
           fridgeId: fridge.id,
         });
 
-        window.setTimeout(
-          () => store.dispatch({
-            type: 'UPDATE_SPEED',
-            speedOffset: skill.speedOffset,
-            fridgeId: fridge.id,
-          }), 5000,
-        );
+        // window.setTimeout(
+        //   () => store.dispatch({
+        //     type: 'UPDATE_SPEED',
+        //     speedOffset: -skill.speedOffset,
+        //     fridgeId: fridge.id,
+        //   }), 5000,
+        // );
         break;
+      }
       default:
     }
   }

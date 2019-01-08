@@ -1,27 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { shape, number, string } from 'prop-types';
+import {
+  shape, number, string, func,
+} from 'prop-types';
 
 class RoundEnd extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      timer: 5,
-    };
+    this.state = { timer: 5 };
   }
 
   componentDidMount() {
-    const { timer } = this.state;
+    this.setState({ timer: 5 });
+    const { closeModal } = this.props;
 
-    this.timerInteval = window.setInterval(
-      () => this.setState({ timer: timer - 1 }),
-      1000,
-    );
+    this.roundEndInterval = window.setInterval(() => {
+      const { timer } = this.state;
+      if (timer === 0) closeModal();
+
+      this.setState({ timer: timer - 1 });
+    }, 1000);
   }
 
   componentWillUnmount() {
-    window.clearInterval(this.timerInteval);
+    clearInterval(this.roundEndInterval);
   }
 
   render() {
@@ -46,6 +49,7 @@ class RoundEnd extends React.Component {
 }
 
 RoundEnd.propTypes = {
+  closeModal: func.isRequired,
   playersInfo: shape({
     id: string,
     points: number,
@@ -63,4 +67,8 @@ const mapStateToProps = ({ game: { fridges } }) => {
   };
 };
 
-export default connect(mapStateToProps, null)(RoundEnd);
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch({ type: 'CLOSE_MODAL' }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoundEnd);

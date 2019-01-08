@@ -20,22 +20,21 @@ const Modal = ({ modal }) => {
   return (
     <div className="modal-background">
       <div className="modal-child">
-        { component}
+        {component}
       </div>
     </div>
   );
 };
 
+Modal.defaultProps = {
+  modal: null,
+};
 Modal.propTypes = {
-  modal: string.isRequired,
+  modal: string,
 };
 
 const mapStateToProps = ({ ui: { modal } }) => ({
   modal,
 });
 
-const mapDispatchToProps = dispatch => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, null)(Modal);

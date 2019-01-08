@@ -22,21 +22,23 @@ const makeXY = () => {
   let mockAsset = {
     x,
     y,
-    width: 300, // make sure assets are at least 300px away from walls
-    height: 300,
+    width: 500, // make sure assets are at least 500px away from walls
+    height: 500,
   };
 
   for (let i = 0; i < walls.length; i += 1) {
-    while (isCollision(mockAsset, walls[i])) {
+    if (isCollision(mockAsset, walls[i])) {
       x = randomFromRange(100, 1900);
       y = randomFromRange(100, 1900);
 
       mockAsset = {
         x,
         y,
-        width: 300,
-        height: 300,
+        width: 500,
+        height: 500,
       };
+
+      i = -1;
     }
   }
 
@@ -45,5 +47,4 @@ const makeXY = () => {
 
 module.exports = {
   makeXY,
-  randomFromRange,
 };

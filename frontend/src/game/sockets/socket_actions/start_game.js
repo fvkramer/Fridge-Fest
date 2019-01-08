@@ -11,10 +11,6 @@ import createTeleport from '../../abilities/teleport';
 import createFloor from '../../background/floor';
 import createWall from '../../background/walls';
 
-// let canvas;
-// let ctx;
-// let game;
-
 const handleStartGame = (socket, store, {
   fridgeIds, instantRamen, milkshake, snicker, slow, fast, pizza, donut, teleport, floor, walls,
 }) => {
@@ -45,21 +41,25 @@ const handleStartGame = (socket, store, {
   for (let i = 0; i < teleport.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createTeleport(teleport[i]) });
   }
+
   store.dispatch({ type: 'RECEIVE_BACKGROUND', background: createFloor(floor.id) });
   for (let i = 0; i < walls.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_BACKGROUND', background: createWall(walls[i]) });
   }
 
-
   window.setTimeout(() => {
-    if (window.canvas) window.canvas = undefined;
-    if (window.ctx) window.ctx = undefined;
     if (window.game) window.game = undefined;
+    delete window.game;
+    if (window.ctx) window.ctx = undefined;
+    delete window.ctx;
+    if (window.canvas) window.canvas = undefined;
+    delete window.canvas;
+
     window.canvas = document.getElementById('canvas');
     window.ctx = window.canvas.getContext('2d');
     window.game = new GameCanvas(socket, store, window.canvas, window.ctx);
     window.game.draw(10);
-  }, 0);
+  }, 1000);
 };
 
 export default handleStartGame;
