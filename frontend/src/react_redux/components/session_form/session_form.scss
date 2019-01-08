@@ -1,0 +1,45 @@
+.session-form-container {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.session-form input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #61dafb;
+  color: white;
+  height: 20px;
+  margin-right: 10px;
+  margin: auto 7px auto 3px;
+  font-family: 'minecraftmedium';
+  padding: 0;
+}
+
+  ::placeholder {
+    color: white;
+  }
+
+.session-form input:focus {
+  border-bottom: 1px solid white;
+}
+
+.session-form button {
+  font-family: 'minecraftmedium';
+  width: 70px;
+  height: 20px;
+  border: none;
+  background-color: #61dafb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 7px 0 7px 0;
+  border-radius: 3px;
+  margin: auto 15px;
+}

@@ -1,0 +1,68 @@
+.main-div {
+  width: 100%;
+}
+
+.main-page-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 35vmin;
+}
+
+.main-page-header {
+  background-color: rgba(40, 44, 52, 0.5);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-bottom: 30px;
+}
+
+.main-page-link-container {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  width: 140px;
+  margin-left: 20px;
+}
+.main-page-link {
+  color: #94e8ff;
+  margin: 0 10px 0 10px;
+  font-size: 18px;
+  margin: auto;
+}
+
+.main-page {
+  text-align: center;
+  margin: auto;
+  width: 1000px;
+  height: 1500px;
+  background-color: rgba(40, 44, 52, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.fridge-fest-logo {
+  font-family: 'vcr_osd_monoregular';
+  font-size: 90px;
+  margin: auto;
+}
+
+.ff-sign {
+  width: 900px;
+  height: 260px;
+  background-image: url('ff-sign.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10px auto 0px auto;
+  display: flex;
+}
+
+.details-div {
+  width: 800px;
+  height: 800px;
+  outline: 1px solid red;
+  margin: 100px auto 50px auto;
+}

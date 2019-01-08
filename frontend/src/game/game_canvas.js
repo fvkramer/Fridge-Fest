@@ -36,6 +36,7 @@ export default class GameCanvas {
             resolveHitWall(fridge);
           }
         }
+
         if (isRoundOver(this.store, this.socket.id) && fridge.id === this.socket.id) {
           this.ctx.clearRect(
             0 - this.totalOffsetX, 0 - this.totalOffsetY,
@@ -44,6 +45,7 @@ export default class GameCanvas {
           this.totalOffsetX = 0;
           this.totalOffsetY = 0;
           const state = this.store.getState();
+
           if (state.game.roundsCompleted === 3) {
             this.socket.emit('gameOver');
             break;
@@ -55,6 +57,7 @@ export default class GameCanvas {
       }
     }
   }
+
 
   drawAsset(asset) {
     if (!asset) return;

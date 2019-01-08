@@ -1,7 +1,7 @@
 import React from 'react';
 import { func, instanceOf, oneOf } from 'prop-types';
 
-import './session_form.css';
+import './session_form.scss';
 
 class SessionForm extends React.Component {
   constructor() {

@@ -6,13 +6,15 @@ const makeSkills = require('./assets_factory/skill_factory');
 // ======================================================================= //
 
 let fridgeIds = [];
+// const SOCKET_PLAYERS = {};
 
 const setupSockets = io => (
   io.on('connection', (socket) => {
     fridgeIds.push(socket.id);
     console.log(`${socket.id}has connected`);
 
-    io.sockets.emit('receive player', socket.id);
+    // io.sockets.emit('receive player', socket.id);
+    io.sockets.emit('receive players', fridgeIds);
 
     socket.on('disconnect', () => {
       console.log('User has disconnected');

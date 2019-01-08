@@ -8,7 +8,7 @@ const createInstantRamen = ({ id, x, y }) => ({
     id,
     type: 'instantRamen',
     physics: new Physics(x, y),
-    sprite: new Sprite(instantRamenSprite, 105, 243, 1, 3),
+    sprite: new Sprite(instantRamenSprite, 70, 162, 1, 3),
     speed: 0,
     speedOffset: 5,
   },

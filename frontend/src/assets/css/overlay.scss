@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'minecraftmedium';
+  src: url('../fonts/minecraft-webfont.woff2') format('woff2'),
+    url('../fonts/minecraft-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'vcr_osd_monoregular';
+  src: url('../fonts/vcr_osd_mono_1.001-webfont.woff2') format('woff2'),
+    url('../fonts/vcr_osd_mono_1.001-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .main {
   display: flex;
   width: 100%;
