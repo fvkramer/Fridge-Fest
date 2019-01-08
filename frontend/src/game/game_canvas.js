@@ -39,7 +39,7 @@ export default class GameCanvas {
             this.totalOffsetX = 0;
             this.totalOffsetY = 0;
             const state = this.store.getState();
-            if (state.game.roundsCompleted === 4) {
+            if (state.game.roundsCompleted === 0) {
               this.socket.emit('gameOver');
             } else {
               this.socket.emit('roundOver');

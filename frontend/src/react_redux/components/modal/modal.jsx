@@ -34,8 +34,5 @@ const mapStateToProps = ({ ui: { modal } }) => ({
   modal,
 });
 
-const mapDispatchToProps = dispatch => ({
 
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps)(Modal);
