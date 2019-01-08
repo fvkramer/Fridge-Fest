@@ -1,5 +1,13 @@
 .main-page {
   text-align: center;
+  margin: auto;
+  width: 800px;
+  height: 1000px;
+  background-color: rgba(40, 44, 52, 0.5);
+}
+
+.main-div {
+  width: 100%;
 }
 
 .main-page-logo {
@@ -8,14 +16,15 @@
 }
 
 .main-page-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: rgba(40, 44, 52, 0.5);
+  height: 60px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 30px;
 }
 
 .main-page-link-container {
