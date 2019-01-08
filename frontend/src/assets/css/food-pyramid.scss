@@ -1,0 +1,38 @@
+.food-container-subclass {
+    height: 50px;
+    width: 250px;
+    border-bottom: 1px solid black;
+    display: flex;
+}
+
+.pyramid-div {
+    width: 370px;
+    height: 300px;
+    display: flex;
+    margin-top: 36px;
+    margin-left: 30px;
+}
+
+.food-container {
+    background-color: #eee;
+    display: inline-block;
+    margin: auto 0;
+    z-index: 1;
+    /* clip-path: polygon(50% 0, 0% 100%, 100% 100%); */
+}
+
+.food-item-container {
+    display: inline-block;
+    width: 150px;
+    margin: auto 0 auto 8px;
+    z-index: 5;
+}
+
+.food-item-progress-bar {
+    display: inline-block;
+    height: 50px;
+    background-color: yellow;
+    z-index: 1;
+    position: relative;
+    left: -153px;
+}

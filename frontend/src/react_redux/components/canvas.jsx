@@ -8,6 +8,7 @@ import Modal from './modal/modal';
 import '../../assets/css/overlay.scss';
 import '../../assets/css/reset.scss';
 import '../../assets/css/canvas.scss';
+import '../../assets/css/abilities.scss';
 // import { debug } from 'util';
 
 // const msp = state => ({
@@ -31,16 +32,27 @@ export default class Canvas extends Component {
 
   render() {
     return (
-      <div className="canvas-container outer">
-        <canvas
-          className="main-canvas"
-          id="canvas"
-          height="800px"
-          width="800px"
-        />
-        <Abilities />
-        <FoodPyramid />
-        <Modal />
+      <div className="outer">
+
+          <div className="abilities-div">
+          <Abilities />
+          </div>
+
+        <div className="canvas-container inner">
+          
+          <canvas
+            className="main-canvas"
+            id="canvas"
+            height="800px"
+            width="800px"
+          />
+        </div>
+
+          <div className="pyramid-div">
+          <FoodPyramid />
+          </div>
+
+          <Modal />
       </div>
     );
   }
