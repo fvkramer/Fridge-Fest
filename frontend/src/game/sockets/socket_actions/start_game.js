@@ -52,6 +52,7 @@ const handleStartGame = (socket, store, {
 
 
   window.setTimeout(() => {
+    if (window.canvas) window.canvas = undefined;
     if (window.ctx) window.ctx = undefined;
     if (window.game) window.game = undefined;
     window.canvas = document.getElementById('canvas');

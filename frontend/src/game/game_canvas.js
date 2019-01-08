@@ -32,11 +32,12 @@ export default class GameCanvas {
             { fridgeId: fridge.id, assetId: allAssets[i].id },
           );
           if (isRoundOver(this.store, this.socket.id)) {
-            window.cancelAnimationFrame(window.test);
             this.ctx.clearRect(
               0 - this.totalOffsetX, 0 - this.totalOffsetY,
               this.canvas.width, this.canvas.height,
             );
+            this.totalOffsetX = 0;
+            this.totalOffsetY = 0;
             this.socket.emit('roundOver');
           }
         }

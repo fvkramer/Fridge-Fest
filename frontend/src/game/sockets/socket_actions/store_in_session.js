@@ -1,4 +1,7 @@
 const storeInSession = (store) => {
+  window.cancelAnimationFrame(window.test);
+  delete window.test;
+
   const { fridges } = store.getState().game;
   const payload = {};
 

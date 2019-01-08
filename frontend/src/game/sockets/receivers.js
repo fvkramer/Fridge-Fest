@@ -50,6 +50,11 @@ const setupReceivers = (socket, store) => {
   socket.on('roundOver', () => {
     storeInSession(store);
   });
+  socket.on('startGameIn10s', () => {
+    setTimeout(() => {
+      socket.emit('startGame');
+    }, 10000);
+  });
 };
 
 export default setupReceivers;
