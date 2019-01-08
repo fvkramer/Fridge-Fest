@@ -20,7 +20,7 @@ class Canvas extends Component {
 
     return (
       <div className="outer">
-
+        <Modal />
         <div className="abilities-div">
           <Abilities />
         </div>
@@ -39,7 +39,7 @@ class Canvas extends Component {
           <FoodPyramid />
         </div>
 
-        <Modal />
+
       </div>
     );
   }
