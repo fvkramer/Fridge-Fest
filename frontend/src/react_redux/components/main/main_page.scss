@@ -30,11 +30,15 @@
 .main-page-link-container {
   display: flex;
   justify-content: center;
+  height: 60px;
+  width: 140px;
+  margin-left: 20px;
 }
 .main-page-link {
-  color: #61dafb;
+  color: #94e8ff;
   margin: 0 10px 0 10px;
   font-size: 18px;
+  margin: auto;
 }
 
 @keyframes App-logo-spin {

@@ -13,11 +13,18 @@
   background-color: transparent;
   outline: none;
   border: none;
-  border-bottom: 1px solid lightslategray;
+  border-bottom: 1px solid #61dafb;
   color: white;
-  height: 30px;
+  height: 20px;
   margin-right: 10px;
+  margin: auto 7px auto 3px;
+  font-family: 'minecraftmedium';
+  padding: 0;
 }
+
+  ::placeholder {
+    color: white;
+  }
 
 .session-form input:focus {
   border-bottom: 1px solid white;
