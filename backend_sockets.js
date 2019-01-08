@@ -67,12 +67,13 @@ const setupSockets = io => (
       io.sockets.emit('chat message', data);
     });
 
-    const roundOver = false;
+    socket.on('gameOver', () => {
+      io.sockets.emit('gameOver');
+    });
 
     socket.on('roundOver', () => {
       io.sockets.emit('roundOver');
       socket.emit('startGameIn10s');
-
     });
   })
 );
