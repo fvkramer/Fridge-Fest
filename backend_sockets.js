@@ -67,6 +67,12 @@ const setupSockets = io => (
     socket.on('roundOver', () => {
       io.sockets.emit('roundOver');
       socket.emit('startGameIn5');
+
+    socket.on('gameOver', () => {
+      io.sockets.emit('gameOver');
+    });
+
+ 
     });
   })
 );

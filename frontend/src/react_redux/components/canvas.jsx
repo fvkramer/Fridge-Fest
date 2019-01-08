@@ -10,15 +10,6 @@ import '../../assets/css/reset.scss';
 import '../../assets/css/canvas.scss';
 import '../../assets/css/abilities.scss';
 
-// import { debug } from 'util';
-
-// const msp = state => ({
-//   update: state.game.roundsCompleted,
-// });
-
-// const HEIGHT = `${window.innerHeight}px`;
-// const WIDTH = `${window.innerWidth}px`;
-
 
 class Canvas extends Component {
   componentWillUnmount() {
@@ -36,7 +27,7 @@ class Canvas extends Component {
 
     return (
       <div className="outer">
-
+        <Modal />
         <div className="abilities-div">
           <Abilities />
         </div>
@@ -55,7 +46,7 @@ class Canvas extends Component {
           <FoodPyramid />
         </div>
 
-        <Modal />
+
       </div>
     );
   }

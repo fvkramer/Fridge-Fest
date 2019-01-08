@@ -4,6 +4,7 @@ const initialState = {
   isAuthenticated: false,
   user: undefined,
   activePlayers: [],
+  players: {},
 };
 
 const sessionReducer = (state = initialState, action) => {
@@ -16,6 +17,9 @@ const sessionReducer = (state = initialState, action) => {
     case RECEIVE_USER_LOGOUT:
       return initialState;
     case 'ROUND_OVER':
+      const updatedPoints = Object.assign({}, initialState.players);
+      return Object.assign({}, initialState, { players: action.payload });
+    case 'GAME_OVER':
       return Object.assign({}, initialState, { players: action.payload });
     case 'PLAYER JOINED': {
       const receivedPlayers = initialState.activePlayers;

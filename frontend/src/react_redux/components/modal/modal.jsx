@@ -5,6 +5,9 @@ import RoundEnd from './round_end';
 import GameEnd from './game_end';
 
 const Modal = ({ modal }) => {
+  if (!modal) {
+    return null;
+  }
   let component;
   switch (modal) {
     case 'roundEnd':
@@ -16,6 +19,7 @@ const Modal = ({ modal }) => {
     default:
       return null;
   }
+
 
   return (
     <div className="modal-background">
@@ -37,4 +41,5 @@ const mapStateToProps = ({ ui: { modal } }) => ({
   modal,
 });
 
-export default connect(mapStateToProps, null)(Modal);
+export default connect(mapStateToProps)(Modal);
+
