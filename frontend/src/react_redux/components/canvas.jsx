@@ -39,7 +39,7 @@ class Canvas extends Component {
           <canvas
             className="main-canvas"
             id="canvas"
-            height="800px"
+            height="600px"
             width="800px"
           />
         </div>
