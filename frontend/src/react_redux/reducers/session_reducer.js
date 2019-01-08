@@ -26,7 +26,11 @@ const sumPoints = (players, newPayload) => {
 
 const activePlayers = (receivedPlayers, newPlayers) => {
   for (let i = 0; i < newPlayers.length; i += 1) {
-    receivedPlayers.push(newPlayers[i]);
+    if (receivedPlayers.includes(newPlayers[i])) {
+      continue;
+    } else {
+      receivedPlayers.push(newPlayers[i]);
+    }
   }
 
   return receivedPlayers;
