@@ -1,11 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class lobby extends Component {
+import WaitingForPlayer from './lobbyComponents/waiting_players';
+import LeaderBoard from './lobbyComponents/leaderboard';
+import PlayersLoaded from './lobbyComponents/loaded_players';
+import Chat from './lobbyComponents/chat';
+
+import { setupGameSockets } from '../../../game/sockets/sockets';
+
+export default class Lobby extends Component {
+  componentDidMount() {
+    setupGameSockets(window.store);
+  }
+
   render() {
     return (
       <div>
-        In Lobby
+        <WaitingForPlayer />
+        <LeaderBoard />
+        <PlayersLoaded />
+        <Chat />
       </div>
-    )
+    );
   }
 }

@@ -46,5 +46,4 @@ const makeFood = () => {
     instantRamen, pizza, snicker, milkshake, donut,
   };
 };
-
 module.exports = makeFood;

@@ -10,11 +10,26 @@ const setupReceivers = (socket, store) => {
     handleStartGame(socket, store, data);
   });
 
+  socket.on('receive player', (player) => {
+    store.dispatch({ type: 'PLAYER JOINED', player });
+  });
+
+  socket.on('chat message', (data) => {
+    // test
+
+    // const messages = document.getElementById('messages');
+    // const li = document.createElement('li');
+    // messages.append(data, li);
+    // test
+    store.dispatch({ type: 'RECEIVE_MESSAGE', data });
+  });
+
   socket.on('removeFridge', (fridgeId) => {
     store.dispatch({ type: 'REMOVE_FRIDGE', fridgeId });
   });
 
   // utils
+  // debugger;
   const getFridgeById = fridgeId => store.getState().game.fridges[fridgeId];
   const getAssetById = (assetId, assetType) => store.getState().game[assetType][assetId];
   // utils end
