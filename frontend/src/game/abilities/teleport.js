@@ -12,7 +12,7 @@ const createTeleport = ({
     id,
     type: 'teleport',
     physics: new Physics(x, y),
-    sprite: new Sprite(teleportSprite, 80, 320, 1, 4),
+    sprite: new Sprite(teleportSprite, 53, 212, 1, 4),
     positionX: toX,
     positionY: toY,
   },

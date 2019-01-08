@@ -8,7 +8,7 @@ const createPizza = ({ id, x, y }) => ({
     id,
     type: 'pizza',
     physics: new Physics(x, y),
-    sprite: new Sprite(pizzaSprite, 80, 80, 1, 1),
+    sprite: new Sprite(pizzaSprite, 53, 53, 1, 1),
     speed: 0,
     speedOffset: 1,
   },

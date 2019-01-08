@@ -7,7 +7,7 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 
 import logo from './logo.svg';
-import './main_page.css';
+import './main_page.scss';
 
 class MainPage extends React.Component {
   constructor() {
@@ -30,7 +30,6 @@ class MainPage extends React.Component {
     }
     return (
       <>
-        <p>Welcome guest!</p>
         <div className="main-page-link-container">
           <Link className="main-page-link" to="/login">Login</Link>
           <Link className="main-page-link" to="/signup">Signup</Link>
@@ -48,18 +47,29 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <div className="main-page">
-        <header className="main-page-header">
-          <h1>Fridge Fest</h1>
-          <img src={logo} className="main-page-logo" alt="logo" />
+      <div className="main-div">
+        <div className="main-header">
+          <header className="main-page-header">
 
-          {this.getLinks()}
+            {this.getLinks()}
 
-          <Switch>
-            <AuthRoute exact path="/login" component={LoginFormContainer} />
-            <AuthRoute exact path="/signup" component={SignupFormContainer} />
-          </Switch>
-        </header>
+            <Switch>
+              <AuthRoute exact path="/login" component={LoginFormContainer} />
+              <AuthRoute exact path="/signup" component={SignupFormContainer} />
+            </Switch>
+          </header>
+        </div>
+        <div className="main-page">
+            
+          <div className="ff-sign">
+          <h1 className="fridge-fest-logo">Fridge Fest</h1>
+          </div>
+
+          <div className="details-div">
+            <h2>What is Fridge Fest?</h2>
+            <p>Fridge Fest is an all out multiplayer game in which your objective is to help your fridge collect as much food as possible.</p>
+          </div>
+        </div>
       </div>
     );
   }
