@@ -10,11 +10,10 @@ import setupEmitters from './emitters';
 
 
 export const setupGameSockets = (store) => {
-<<<<<<< Updated upstream
-=======
-  // const socket = io(window.location.hostname);
->>>>>>> Stashed changes
+
   const socket = io('localhost:5000');
+  // const socket = io(window.location.hostname);
+  
   window.socket = socket;
   setupReceivers(socket, store);
   setupEmitters(socket);
