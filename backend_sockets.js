@@ -25,7 +25,9 @@ const setupSockets = io => (
       const {
         instantRamen, pizza, donut, milkshake, snicker,
       } = makeFood();
-      const { fast, slow, teleport } = makeSkills();
+      const {
+        fast, slow, teleport, lightning,
+      } = makeSkills();
       const floor = makeBackground();
       const walls = makeWalls();
 
@@ -39,6 +41,7 @@ const setupSockets = io => (
         slow,
         fast,
         teleport,
+        lightning,
         floor,
         walls,
       });
@@ -64,15 +67,13 @@ const setupSockets = io => (
       io.sockets.emit('chat message', data);
     });
 
-    socket.on('roundOver', () => {
-      io.sockets.emit('roundOver');
-      socket.emit('startGameIn5');
-
     socket.on('gameOver', () => {
       io.sockets.emit('gameOver');
     });
 
- 
+    socket.on('roundOver', () => {
+      io.sockets.emit('roundOver');
+      socket.emit('startGameIn5');
     });
   })
 );

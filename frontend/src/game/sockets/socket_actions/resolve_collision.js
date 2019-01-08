@@ -53,6 +53,16 @@ const handleCollision = (store, fridge, asset) => {
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
 
+  if (asset.type === 'lightning') {
+    store.dispatch({ type: 'REMOVE_SKILL', skillId: asset.id });
+    const skill = {
+      type: asset.type,
+      speedOffset: asset.speedOffset,
+      src: '/game/Lightning.png',
+    };
+    store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
+  }
+
   if (asset.type === 'wall') {
     const { physics } = fridge;
     physics.dLeft = 0;

@@ -65,7 +65,6 @@ const setupReceivers = (socket, store) => {
     storeInSession(store);
   });
 
-
   socket.on('gameOver', () => {
     gameOver(store);
   });

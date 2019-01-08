@@ -27,9 +27,17 @@ const makeSkills = () => {
       toY: makeXY().y,
     });
   }
+  const lightning = [];
+  for (let i = 0; i < 10; i += 1) {
+    lightning.push({
+      id: `skills-lightning-${i}`,
+      x: makeXY().x,
+      y: makeXY().y,
+    });
+  }
 
   return {
-    slow, fast, teleport,
+    slow, fast, teleport, lightning,
   };
 };
 

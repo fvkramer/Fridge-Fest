@@ -19,6 +19,10 @@ class Canvas extends Component {
     delete window.ctx;
     if (window.canvas) window.canvas = undefined;
     delete window.canvas;
+
+    window.myTimeOuts.forEach((key) => {
+      window.clearTimeout(window.myTimeOuts[key]);
+    });
   }
 
   render() {

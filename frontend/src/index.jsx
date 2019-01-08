@@ -52,6 +52,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('root'),
   );
 
-  window.TIMEOUTS = [];
-  window.TIME_INTERVALS = [];
+  window.myTimeOuts = {};
 });

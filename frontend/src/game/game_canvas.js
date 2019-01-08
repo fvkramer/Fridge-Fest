@@ -34,21 +34,6 @@ export default class GameCanvas {
 
           if (allAssets[i].type === 'wall') {
             resolveHitWall(fridge);
-
-          if (isRoundOver(this.store, this.socket.id)) {
-            this.ctx.clearRect(
-              0 - this.totalOffsetX, 0 - this.totalOffsetY,
-              this.canvas.width, this.canvas.height,
-            );
-            this.totalOffsetX = 0;
-            this.totalOffsetY = 0;
-            const state = this.store.getState();
-            if (state.game.roundsCompleted === 0) {
-              this.socket.emit('gameOver');
-            } else {
-              this.socket.emit('roundOver');
-            }
-
           }
         }
         if (isRoundOver(this.store, this.socket.id)) {
@@ -58,7 +43,12 @@ export default class GameCanvas {
           );
           this.totalOffsetX = 0;
           this.totalOffsetY = 0;
-          this.socket.emit('roundOver');
+          const state = this.store.getState();
+          if (state.game.roundsCompleted === 3) {
+            this.socket.emit('gameOver');
+          } else {
+            this.socket.emit('roundOver');
+          }
           break;
         }
       }
