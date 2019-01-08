@@ -34,11 +34,11 @@ const sessionReducer = (state = initialState, action) => {
     case RECEIVE_USER_LOGOUT:
       return initialState;
     case 'ROUND_OVER':
-      const { players } = initialState;
-      initialState.players = sumPoints(players, action.payload);
+      initialState.players = sumPoints(initialState.players, action.payload);
       return Object.assign({}, initialState, { players: initialState.players });
     case 'GAME_OVER':
-      return Object.assign({}, initialState, { players: sumPoints(players, action.payload) });
+      initialState.players = sumPoints(initialState.players, action.payload);
+      return Object.assign({}, initialState, { players: initialState.players });
     case 'PLAYER JOINED': {
       const receivedPlayers = initialState.activePlayers;
       receivedPlayers.push(action.player);
