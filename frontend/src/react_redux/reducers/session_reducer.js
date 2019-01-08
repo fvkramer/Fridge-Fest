@@ -24,6 +24,14 @@ const sumPoints = (players, newPayload) => {
   return playerObj;
 };
 
+const activePlayers = (receivedPlayers, newPlayers) => {
+  for (let i = 0; i < newPlayers.length; i += 1) {
+    receivedPlayers.push(newPlayers[i]);
+  }
+
+  return receivedPlayers;
+};
+
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
@@ -43,6 +51,10 @@ const sessionReducer = (state = initialState, action) => {
       const receivedPlayers = initialState.activePlayers;
       receivedPlayers.push(action.player);
       return Object.assign({}, initialState, { activePlayers: receivedPlayers });
+    }
+    case 'PLAYERS_JOINED': {
+      const receivedPlayers = initialState.activePlayers;
+      return Object.assign({}, initialState, { activePlayers: activePlayers(receivedPlayers, action.players) });
     }
     default:
       return state;

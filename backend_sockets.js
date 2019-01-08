@@ -13,7 +13,7 @@ const setupSockets = io => (
     fridgeIds.push(socket.id);
     console.log(`${socket.id}has connected`);
 
-    io.sockets.emit('receive player', socket.id);
+    // io.sockets.emit('receive player', socket.id);
     io.sockets.emit('receive players', fridgeIds);
 
     socket.on('disconnect', () => {

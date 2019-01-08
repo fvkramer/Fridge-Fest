@@ -14,7 +14,7 @@ const setupReceivers = (socket, store) => {
   });
 
   socket.on('receive players', (players) => {
-    store.dispatch({ type: 'PLAYERS JOINED', players });
+    store.dispatch({ type: 'PLAYERS_JOINED', players });
   });
 
   socket.on('chat message', (data) => {
