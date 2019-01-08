@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 
-// const msp = state => ({
-//   messages: state.messages,
-// });
+const msp = state => ({
+  messages: state.messages.messageList,
+  length: state.messages.messageList.length,
+});
 
-export default class Chat extends Component {
+class Chat extends Component {
   constructor(props) {
     super(props);
 
@@ -24,18 +25,18 @@ export default class Chat extends Component {
 
   handleSubmit(event) {
     event.preventDefault('');
-    // window.socket.emit('chat message', [window.socket.id, this.state.message]);
-    window.socket.emit('chat message', this.state.message);
+    window.socket.emit('chat message', [window.socket.id, this.state.message]);
+    // window.socket.emit('chat message', this.state.message);
     this.setState({ message: '' });
   }
 
   render() {
-    // const { messages } = this.props;
+    const { messages } = this.props;
     return (
       <div>
         Chat Component
         <ul id="messages">
-          {/* <Messages messages={messages} /> */}
+          <Messages messages={messages} />
         </ul>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} id="messages" value={this.state.message} />
@@ -46,9 +47,9 @@ export default class Chat extends Component {
   }
 }
 
-// const Messages = ({ messages }) => {
-//   const messageList = messages.map(message => <li key={Date.now()}>{message[1]}</li>);
-//   return messageList;
-// };
+const Messages = ({ messages }) => {
+  const messageList = messages.map(message => <li>{message[1]}</li>);
+  return messageList;
+};
 
-// export default connect(msp)(Chat);
+export default connect(msp)(Chat);
