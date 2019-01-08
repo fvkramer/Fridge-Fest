@@ -67,7 +67,7 @@ class MainPage extends React.Component {
 
           <div className="details-div">
             <h2>What is Fridge Fest?</h2>
-            
+            <p>Fridge Fest is an all out multiplayer game in which your objective is to help your fridge collect as much food as possible.</p>
           </div>
         </div>
       </div>
