@@ -22,7 +22,7 @@ const handleCollision = (store, fridge, asset) => {
     store.dispatch({ type: 'INCREASE_COUNT', fridgeId: fridge.id, foodType: asset.type });
   }
 
-  if (asset.type === 'slow' || asset.type === 'fast') {
+  if (asset.type === 'slow') {
     store.dispatch({ type: 'REMOVE_SKILL', skillId: asset.id });
     const skill = {
       type: asset.type,
@@ -55,23 +55,19 @@ const handleCollision = (store, fridge, asset) => {
 
   if (asset.type === 'wall') {
     const { physics } = fridge;
-    physics.dLeft -= 2 * physics.dLeft;
-    physics.dRight -= 2 * physics.dRight;
-    physics.dUp -= 2 * physics.dUp;
-    physics.dDown -= 2 * physics.dDown;
+    physics.dLeft = 0;
+    physics.dRight = 0;
+    physics.dUp = 0;
+    physics.dDown = 0;
   }
 
   if (isEatTooMuch(fridge)) {
     store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: asset.speedOffset });
 
-    window.setTimeout(
-      () => store.dispatch({ type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: -asset.speedOffset }),
-      5000,
-    );
+    // window.setTimeout(() => store.dispatch(
+    //   { type: 'UPDATE_SPEED', fridgeId: fridge.id, speedOffset: -asset.speedOffset },
+    // ), 5000);
   }
-
-
-  // Add timer to react component //
 };
 
 export default handleCollision;

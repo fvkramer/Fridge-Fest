@@ -1,4 +1,3 @@
-
 export const isCollided = (asset1, asset2) => {
   if (asset1.type === 'floor' || asset2.type === 'floor') return false;
 
@@ -10,6 +9,14 @@ export const isCollided = (asset1, asset2) => {
   ) return true;
 
   return false;
+};
+
+export const resolveHitWall = (fridge) => {
+  const { physics } = fridge;
+  physics.dLeft = 0;
+  physics.dRight = 0;
+  physics.dUp = 0;
+  physics.dDown = 0;
 };
 
 export const randomFromRange = (min, max) => (
@@ -26,9 +33,12 @@ export const isRoundOver = (store, socketId) => {
   const milkshakeCount = fridge.milkshake;
   const snickerCount = fridge.snicker;
 
-  if (iRCount >= 1 && donutCount >= 1 && pizzaCount >= 1 && milkshakeCount >= 1 && snickerCount >= 1) {
-    return true;
-  }
-
+  if (
+    iRCount >= 1
+    && donutCount >= 1
+    && pizzaCount >= 1
+    && milkshakeCount >= 1
+    && snickerCount >= 1
+  ) return true;
   return false;
 };

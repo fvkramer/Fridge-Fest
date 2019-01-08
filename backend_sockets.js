@@ -1,14 +1,11 @@
-
 const makeBackground = require('./assets_factory/background_factory');
 const makeWalls = require('./assets_factory/wall_factory');
 const makeFood = require('./assets_factory/food_factory');
 const makeSkills = require('./assets_factory/skill_factory');
 
 // ======================================================================= //
+
 let fridgeIds = [];
-const {
-  instantRamen, pizza, donut, milkshake, snicker,
-} = makeFood();
 
 const setupSockets = io => (
   io.on('connection', (socket) => {
@@ -67,13 +64,15 @@ const setupSockets = io => (
       io.sockets.emit('chat message', data);
     });
 
+    socket.on('roundOver', () => {
+      io.sockets.emit('roundOver');
+      socket.emit('startGameIn5');
+
     socket.on('gameOver', () => {
       io.sockets.emit('gameOver');
     });
 
-    socket.on('roundOver', () => {
-      io.sockets.emit('roundOver');
-      socket.emit('startGameIn10s');
+ 
     });
   })
 );

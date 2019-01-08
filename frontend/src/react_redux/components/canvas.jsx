@@ -12,7 +12,14 @@ import '../../assets/css/abilities.scss';
 
 
 class Canvas extends Component {
-  componentDidMount() {}
+  componentWillUnmount() {
+    if (window.game) window.game = undefined;
+    delete window.game;
+    if (window.ctx) window.ctx = undefined;
+    delete window.ctx;
+    if (window.canvas) window.canvas = undefined;
+    delete window.canvas;
+  }
 
   render() {
     const { isRoundOver } = this.props;
@@ -44,7 +51,6 @@ class Canvas extends Component {
     );
   }
 }
-
 
 const mapStateToProps = ({ game }) => ({
   isRoundOver: game.isRoundOver,

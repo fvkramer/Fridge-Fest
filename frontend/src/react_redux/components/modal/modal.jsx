@@ -24,19 +24,22 @@ const Modal = ({ modal }) => {
   return (
     <div className="modal-background">
       <div className="modal-child">
-        { component}
+        {component}
       </div>
     </div>
   );
 };
 
+Modal.defaultProps = {
+  modal: null,
+};
 Modal.propTypes = {
-  modal: string.isRequired,
+  modal: string,
 };
 
 const mapStateToProps = ({ ui: { modal } }) => ({
   modal,
 });
 
-
 export default connect(mapStateToProps)(Modal);
+

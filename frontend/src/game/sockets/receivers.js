@@ -6,7 +6,6 @@ import { storeInSession, gameOver } from './socket_actions/store_in_session';
 
 const setupReceivers = (socket, store) => {
   socket.on('startGame', (data) => {
-    // debugger;
     handleStartGame(socket, store, data);
   });
 
@@ -66,14 +65,15 @@ const setupReceivers = (socket, store) => {
     storeInSession(store);
   });
 
+
   socket.on('gameOver', () => {
     gameOver(store);
   });
 
-  socket.on('startGameIn10s', () => {
+  socket.on('startGameIn5', () => {
     setTimeout(() => {
       socket.emit('startGame');
-    }, 10000);
+    }, 5000);
   });
 };
 

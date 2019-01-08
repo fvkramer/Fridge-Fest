@@ -51,4 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <Root store={store} />,
     document.getElementById('root'),
   );
+
+  window.TIMEOUTS = [];
+  window.TIME_INTERVALS = [];
 });

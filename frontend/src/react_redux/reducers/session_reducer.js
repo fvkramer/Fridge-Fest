@@ -21,10 +21,11 @@ const sessionReducer = (state = initialState, action) => {
       return Object.assign({}, initialState, { players: action.payload });
     case 'GAME_OVER':
       return Object.assign({}, initialState, { players: action.payload });
-    case 'PLAYER JOINED':
+    case 'PLAYER JOINED': {
       const receivedPlayers = initialState.activePlayers;
       receivedPlayers.push(action.player);
       return Object.assign({}, initialState, { activePlayers: receivedPlayers });
+    }
     default:
       return state;
   }

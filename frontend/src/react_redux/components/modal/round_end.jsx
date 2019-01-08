@@ -1,32 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { shape, number, string } from 'prop-types';
+import {
+  shape, number, string, func, arrayOf,
+} from 'prop-types';
 
 class RoundEnd extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      timer: 5,
-    };
+    this.state = { timer: 5 };
   }
 
   componentDidMount() {
-    const { timer } = this.state;
+    this.setState({ timer: 5 });
+    const { closeModal } = this.props;
 
-    this.timerInteval = window.setInterval(
-      () => this.setState({ timer: timer - 1 }),
-      1000,
-    );
+    this.roundEndInterval = window.setInterval(() => {
+      const { timer } = this.state;
+      if (timer === 0) closeModal();
+
+      this.setState({ timer: timer - 1 });
+    }, 1000);
   }
 
   componentWillUnmount() {
-    window.clearInterval(this.timerInteval);
+    clearInterval(this.roundEndInterval);
   }
 
   render() {
     const { timer } = this.state;
     const { playersInfo } = this.props;
+    // debugger;
 
     return (
       <>
@@ -46,16 +50,17 @@ class RoundEnd extends React.Component {
 }
 
 RoundEnd.propTypes = {
-  playersInfo: shape({
+  closeModal: func.isRequired,
+  playersInfo: arrayOf(shape({
     id: string,
     points: number,
-  }).isRequired,
+  })).isRequired,
 };
 
-const mapStateToProps = ({ game: { fridges } }) => {
-  const playersInfo = Object.values(fridges).map(fridge => ({
-    id: fridge.id,
-    points: fridge.points,
+const mapStateToProps = ({ session: { players } }) => {
+  const playersInfo = Object.keys(players).map(playerId => ({
+    id: playerId,
+    points: players[playerId],
   }));
 
   return {
@@ -63,4 +68,8 @@ const mapStateToProps = ({ game: { fridges } }) => {
   };
 };
 
-export default connect(mapStateToProps, null)(RoundEnd);
+const mapDispatchToProps = dispatch => ({
+  closeModal: () => dispatch({ type: 'CLOSE_MODAL' }),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoundEnd);

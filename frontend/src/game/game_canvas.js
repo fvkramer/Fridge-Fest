@@ -1,4 +1,4 @@
-import { isCollided, isRoundOver } from './util/util';
+import { isCollided, isRoundOver, resolveHitWall } from './util/util';
 
 export default class GameCanvas {
   constructor(socket, store, canvas, ctx) {
@@ -31,6 +31,10 @@ export default class GameCanvas {
             'collisionDetected',
             { fridgeId: fridge.id, assetId: allAssets[i].id },
           );
+
+          if (allAssets[i].type === 'wall') {
+            resolveHitWall(fridge);
+
           if (isRoundOver(this.store, this.socket.id)) {
             this.ctx.clearRect(
               0 - this.totalOffsetX, 0 - this.totalOffsetY,
@@ -44,7 +48,18 @@ export default class GameCanvas {
             } else {
               this.socket.emit('roundOver');
             }
+
           }
+        }
+        if (isRoundOver(this.store, this.socket.id)) {
+          this.ctx.clearRect(
+            0 - this.totalOffsetX, 0 - this.totalOffsetY,
+            this.canvas.width, this.canvas.height,
+          );
+          this.totalOffsetX = 0;
+          this.totalOffsetY = 0;
+          this.socket.emit('roundOver');
+          break;
         }
       }
     }
@@ -66,7 +81,7 @@ export default class GameCanvas {
 
       this.ctx.drawImage(
         sprite.image, sprite.srcX(), sprite.srcY(), sprite.width, sprite.height,
-        150 - 1 * this.totalOffsetX, 150 - 1 * this.totalOffsetY, sprite.width, sprite.height,
+        300 - 1 * this.totalOffsetX, 300 - 1 * this.totalOffsetY, sprite.width, sprite.height,
       );
     } else {
       this.ctx.drawImage(
