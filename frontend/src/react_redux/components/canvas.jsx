@@ -45,6 +45,9 @@ class Canvas extends Component {
         </div>
 
         <div className="pyramid-div">
+          <div className="pyramid-header">
+            <p className="pyramid-text">Food Collected</p>
+          </div>
           <FoodPyramid />
         </div>
 
