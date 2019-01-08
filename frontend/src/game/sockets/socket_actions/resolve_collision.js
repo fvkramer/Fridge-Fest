@@ -27,7 +27,7 @@ const handleCollision = (store, fridge, asset) => {
     const skill = {
       type: asset.type,
       speedOffset: asset.speedOffset,
-      src: '/game/Slow.png',
+      src: '/game/single_slow.png',
     };
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
@@ -37,7 +37,7 @@ const handleCollision = (store, fridge, asset) => {
     const skill = {
       type: asset.type,
       speedOffset: asset.speedOffset,
-      src: '/game/Fast.png',
+      src: '/game/single_fast.png',
     };
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
@@ -48,7 +48,7 @@ const handleCollision = (store, fridge, asset) => {
       type: 'teleport',
       positionX: asset.positionX,
       positionY: asset.positionY,
-      src: '/game/Teleport.png',
+      src: '/game/single_teleport.png',
     };
     store.dispatch({ type: 'PICKUP_SKILL', fridgeId: fridge.id, skill });
   }
