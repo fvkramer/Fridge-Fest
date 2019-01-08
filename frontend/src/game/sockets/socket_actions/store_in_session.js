@@ -39,6 +39,7 @@ export const gameOver = (store) => {
   });
 
   // store.dispatch({ type: 'ROUND_OVER', payload });
+  store.dispatch({ type: 'GAME_OVER', payload });
   store.dispatch({ type: 'OPEN_MODAL', modal: 'gameEnd' });
   store.dispatch({ type: 'CLEAR_GAME' });
 };
