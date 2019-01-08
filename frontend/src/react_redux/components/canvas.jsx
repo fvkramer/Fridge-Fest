@@ -12,23 +12,33 @@ import '../../assets/css/abilities.scss';
 
 
 class Canvas extends Component {
-  componentWillUnmount() {
-    if (window.game) window.game = undefined;
-    delete window.game;
-    if (window.ctx) window.ctx = undefined;
-    delete window.ctx;
-    if (window.canvas) window.canvas = undefined;
-    delete window.canvas;
+  constructor() {
+    super();
+    this.audioRef = React.createRef();
 
-    window.myTimeOuts.forEach((key) => {
-      window.clearTimeout(window.myTimeOuts[key]);
-    });
+    this.play = this.play.bind(this);
+  }
+
+  play() {
+    this.audioRef.current.play();
   }
 
   render() {
     const { isRoundOver } = this.props;
-    if (isRoundOver) return null;
+    if (isRoundOver) {
+      if (window.game) window.game = undefined;
+      delete window.game;
+      if (window.ctx) window.ctx = undefined;
+      delete window.ctx;
+      if (window.canvas) window.canvas = undefined;
+      delete window.canvas;
 
+      Object.keys(window.myTimeOuts).forEach((key) => {
+        window.clearTimeout(window.myTimeOuts[key]);
+      });
+
+      return null;
+    }
     return (
       <div className="outer">
         <Modal />
@@ -50,7 +60,11 @@ class Canvas extends Component {
           <FoodPyramid />
         </div>
 
-
+        <audio
+          src="/game/fridge-fest-loop.mp3"
+          ref={this.audioRef}
+          onLoadedMetadata={this.play}
+        />
       </div>
     );
   }
