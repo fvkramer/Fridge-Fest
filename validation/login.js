@@ -15,7 +15,6 @@ module.exports = function validateLoginInput(data) {
     errors.password = 'Password is empty';
   }
 
-
   return {
     errors,
     isValid: Object.keys(errors).length === 0,

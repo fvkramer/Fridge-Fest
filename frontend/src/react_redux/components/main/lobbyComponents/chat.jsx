@@ -40,8 +40,8 @@ class Chat extends Component {
           <Messages messages={messages} />
         </ul>
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} id="messages" value={this.state.message} />
-          <input type="submit" value="Send" />
+          <input onChange={this.handleChange} value={this.state.message} />
+          <button type="submit">Send</button>
         </form>
       </div>
     );
