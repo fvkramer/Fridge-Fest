@@ -1,48 +1,51 @@
 const express = require('express');
-
-const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const User = require('../../models/User');
+
 const { secretOrKey } = require('../../config/keys');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const User = require('../../models/User');
 
-router.get('/test', (req, res) => res.json({ msg: 'User has entered the game' }));
-
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-  res.json({
-    id: req.user.id,
-    handle: req.user.handle,
-    email: req.user.email,
-  });
-});
+const router = express.Router();
 
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
   if (!isValid) {
-    return res.status(400).json(errors);
+    res.status(400).json(errors);
+    return;
   }
 
   User.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
-        return res.status(400).json({ username: 'Username taken' });
+        res.status(400).json({ username: 'Username taken' });
+        return;
       }
-      newUser = new User({
+
+      const newUser = new User({
         username: req.body.username,
         password: req.body.password,
       });
 
       bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
+        bcrypt.hash(newUser.password, salt, (bcryptErr, hash) => {
+          if (bcryptErr) throw bcryptErr;
           newUser.password = hash;
           newUser.save()
-            .then(user => res.json(user))
-            .catch(err => console.log(err));
+            .then((savedUser) => {
+              const payload = { id: savedUser.id, username: savedUser.username };
+
+              jwt.sign(payload, secretOrKey, { expiresIn: 3600 }, (jwtErr, token) => {
+                res.json({
+                  success: true,
+                  token: `Bearer ${token}`,
+                });
+              });
+            })
+            .catch(anyErr => console.log(anyErr));
         });
       });
     });
@@ -52,37 +55,43 @@ router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   if (!isValid) {
-    return res.status(400).json(errors);
+    res.status(400).json(errors);
+    return;
   }
 
-  const { username } = req.body;
-  const { password } = req.body;
+  const { username, password } = req.body;
 
   User.findOne({ username })
     .then((user) => {
       if (!user) {
-        return res.status(404).json({ username: 'Incorrect username' });
+        res.status(404).json({ username: 'Incorrect username' });
+        return;
       }
+
       bcrypt.compare(password, user.password)
         .then((isMatch) => {
           if (!isMatch) {
-            return res.status(404).json({ password: 'Incorrect password' });
+            res.status(404).json({ password: 'Incorrect password' });
+            return;
           }
+
           const payload = { id: user.id, username: user.username };
 
-          jwt.sign(
-            payload,
-            secretOrKey,
-            { expiresIn: 3600 },
-            (err, token) => {
-              res.json({
-                success: true,
-                token: `Bearer ${token}`,
-              });
-            },
-          );
+          jwt.sign(payload, secretOrKey, { expiresIn: 3600 }, (err, token) => {
+            res.json({
+              success: true,
+              token: `Bearer ${token}`,
+            });
+          });
         });
     });
+});
+
+router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+  res.json({
+    id: req.user.id,
+    username: req.user.username,
+  });
 });
 
 
