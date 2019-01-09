@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import { bool } from 'prop-types';
+
 import Abilities from './gameOverlay/abilities';
 import FoodPyramid from './gameOverlay/foodPyramid';
 import Modal from './modal/modal';
@@ -61,6 +63,10 @@ class Canvas extends Component {
     );
   }
 }
+
+Canvas.propTypes = {
+  isRoundOver: bool.isRequired,
+};
 
 const mapStateToProps = ({ game }) => ({
   isRoundOver: game.isRoundOver,

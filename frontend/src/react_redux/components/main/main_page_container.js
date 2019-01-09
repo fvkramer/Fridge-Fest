@@ -3,9 +3,15 @@ import { logout } from '../../actions/session_actions';
 
 import MainPage from './main_page';
 
-const mapStateToProps = ({ session: { isAuthenticated } }) => ({
-  loggedIn: isAuthenticated,
-});
+const mapStateToProps = ({ session: { isAuthenticated, user } }) => {
+  let username;
+  if (user) ({ username } = user);
+
+  return {
+    loggedIn: isAuthenticated,
+    username,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),

@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  func, instanceOf, oneOf, bool,
-} from 'prop-types';
+import { func, instanceOf, oneOf } from 'prop-types';
 
 import './session_form.scss';
 
@@ -20,18 +18,13 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { errors, loggedIn } = nextProps;
-    const { history } = this.props;
+    const { errors } = nextProps;
     this.setState({
       username: '',
       password: '',
       password2: '',
       errors,
     });
-
-    if (loggedIn) {
-      history.push('/lobby');
-    }
   }
 
   update(field) {
@@ -100,8 +93,6 @@ SessionForm.propTypes = {
   formType: oneOf(['LOG IN', 'SIGN UP']).isRequired,
   errors: instanceOf(Object).isRequired,
   processForm: func.isRequired,
-  loggedIn: bool.isRequired,
-  history: instanceOf(Object).isRequired,
 };
 
 export default SessionForm;

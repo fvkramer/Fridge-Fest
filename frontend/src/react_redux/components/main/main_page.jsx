@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Switch } from 'react-router-dom';
-import { func, bool } from 'prop-types';
+import { func, bool, string } from 'prop-types';
 
 import { AuthRoute } from '../../util/route_util';
 import LoginFormContainer from '../session_form/login_form_container';
@@ -17,14 +17,17 @@ class MainPage extends React.Component {
   }
 
   getLinks() {
-    const { loggedIn } = this.props;
+    const { loggedIn, username } = this.props;
 
     if (loggedIn) {
       return (
-        <>
-          <p>LoggedIn as ...</p>
-          <Link className="main-page-link" to="/" onClick={this.logoutUser}>Logout</Link>
-        </>
+        <div className="main-page-link-container" style={{ width: '100%', marginLeft: '0px' }}>
+          <p className="main-page-link" style={{ color: 'white' }}>{`Hello ${username}!`}</p>
+
+          <Link className="main-page-link" to="/">Home</Link>
+          <Link className="main-page-link" to="/lobby">Lobby</Link>
+          <Link to="/" className="main-page-link" onClick={this.logoutUser}>Logout</Link>
+        </div>
       );
     }
     return (
@@ -75,6 +78,7 @@ class MainPage extends React.Component {
 }
 
 MainPage.propTypes = {
+  username: string.isRequired,
   logout: func.isRequired,
   loggedIn: bool.isRequired,
 };

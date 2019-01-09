@@ -9,11 +9,13 @@ export const setAuthToken = (token) => {
 };
 
 export const signup = userData => axios.post(
-  '/api/users/signup',
+  // '/api/users/register',
+  'http://localhost:5000/api/users/register',
   userData,
 );
 
 export const login = userData => axios.post(
-  '/api/users/login',
+  // '/api/users/login',
+  'http://localhost:5000/api/users/login',
   userData,
 );
