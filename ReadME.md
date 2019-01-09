@@ -15,13 +15,13 @@ LIVE LINK
 
 To test the game in development,
 
-git pull 
+`git clone https://github.com/fvkramer/Fridge-Fest.git` 
 
 
-npm install
+`npm install`
 
 
-npm run dev
+`npm run dev`
 
 Click on 'Demo' in the login screen.
 
