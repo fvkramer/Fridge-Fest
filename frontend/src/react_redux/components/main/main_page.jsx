@@ -26,7 +26,7 @@ class MainPage extends React.Component {
     if (loggedIn) {
       return (
         <div className="main-page-link-container" style={{ width: '100%', marginLeft: '0px' }}>
-          <p className="main-page-link" style={{ color: 'white' }}>{`Hello ${username}!`}</p>
+          <p className="main-page-username" style={{ color: 'white' }}>{`Hello ${username}!`}</p>
 
           <Link className="main-page-link" to="/">Home</Link>
           <Link className="main-page-link" to="/lobby">Lobby</Link>
