@@ -88,6 +88,7 @@ const setupSockets = io => (
 
     socket.on('chat message', (data) => {
       io.sockets.emit('chat message', data);
+      console.log(data);
     });
 
     socket.on('gameOver', () => {

@@ -1,11 +1,44 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class PlayersLoaded extends Component {
+const msp = state => ({
+  players: state.session.activePlayers,
+  length: state.session.activePlayers.length,
+});
+
+
+class PlayersLoaded extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {};
+  }
+
   componentDidMount() { }
 
   render() {
     return (
-      <div> Loaded Players Component</div>
+      <div className="players-loaded-container">
+        {/* Loaded Players Component */}
+        <h2 className="players-header">Players In Lobby:</h2>
+        <ul id="receivedPlayers">
+          <ActivePlayers players={this.props.players} />
+        </ul>
+      </div>
     );
   }
 }
+
+const ActivePlayers = ({ players }) => {
+  const playerList = players.map(player => (
+    <li>
+      {player}
+      Has Joined The Game!
+    </li>
+  ));
+  return (
+    playerList
+  );
+};
+
+export default connect(msp)(PlayersLoaded);

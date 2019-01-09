@@ -25,6 +25,7 @@ class Chat extends Component {
 
   handleSubmit(event) {
     event.preventDefault('');
+
     window.socket.emit('chat message', [window.socket.id, this.state.message]);
     // window.socket.emit('chat message', this.state.message);
     this.setState({ message: '' });
@@ -33,14 +34,14 @@ class Chat extends Component {
   render() {
     const { messages } = this.props;
     return (
-      <div>
-        Chat Component
+      <div className="chat-container">
+        {/* Chat Component */}
         <ul id="messages">
           <Messages messages={messages} />
         </ul>
         <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} id="messages" value={this.state.message} />
-          <input type="submit" value="Send" />
+          <input onChange={this.handleChange} value={this.state.message} />
+          <button type="submit">Send</button>
         </form>
       </div>
     );
@@ -48,7 +49,7 @@ class Chat extends Component {
 }
 
 const Messages = ({ messages }) => {
-  const messageList = messages.map(message => <li>{message[1]}</li>);
+  const messageList = messages.map(message => <li className="individual-msg">{message[1]}</li>);
   return messageList;
 };
 

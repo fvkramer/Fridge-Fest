@@ -1,79 +1,56 @@
-# Fridge Fest
 
-## Background & Overview
+# Description and Goals
 
-Fridge Fest is a multiplayer online browser game. Each player is rendered on screen as a Fridge with the goal of collecting the required food items. Players can pick up food items, find them in crates, or steal them from other players. There are five rounds to the game. Each round ends after a player collects the specified food items. Each food item is worth 1 point and the point totals carry over through each round. After 5 rounds, the game ends and a scoreboard displaying each player's points is shown.
+Fridge Fest is an online multiplayer HTML5 game. Each player is rendered as a fridge and the goal of the game is to collect the appropriate amount of food items. A round ends after a player collects all the necessary items. Points are tallied based on how much food each person collected during the round and after five rounds, a winner is declared based on the cumulative sum of food collected. 
 
-## Functionality & MVPs
-+ html5 canvas rendering at 30 fps
-+ user authentication
-+ saving player information to database
-+ multi-player canvas rendering
-+ real-time player interactions and movement
-+ state management of multiple game components that effects each other
-+ production readme
+Players can also pick up items to interact with their environment and other players. The teleport ability places the player in a random position on screen. The speed ability increases the player's movement. The slow and lightning ability affect all other players' movements speeds. 
 
-+ User Auth
-  + User information saved and persisted in database
-+ Render basic canvas with sprites present
-  + Contorllable player sprite
-  + Movable viewport (camera)
-+ Multiplayer functionality
-  + Realtime sprite movement sync across all player canvasses
-  + Food items with full funcitonality (collectable, spawning, sprites)
-  + Score tally
-  + Time limit set - game ends when time is up
-  + Power-ups with full functionality (collectable, spawning from crates, sprites)
-  + Player interaction with food items, power-ups and other players
-+ Production README
+# How To Use
 
-## Technology & Challenges
-+ Express/mongoose
-+ Redux/canvas
-+ Socket IO
+The simplest way to use the app is through the live link.
 
-The main challenge of the app is connecting socket compoent with redux state and dynamic rendering on canvas
+LIVE LINK
 
-## Accomplished over the weekend
-+ User signin & authentication
-+ Backend set up
-+ frontend folder structure with canvas and sprite display
+[Fridge Fest](https://fridge-fest-test.herokuapp.com/)
 
-## Group members & Work breakdown
+To test the game in development,
 
-### Day 1
-+ Connect frontend socket to backend - Bao & Filipp
-+ Object movement thru socket event - Bao & Filipp
-+ Create sprites(fridge, crate) - Chase
-+ Determine overal state shape - Bao & Filipp
+`git clone https://github.com/fvkramer/Fridge-Fest.git` 
 
-### Day 2
-+ Create constrained viewport for each player - Filipp
-+ Finish all the sprites and start working on game music - Chase
-+ Make game logic for all food items (donut, instant ramen, milkshake, pizza, snickers) - Bao
 
-### Day 3
-+ Create constrained viewport for each player(cont.) - Filipp
-+ Finish game music and implementation - Chase
-+ Continue working on game logic for fridge, abilities, and items - Bao
-+ Fridge interaction with food items - Bao
+`npm install`
 
-### Day 4
-+ Special abilities(lighiting, slow, speed, teleport) - Bao & Filipp
-+ Make crate interactable - Chase
 
-### Day 5
-+ Add internal logic to determine when the game is over - Chase
-+ Landing page(login , demo, instructions, new game, etc.) - Chase
-+ Instruction modal comopent (Chase)
-+ Send game results(highscore) back to the database, continue current round(5 rounds max) - Bao & Filipp
+`npm run dev`
 
-### Day 6
-+ Send game results(highscore) back to the database, continue current round(5 rounds max) - Filipp
-+ Instruction modal comopent -Chase
-+ Work on front lobby(react/redux) - Bao
+Click on 'Demo' in the login screen.
 
-### Day 7
-+ Connect each component together - Bao
-+ production Readme - Filipp
-+ refactor/finishing touches -Chase
+# Technology Used
+
+This game was built with the following technology:
+
+ Sockets.io
+ Node.js
+ ReactJS
+ ReduxJS
+ HTML5 Canvas
+
+# Technical Implementation 
+  
+  Clients usually interact with servers by sending HTTP requests and receiving responses. This is a unidirectional flow that depends on clients initiating the interaction. Multiplayer games require consistent communication between all connected client components and the server. In this regard, web sockets were used.
+
+  Web Sockets provide bidirectional communication over a TCP connection. When a server is passed into a socket connection, the regalar HTTP protocol changes to a WebSocket protocol. 
+
+  ![alt text](https://www.pubnub.com/static/images/get-started/websockets_guides.png) 
+
+
+  As shown in the above diagram, when a client opens the application, a "handshake" is initiated between the client and the server. Each client connection can be emitted to all other connected clients, hence providing a schema for multiplayer games/interactions. 
+
+  We broadcast each socket connection to the frontend where we store all socket connections in a global redux state. This state updates each connected player's state, telling them what to render, what items have been removed, and what players are connected as well as their position on the screen. 
+
+  Each item interaction as well as special ability interactions are socket events. These events get emitted from the frontend to the backend. The backend sockets emit to each connection on the frontend, and then actions are dispatched to update each player's redux state. This updates canvas rendering. 
+
+
+
+
+

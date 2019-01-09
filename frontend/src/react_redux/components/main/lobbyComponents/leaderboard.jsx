@@ -5,7 +5,9 @@ export default class LeaderBoard extends Component {
 
   render() {
     return (
-      <div> Leaderboard Component </div>
+      <div className="leaderboard-container">
+        <h2 className="leaderboard-header">Leaderboard: </h2>
+      </div>
     );
   }
 }

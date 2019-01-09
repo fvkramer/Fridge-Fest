@@ -7,6 +7,9 @@ import Chat from './lobbyComponents/chat';
 
 import { setupGameSockets } from '../../../game/sockets/sockets';
 
+// css
+import '../../../assets/css/lobby.scss';
+
 export default class Lobby extends Component {
   componentDidMount() {
     setupGameSockets(window.store);
@@ -14,11 +17,24 @@ export default class Lobby extends Component {
 
   render() {
     return (
-      <div>
-        <WaitingForPlayer />
-        <LeaderBoard />
-        <PlayersLoaded />
-        <Chat />
+      <div className="lobby-container">
+          <div className="lobby-components">
+            <div className="lobby-header">
+            <h1 className="ff-lobby-header">Fridge Fest Lobby</h1>
+            </div>
+            <div className="player-waiting">
+              <WaitingForPlayer />
+            </div>
+
+            <div className="right-lobby-pos">
+              <LeaderBoard />
+              
+              <div className="right-lobby">
+              <PlayersLoaded />
+              <Chat />
+              </div>
+            </div>
+          </div>
       </div>
     );
   }
