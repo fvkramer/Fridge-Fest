@@ -19,7 +19,8 @@ class PlayersLoaded extends Component {
   render() {
     return (
       <div className="players-loaded-container">
-        Loaded Players Component
+        {/* Loaded Players Component */}
+        <h2 className="players-header">Players In Lobby:</h2>
         <ul id="receivedPlayers">
           <ActivePlayers players={this.props.players} />
         </ul>
