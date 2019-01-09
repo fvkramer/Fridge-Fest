@@ -25,6 +25,7 @@ class Chat extends Component {
 
   handleSubmit(event) {
     event.preventDefault('');
+
     window.socket.emit('chat message', [window.socket.id, this.state.message]);
     // window.socket.emit('chat message', this.state.message);
     this.setState({ message: '' });
@@ -33,7 +34,7 @@ class Chat extends Component {
   render() {
     const { messages } = this.props;
     return (
-      <div>
+      <div className="chat-container">
         Chat Component
         <ul id="messages">
           <Messages messages={messages} />

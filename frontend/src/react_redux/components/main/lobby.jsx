@@ -7,6 +7,9 @@ import Chat from './lobbyComponents/chat';
 
 import { setupGameSockets } from '../../../game/sockets/sockets';
 
+// css
+import '../../../assets/css/lobby.scss';
+
 export default class Lobby extends Component {
   componentDidMount() {
     setupGameSockets(window.store);
@@ -14,7 +17,7 @@ export default class Lobby extends Component {
 
   render() {
     return (
-      <div>
+      <div className="lobby-container">
         <WaitingForPlayer />
         <LeaderBoard />
         <PlayersLoaded />
