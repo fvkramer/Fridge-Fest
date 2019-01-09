@@ -37,7 +37,7 @@
   text-align: center;
   margin: auto;
   width: 1000px;
-  height: 1500px;
+  height: 1300px;
   background-color: rgba(40, 44, 52, 0.5);
   display: flex;
   flex-direction: column;
@@ -62,9 +62,9 @@
 
 .details-div {
   width: 800px;
-  height: 800px;
-  outline: 1px solid red;
-  margin: 100px auto 50px auto;
+  height: 900px;
+  padding: 10px;
+  margin: 70px auto 50px auto;
   background-color: rgba(40, 44, 52, 0.8);
   color: #F1E8DE;
 
