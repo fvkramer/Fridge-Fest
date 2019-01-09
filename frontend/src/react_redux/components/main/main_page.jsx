@@ -76,14 +76,31 @@ class MainPage extends React.Component {
             <p>The fridge you control is mounted on treads, wearing a Hidden Leaf Village headband, and has a penchant for running with its
               arms flailing behind. It will also keep your food nice and cool.
             </p>
+            <div className="fridge"></div>
+
 
             <h2>The Food</h2>
             <p>There are 5 varieties of food to collect. The amounts of each food you must collect vary, and can be kept track of using the Food Collection Board.</p>
 
+            <div className="food-div">
+              <div className="food main-pizza"></div>
+              <div className="food main-donut"></div>
+              <div className="food main-ramen"></div>
+              <div className="food main-milkshake"></div>
+              <div className="food main-chocolate"></div>
+            </div>
+
             <h2>The Powerups</h2>
             <p>Your fridge can use 4 different powers during each round to either aid yourself or hinder your opponents.</p>
 
+            <div className="powerup-div">
+              <div className="main-fast"></div>
+              <div className="main-teleport"></div>
+              <div className="main-slow"></div>
+              <div className="main-lightning"></div>
+            </div>
 
+            <h3>Best of luck in the Fridge Fest!</h3>
           </div>
         </div>
       </div>
