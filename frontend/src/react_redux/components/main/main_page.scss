@@ -189,7 +189,8 @@
 
 .detail-header {
   display: flex;
-  
+  flex-direction: row;
+  justify-content: center;
 }
 
 .instructions {
@@ -199,5 +200,20 @@
   background-repeat: no-repeat;
   width: 405px;
   height: 78px;
-  margin: auto;
+  margin-right: 40px;
+}
+
+.demo-button {
+  font-family: 'minecraftmedium';
+  font-size: 30px;
+  width: 160px;
+  background-color: #EF161A;
+  outline: 0;
+  border: 0;
+  border-radius: 20px;
+  line-height: 78px;
+}
+
+.demo-button:hover {
+  cursor: pointer;
 }
