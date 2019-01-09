@@ -6,7 +6,6 @@ import { AuthRoute } from '../../util/route_util';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 
-import logo from './logo.svg';
 import './main_page.scss';
 
 class MainPage extends React.Component {
@@ -60,9 +59,9 @@ class MainPage extends React.Component {
           </header>
         </div>
         <div className="main-page">
-            
+
           <div className="ff-sign">
-          <h1 className="fridge-fest-logo">Fridge Fest</h1>
+            <h1 className="fridge-fest-logo">Fridge Fest</h1>
           </div>
 
           <div className="details-div">

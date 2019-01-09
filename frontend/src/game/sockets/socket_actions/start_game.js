@@ -68,6 +68,7 @@ const handleStartGame = (socket, store, {
     window.ctx = window.canvas.getContext('2d');
     window.game = new GameCanvas(socket, store, window.canvas, window.ctx);
     window.game.draw(10);
+    document.querySelector('audio').play();
   }, 1000);
 };
 

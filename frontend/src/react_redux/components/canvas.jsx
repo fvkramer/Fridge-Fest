@@ -12,15 +12,8 @@ import '../../assets/css/abilities.scss';
 
 
 class Canvas extends Component {
-  constructor() {
-    super();
-    this.audioRef = React.createRef();
+  componentDidMount() {
 
-    this.play = this.play.bind(this);
-  }
-
-  play() {
-    this.audioRef.current.play();
   }
 
   render() {
@@ -63,11 +56,7 @@ class Canvas extends Component {
           <FoodPyramid />
         </div>
 
-        <audio
-          src="/game/fridge-fest-loop.mp3"
-          ref={this.audioRef}
-          onLoadedMetadata={this.play}
-        />
+        <audio src="/game/fridge-fest-loop.mp3" />
       </div>
     );
   }
