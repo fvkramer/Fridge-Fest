@@ -37,7 +37,7 @@
   text-align: center;
   margin: auto;
   width: 1000px;
-  height: 1300px;
+  height: 1350px;
   background-color: rgba(40, 44, 52, 0.5);
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  margin: 10px auto 0px auto;
+  margin: 10px auto 0 auto;
   display: flex;
 }
 
@@ -64,27 +64,27 @@
   width: 800px;
   height: 900px;
   padding: 10px;
-  margin: 70px auto 50px auto;
+  margin: 5px auto 30px auto;
   background-color: rgba(40, 44, 52, 0.8);
   color: #F1E8DE;
-
+  
   h2 {
     font-size: 40px;
     margin-top: 25px;
     margin-bottom: 10px;
   }
-
+  
   h3 {
     font-size: 35px;
     font-weight: 0;
     margin-top: 70px;
   }
-
+  
   p {
     font-family: 'vcr_osd_monoregular';
     font-size: 18px;
   }
-
+  
   .fridge {
     background-image: url('./images/fridge.png');
     background-size: cover;
@@ -93,7 +93,7 @@
     width: 68px;
     margin: 20px auto;
   }
-
+  
   .food-div {
     display: flex;
     flex-direction: row;
@@ -101,11 +101,11 @@
     width: 500px;
     margin: 20px auto;
   }
-
+  
   .food {
     margin: auto, 0;
   }
-
+  
   .main-pizza {
     background-image: url('./images/Pizza.png');
     background-size: cover;
@@ -113,7 +113,7 @@
     height: 50px;
     width: 50px;
   }
-
+  
   .main-donut {
     background-image: url('./images/Donut.png');
     background-size: cover;
@@ -121,7 +121,7 @@
     height: 40px;
     width: 44px;
   }
-
+  
   .main-ramen {
     background-image: url('./images/Ramen.gif');
     background-size: cover;
@@ -129,7 +129,7 @@
     height: 47px;
     width: 38px;
   }
-
+  
   .main-milkshake {
     background-image: url('./images/Milkshake.png');
     background-size: cover;
@@ -137,7 +137,7 @@
     height: 46px;
     width: 22px;
   }
-
+  
   .main-chocolate {
     background-image: url('./images/Candy_Bar.png');
     background-size: cover;
@@ -145,7 +145,7 @@
     height: 41px;
     width: 46px;
   }
-
+  
   .powerup-div {
     display: flex;
     flex-direction: row;
@@ -153,7 +153,7 @@
     width: 500px;
     margin: 20px auto;
   }
-
+  
   .main-fast {
     background-image: url('./images/Fast.gif');
     background-size: cover;
@@ -161,7 +161,7 @@
     height: 38px;
     width: 44px;
   }
-
+  
   .main-teleport {
     background-image: url('./images/Teleport.gif');
     background-size: cover;
@@ -169,7 +169,7 @@
     height: 44px;
     width: 44px;
   }
-
+  
   .main-slow {
     background-image: url('./images/Slow.gif');
     background-size: cover;
@@ -177,7 +177,7 @@
     height: 44px;
     width: 38px;
   }
-
+  
   .main-lightning {
     background-image: url('./images/Lightning.png');
     background-size: cover;
@@ -185,4 +185,19 @@
     height: 42px;
     width: 24px;
   }
+}
+
+.detail-header {
+  display: flex;
+  
+}
+
+.instructions {
+  background-image: url('./Instructions.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 405px;
+  height: 78px;
+  margin: auto;
 }
