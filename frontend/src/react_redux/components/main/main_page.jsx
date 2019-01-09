@@ -6,6 +6,8 @@ import { AuthRoute } from '../../util/route_util';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 
+import { setupGameSockets } from '../../../game/sockets/sockets';
+
 import logo from './logo.svg';
 import './main_page.scss';
 
@@ -38,6 +40,11 @@ class MainPage extends React.Component {
     );
   }
 
+  handleDemo(e) {
+    setupGameSockets(window.store);
+    window.startGame();
+  }
+
   logoutUser(e) {
     e.preventDefault();
 
@@ -68,7 +75,7 @@ class MainPage extends React.Component {
           <div className="detail-header">
             <div className="instructions" />
 
-            <button className="demo-button">Try Out!</button>
+            <Link to="/game"><button className="demo-button" onClick={this.handleDemo}>Demo!</button></Link>
           </div>
 
           <div className="details-div">
@@ -77,13 +84,13 @@ class MainPage extends React.Component {
 Fridge Fest is an all out multiplayer game in which your objective is to help your fridge collect as much food as possible.
               The first fridge to collect the required amount of food each round wins that round, and each fridge is assigned points based
               on the kind and how much was collected. After 5 rounds, the points are tallied and a winner is declared.
-</p>
+            </p>
 
             <h2>The Fridge</h2>
             <p>
 The fridge you control is mounted on treads, wearing a Hidden Leaf Village headband, and has a penchant for running with its
               arms flailing behind. It will also keep your food nice and cool.
-</p>
+            </p>
             <div className="fridge" />
 
 
