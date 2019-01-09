@@ -29,32 +29,33 @@ class RoundEnd extends React.Component {
 
   render() {
     const { timer } = this.state;
-    const { playersInfo } = this.props;
-    // debugger;
+    // const { playersInfo } = this.props;
 
     return (
-      <>
-        hello
-        <ul>
+      <div className="details-div">
+        {/* <ul>
           {playersInfo.map(player => (
             <li key={player.id}>
               {`${player.id}: ${player.points}`}
             </li>
           ))}
-        </ul>
+        </ul> */}
 
-        <button type="button">{`New Round In: ${timer} seconds`}</button>
-      </>
+        {/* <p>{`New Round In: ${timer} seconds`}</p> */}
+        <h2>New Round In:</h2>
+        <h2>{timer}</h2>
+        <p>Score board is being implemented</p>
+      </div>
     );
   }
 }
 
 RoundEnd.propTypes = {
   closeModal: func.isRequired,
-  playersInfo: arrayOf(shape({
-    id: string,
-    points: number,
-  })).isRequired,
+  // playersInfo: arrayOf(shape({
+  //   id: string,
+  //   points: number,
+  // })).isRequired,
 };
 
 const mapStateToProps = ({ session: { players } }) => {

@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link, Switch } from 'react-router-dom';
-import { func, bool } from 'prop-types';
+import { func, bool, string } from 'prop-types';
 
 import { AuthRoute } from '../../util/route_util';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 
+import './main_page.scss';
+
 import { setupGameSockets } from '../../../game/sockets/sockets';
 
 import logo from './logo.svg';
-import './main_page.scss';
+
+
 
 class MainPage extends React.Component {
   constructor() {
@@ -20,14 +23,17 @@ class MainPage extends React.Component {
   }
 
   getLinks() {
-    const { loggedIn } = this.props;
+    const { loggedIn, username } = this.props;
 
     if (loggedIn) {
       return (
-        <>
-          <p>LoggedIn as ...</p>
-          <Link className="main-page-link" to="/" onClick={this.logoutUser}>Logout</Link>
-        </>
+        <div className="main-page-link-container" style={{ width: '100%', marginLeft: '0px' }}>
+          <p className="main-page-link" style={{ color: 'white' }}>{`Hello ${username}!`}</p>
+
+          <Link className="main-page-link" to="/">Home</Link>
+          <Link className="main-page-link" to="/lobby">Lobby</Link>
+          <Link to="/" className="main-page-link" onClick={this.logoutUser}>Logout</Link>
+        </div>
       );
     }
     return (
@@ -76,6 +82,7 @@ class MainPage extends React.Component {
             <div className="instructions" />
 
             <Link to="/game"><button className="demo-button" onClick={this.handleDemo}>Demo!</button></Link>
+
           </div>
 
           <div className="details-div">
@@ -124,6 +131,7 @@ The fridge you control is mounted on treads, wearing a Hidden Leaf Village headb
 }
 
 MainPage.propTypes = {
+  username: string.isRequired,
   logout: func.isRequired,
   loggedIn: bool.isRequired,
 };
