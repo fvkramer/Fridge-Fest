@@ -13,6 +13,14 @@
   }
 }
 
+.lobby-components {
+  width: 1400px;
+  height: 1000px;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
 
 //Waiting Players
 //////////////////
@@ -24,13 +32,11 @@
 /////////
 
 .leaderboard-container {
-  width: 800px;
+  width: 400px;
   height: 700px;
   border: 3px solid black;
   background: rgba(201, 197, 197, 0.5);
-  position: absolute;
-  top: 20%;
-  left: 10%;
+
 }
 
 ///PlayersLoaded
@@ -43,9 +49,7 @@
   height: 500px;
   border: 1px solid black;
   background: pink;
-  position: absolute;
-  top: 20%;
-  right: 0%;
+
 }
 
 
@@ -59,10 +63,7 @@
   width: 500px;
   height: 300px;
   border: 1px solid black;
-  position: absolute;
   background: white;
-  bottom: 0%;
-  right: 0%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
