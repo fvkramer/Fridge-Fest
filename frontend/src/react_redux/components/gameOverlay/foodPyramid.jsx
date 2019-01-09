@@ -38,7 +38,7 @@ function FridgeDefinedContainer(props) {
       </div>
       <div className="food-container-subclass">
         <div className="food-item-container">{`Milk Shake: ${props.currentFridge.milkshake}`}</div>
-        <div className="food-item-progress-bar milkshake" style={{ width: `${props.currentFridge.milkshake * 33.33}%` }} />
+        <div className="food-item-progress-bar milkshake" style={{ width: `${props.currentFridge.milkshake * 33.4}%` }} />
       </div>
       <div className="food-container-subclass">
         <div className="food-item-container">{`Snickers: ${props.currentFridge.snicker}`}</div>
