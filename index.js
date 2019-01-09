@@ -5,11 +5,13 @@ const passport = require('passport');
 const path = require('path');
 
 const app = express();
+
 const httpServer = require('http').Server(app);
 const io = require('socket.io')(httpServer);
 const users = require('./routes/api/users');
 const scoreboard = require('./routes/api/scoreboard');
 const db = require('./config/keys').mongoURI;
+
 const setupSockets = require('./backend_sockets');
 
 const port = process.env.PORT || 5000;
@@ -23,7 +25,6 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('./assets'));
-
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));

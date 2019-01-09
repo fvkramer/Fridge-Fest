@@ -12,7 +12,7 @@ import { logout } from './react_redux/actions/session_actions';
 import './index.css';
 
 // for development
-import { setupGameSockets } from './game/sockets/sockets';
+// import { setupGameSockets } from './game/sockets/sockets';
 // for development
 
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.store = store;
 
   // testing
-  window.getState = store.getState;
+  // window.getState = store.getState;
 
   ReactDOM.render(
     <Root store={store} />,
