@@ -11,6 +11,8 @@ The simplest way to use the app is through the live link.
 
 LIVE LINK
 
+[Fridge Fest](https://fridge-fest-test.herokuapp.com/)
+
 To test the game in development,
 
 git pull 
@@ -23,7 +25,7 @@ npm run dev
 
 Click on 'Demo' in the login screen.
 
-Technology Used
+# Technology Used
 
 This game was built with the following technology:
 
@@ -33,13 +35,13 @@ This game was built with the following technology:
  ReduxJS
  HTML5 Canvas
 
-#Technical Implementation 
+# Technical Implementation 
   
   Clients usually interact with servers by sending HTTP requests and receiving responses. This is a unidirectional flow that depends on clients initiating the interaction. Multiplayer games require consistent communication between all connected client components and the server. In this regard, web sockets were used.
 
   Web Sockets provide bidirectional communication over a TCP connection. When a server is passed into a socket connection, the regalar HTTP protocol changes to a WebSocket protocol. 
 
-  https://www.pubnub.com/static/images/get-started/websockets_guides.png
+  ![alt text](https://www.pubnub.com/static/images/get-started/websockets_guides.png) 
 
 
   As shown in the above diagram, when a client opens the application, a "handshake" is initiated between the client and the server. Each client connection can be emitted to all other connected clients, hence providing a schema for multiplayer games/interactions. 
