@@ -60,50 +60,52 @@ class MainPage extends React.Component {
           </header>
         </div>
         <div className="main-page">
-            
+
           <div className="ff-sign">
-          <h1 className="fridge-fest-logo">Fridge Fest</h1>
+            <h1 className="fridge-fest-logo">Fridge Fest</h1>
           </div>
 
           <div className="detail-header">
-          <div className="instructions"></div>
+            <div className="instructions" />
 
-          <button className="demo-button">Try Out!</button>
+            <button className="demo-button">Try Out!</button>
           </div>
 
           <div className="details-div">
             <h2>What is Fridge Fest?</h2>
-            <p>Fridge Fest is an all out multiplayer game in which your objective is to help your fridge collect as much food as possible.
+            <p>
+Fridge Fest is an all out multiplayer game in which your objective is to help your fridge collect as much food as possible.
               The first fridge to collect the required amount of food each round wins that round, and each fridge is assigned points based
               on the kind and how much was collected. After 5 rounds, the points are tallied and a winner is declared.
-            </p>
+</p>
 
             <h2>The Fridge</h2>
-            <p>The fridge you control is mounted on treads, wearing a Hidden Leaf Village headband, and has a penchant for running with its
+            <p>
+The fridge you control is mounted on treads, wearing a Hidden Leaf Village headband, and has a penchant for running with its
               arms flailing behind. It will also keep your food nice and cool.
-            </p>
-            <div className="fridge"></div>
+</p>
+            <div className="fridge" />
 
 
             <h2>The Food</h2>
             <p>There are 5 varieties of food to collect. The amounts of each food you must collect vary, and can be kept track of using the Food Collection Board.</p>
 
             <div className="food-div">
-              <div className="food main-pizza"></div>
-              <div className="food main-donut"></div>
-              <div className="food main-ramen"></div>
-              <div className="food main-milkshake"></div>
-              <div className="food main-chocolate"></div>
+              <div className="food main-pizza" />
+              <div className="food main-donut" />
+              <div className="food main-ramen" />
+              <div className="food main-milkshake" />
+              <div className="food main-chocolate" />
             </div>
 
             <h2>The Powerups</h2>
             <p>Your fridge can use 4 different powers during each round to either aid yourself or hinder your opponents.</p>
 
             <div className="powerup-div">
-              <div className="main-fast"></div>
-              <div className="main-teleport"></div>
-              <div className="main-slow"></div>
-              <div className="main-lightning"></div>
+              <div className="main-fast" />
+              <div className="main-teleport" />
+              <div className="main-slow" />
+              <div className="main-lightning" />
             </div>
 
             <h3>Best of luck in the Fridge Fest!</h3>

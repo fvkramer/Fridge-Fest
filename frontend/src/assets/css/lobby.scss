@@ -5,13 +5,14 @@
   height: 1000px;
   width: 100%;
   position: relative;
-}
 
-h1 {
+  h1 {
   position: absolute;
   left: 50%;
   font-size: 30px;
+  }
 }
+
 
 //Waiting Players
 //////////////////
@@ -66,7 +67,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+
 
 form { 
     background: #000; 
@@ -104,4 +105,6 @@ form {
   #messages li:nth-child(odd) { 
     background: #eee; 
   }
+}
+
 
