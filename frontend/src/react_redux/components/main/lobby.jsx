@@ -18,23 +18,23 @@ export default class Lobby extends Component {
   render() {
     return (
       <div className="lobby-container">
-          <div className="lobby-components">
-            <div className="lobby-header">
+        <div className="lobby-components">
+          <div className="lobby-header">
             <h1 className="ff-lobby-header">Fridge Fest Lobby</h1>
-            </div>
-            <div className="player-waiting">
-              <WaitingForPlayer />
-            </div>
+          </div>
+          <div className="player-waiting">
+            <WaitingForPlayer />
+          </div>
 
-            <div className="right-lobby-pos">
-              <LeaderBoard />
-              
-              <div className="right-lobby">
+          <div className="right-lobby-pos">
+            <LeaderBoard />
+
+            <div className="right-lobby">
               <PlayersLoaded />
               <Chat />
-              </div>
             </div>
           </div>
+        </div>
       </div>
     );
   }

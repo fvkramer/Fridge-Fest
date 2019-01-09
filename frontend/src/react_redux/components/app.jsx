@@ -9,9 +9,9 @@ import MainPageContainer from './main/main_page_container';
 const App = () => (
   <div className="main">
     <Switch>
-      <Route path="/" component={MainPageContainer} />
       <Route exact path="/lobby" component={Lobby} />
       <Route exact path="/game" component={Canvas} />
+      <Route path="/" component={MainPageContainer} />
     </Switch>
   </div>
 );

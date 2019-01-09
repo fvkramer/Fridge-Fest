@@ -39,10 +39,10 @@ const activePlayers = (receivedPlayers, newPlayers) => {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return {
+      return Object.assign({}, state, {
         isAuthenticated: !!action.currentUser,
         user: action.currentUser,
-      };
+      });
     case RECEIVE_USER_LOGOUT:
       return initialState;
     case 'ROUND_OVER':
