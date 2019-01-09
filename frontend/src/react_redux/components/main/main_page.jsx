@@ -12,15 +12,12 @@ import { setupGameSockets } from '../../../game/sockets/sockets';
 
 import logo from './logo.svg';
 
-
 class MainPage extends React.Component {
   constructor() {
     super();
 
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
-
-    setupGameSockets(window.store);
   }
 
   getLinks() {
