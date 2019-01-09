@@ -5,7 +5,7 @@ export default class LeaderBoard extends Component {
 
   render() {
     return (
-      <div> Leaderboard Component </div>
+      <div className="leaderboard-container"> Leaderboard Component </div>
     );
   }
 }

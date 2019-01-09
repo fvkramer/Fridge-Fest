@@ -5,7 +5,7 @@ export default class PlayersLoaded extends Component {
 
   render() {
     return (
-      <div> Loaded Players Component</div>
+      <div className="players-loaded-container"> Loaded Players Component</div>
     );
   }
 }

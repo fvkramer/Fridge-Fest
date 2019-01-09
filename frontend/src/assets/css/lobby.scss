@@ -17,12 +17,30 @@
 /////////
 /////////
 
-
+.leaderboard-container {
+  width: 500px;
+  height: 600px;
+  outline: black;
+  background: pink;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
 
 ///PlayersLoaded
 ///
 ///
 ///
+
+.players-loaded-container {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  background: pink;
+  position: absolute;
+  top: 20%;
+  right: 0%;
+}
 
 
 ///Chat
@@ -34,7 +52,7 @@
 .chat-container {
   width: 500px;
   height: 300px;
-  outline: black;
+  border: 1px solid black;
   background: pink;
   position: absolute;
   bottom: 0%;
