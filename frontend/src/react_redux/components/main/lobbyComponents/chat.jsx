@@ -35,7 +35,7 @@ class Chat extends Component {
     const { messages } = this.props;
     return (
       <div className="chat-container">
-        Chat Component
+        {/* Chat Component */}
         <ul id="messages">
           <Messages messages={messages} />
         </ul>
@@ -49,7 +49,7 @@ class Chat extends Component {
 }
 
 const Messages = ({ messages }) => {
-  const messageList = messages.map(message => <li>{message[1]}</li>);
+  const messageList = messages.map(message => <li className="individual-msg">{message[1]}</li>);
   return messageList;
 };
 
