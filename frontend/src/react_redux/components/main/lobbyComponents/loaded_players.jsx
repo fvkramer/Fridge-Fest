@@ -10,10 +10,12 @@ const msp = state => ({
 class PlayersLoaded extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   componentDidMount() { }
+
+  componentDidUpdate() {
+  }
 
   render() {
     return (
@@ -31,8 +33,7 @@ class PlayersLoaded extends Component {
 const ActivePlayers = ({ players }) => {
   const playerList = players.map(player => (
     <li>
-      {player}
-      Has Joined The Game!
+      A New Player Has Joined The Game! Greet them in Chat!
     </li>
   ));
   return (
