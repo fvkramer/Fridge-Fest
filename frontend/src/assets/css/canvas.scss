@@ -2,13 +2,14 @@
     border: 5px solid #003459;
     margin: 40px auto auto auto;
     border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.726);
 }
 
 .outer {
     display: flex;
     height: 100%;
     width: 1100px;
-    flex-direction: row;
+    flex-direction: row; 
     margin: auto;
     // align-items: center;
 }
