@@ -72,7 +72,7 @@ const setupSockets = io => (
     });
 
     socket.on('keydown', ({ key }) => {
-      if (key === '1') {
+      if (key === ' ') {
         io.sockets.emit('activateSkill', { fridgeId: socket.id, fridgeIds });
       } else {
         io.sockets.emit('keydown', { key, fridgeId: socket.id });
