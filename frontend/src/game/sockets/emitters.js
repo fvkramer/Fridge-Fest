@@ -1,12 +1,16 @@
 const setupEmitters = (socket, store) => {
-  document.addEventListener('keydown', ({ key, repeat }) => {
+  document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    const repeat = event.repeat;
+    if (key === ' ') event.preventDefault();
     if (repeat) return;
-
     socket.emit('keydown', { key });
   });
-  document.addEventListener('keyup', ({ key, repeat }) => {
+  document.addEventListener('keyup', (event) => {
+    const repeat = event.repeat;
     if (repeat) return;
 
+    const key = event.key;
     socket.emit('keyup', { key });
   });
 

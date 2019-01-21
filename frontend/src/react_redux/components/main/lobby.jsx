@@ -25,7 +25,6 @@ export default class Lobby extends Component {
           <div className="player-waiting">
             <WaitingForPlayer />
           </div>
-
           <div className="right-lobby-pos">
             <LeaderBoard />
 
