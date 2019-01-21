@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { bool } from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import Abilities from './gameOverlay/abilities';
 import FoodPyramid from './gameOverlay/foodPyramid';
@@ -12,13 +13,14 @@ import '../../assets/css/reset.scss';
 import '../../assets/css/canvas.scss';
 import '../../assets/css/abilities.scss';
 
-
 class Canvas extends Component {
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   render() {
+    if (!window.socket) {
+      return <Redirect to="/" />;
+    }
+
     const { isRoundOver } = this.props;
     if (isRoundOver) {
       if (window.game) window.game = undefined;
