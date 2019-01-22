@@ -20,7 +20,6 @@ class Canvas extends Component {
     if (!window.socket) {
       return <Redirect to="/" />;
     }
-
     const { isRoundOver } = this.props;
     if (isRoundOver) {
       if (window.game) window.game = undefined;

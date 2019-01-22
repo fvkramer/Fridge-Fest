@@ -8,14 +8,7 @@ const msp = state => ({
 
 
 class PlayersLoaded extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() { }
-
-  componentDidUpdate() {
-  }
 
   render() {
     return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Switch } from 'react-router-dom';
 import { func, bool, string } from 'prop-types';
-
 import { AuthRoute } from '../../util/route_util';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
@@ -29,7 +28,8 @@ class MainPage extends React.Component {
           <p className="main-page-link" style={{ color: 'white' }}>{`Hello ${username}!`}</p>
 
           <Link className="main-page-link" to="/">Home</Link>
-          <Link className="main-page-link" to="/lobby">Lobby</Link>
+          {/* <Link className="main-page-link" to="/lobby">Lobby</Link> */}
+          <Link className="main-page-link" to="/lobby"><button onClick={this.handleLobby}>Lobby</button></Link>
           <Link to="/" className="main-page-link" onClick={this.logoutUser}>Logout</Link>
         </div>
       );
@@ -44,6 +44,9 @@ class MainPage extends React.Component {
     );
   }
 
+  handleLobby(e) {
+    setupGameSockets(window.store);
+  }
 
   handleDemo(e) {
     setupGameSockets(window.store);

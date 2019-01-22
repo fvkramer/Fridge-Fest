@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // for development
 
   window.store = store;
-
   // testing
   // window.getState = store.getState;
 

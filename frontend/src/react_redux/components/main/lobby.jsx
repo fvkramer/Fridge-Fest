@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import WaitingForPlayer from './lobbyComponents/waiting_players';
 import LeaderBoard from './lobbyComponents/leaderboard';
@@ -16,6 +17,10 @@ export default class Lobby extends Component {
   }
 
   render() {
+    if (!window.socket) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className="lobby-container">
         <div className="lobby-components">
