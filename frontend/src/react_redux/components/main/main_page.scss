@@ -219,3 +219,18 @@
   background-color: rgb(131, 185, 255);
 }
 
+.lobby-button {
+  border: none;
+  color: #94e8ff;
+  margin: 0 10px 0 10px;
+  font-size: 18px;
+  margin: auto;
+  background: none;
+  font-family: 'minecraftmedium';
+  text-decoration: underline; 
+}
+
+.lobby-button:hover {
+  cursor: pointer;
+}
+
