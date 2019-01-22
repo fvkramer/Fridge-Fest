@@ -20,7 +20,7 @@ class RoundEnd extends React.Component {
       if (timer === 0) closeModal();
 
       this.setState({ timer: timer - 1 });
-    }, 10000);
+    }, 1000);
   }
 
   componentWillUnmount() {
