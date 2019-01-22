@@ -7,11 +7,9 @@ Players can also pick up items to interact with their environment and other play
 
 # How To Use
 
-The simplest way to use the app is through the live link.
+The live build of Fridge Fest can be found here.
 
-LIVE LINK
-
-[Fridge Fest](https://fridge-fest-test.herokuapp.com/)
+[Fridge Fest](https://fridge-fest.herokuapp.com/)
 
 To test the game in development,
 
@@ -27,13 +25,13 @@ Click on 'Demo' in the login screen.
 
 # Technology Used
 
-This game was built with the following technology:
+This game was built with the following technologies:
 
- Sockets.io
- Node.js
- ReactJS
- ReduxJS
- HTML5 Canvas
+ - Sockets.io
+ - Node.js
+ - ReactJS
+ - ReduxJS
+ - HTML5 Canvas
 
 # Technical Implementation 
   

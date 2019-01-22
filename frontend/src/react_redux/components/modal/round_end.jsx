@@ -31,8 +31,7 @@ class RoundEnd extends React.Component {
     const { timer } = this.state;
     // const { playersInfo } = this.props;
 
-    return (
-      <div className="details-div">
+    return <div className="modal-body">
         {/* <ul>
           {playersInfo.map(player => (
             <li key={player.id}>
@@ -42,11 +41,11 @@ class RoundEnd extends React.Component {
         </ul> */}
 
         {/* <p>{`New Round In: ${timer} seconds`}</p> */}
-        <h2>New Round In:</h2>
-        <h2>{timer}</h2>
-        <p>Score board is being implemented</p>
-      </div>
-    );
+        <div className="timer-div">
+          <h2>New Round In: {timer}</h2>
+        </div>
+        <p>Score board is being implemented, please bear with us!</p>
+      </div>;
   }
 }
 
