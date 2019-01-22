@@ -10,7 +10,41 @@
 
 .modal-child {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.timer-div {
+  margin: 0 auto 0 auto;
+  height: 100px;
+  width: 450px;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-body {
+  width: 600px;
+  height: 570px;
+  padding: 25px;
+  top: -3%;
+  position: relative;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  border: 7px solid #66E0EF;
+  border-radius: 10px;
+  
+
+
+  h2 {
+    font-size: 50px;
+    margin: auto;
+  }
+
+  p {
+    margin: 10px auto;
+    font-size: 22px;
+    width: 500px;
+  }
 }

@@ -11,6 +11,7 @@ import '../../assets/css/overlay.scss';
 import '../../assets/css/reset.scss';
 import '../../assets/css/canvas.scss';
 import '../../assets/css/abilities.scss';
+import '../../assets/css/modal.scss';
 
 
 class Canvas extends Component {
