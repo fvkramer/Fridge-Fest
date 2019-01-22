@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const msp = state => ({
-  players: state.session.activePlayers,
-  length: state.session.activePlayers.length,
-});
+const msp = (state) => {
+  if (!state.session.activePlayers) {
+    return { players: [] };
+  }
+  return {
+    players: state.session.activePlayers,
+    length: state.session.activePlayers.length,
+  };
+};
 
 
 class PlayersLoaded extends Component {

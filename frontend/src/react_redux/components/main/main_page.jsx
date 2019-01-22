@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Switch } from 'react-router-dom';
+import { Link, Switch, Redirect } from 'react-router-dom';
 import { func, bool, string } from 'prop-types';
 import { AuthRoute } from '../../util/route_util';
 import LoginFormContainer from '../session_form/login_form_container';
@@ -29,7 +29,7 @@ class MainPage extends React.Component {
 
           <Link className="main-page-link" to="/">Home</Link>
           {/* <Link className="main-page-link" to="/lobby">Lobby</Link> */}
-          <Link className="main-page-link" to="/lobby"><button className="lobby-button" onClick={this.handleLobby}>Lobby</button></Link>
+          <button className="lobby-button" onClick={this.handleLobby}>Lobby</button>
           <Link to="/" className="main-page-link" onClick={this.logoutUser}>Logout</Link>
         </div>
       );
@@ -46,6 +46,7 @@ class MainPage extends React.Component {
 
   handleLobby(e) {
     setupGameSockets(window.store);
+    window.location.hash = '/lobby';
   }
 
   handleDemo(e) {

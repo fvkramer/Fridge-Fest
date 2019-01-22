@@ -13,7 +13,7 @@ import '../../../assets/css/lobby.scss';
 
 export default class Lobby extends Component {
   componentDidMount() {
-    setupGameSockets(window.store);
+    // setupGameSockets(window.store);
   }
 
   render() {
