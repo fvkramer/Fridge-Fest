@@ -7,6 +7,10 @@ const setupEmitters = (socket, store) => {
       event.preventDefault();
       socket.emit('keydown', { key });
     }
+
+    if (key !== ' ') {
+      socket.emit('keydown', { key });
+    }
   });
 
   document.addEventListener('keyup', (event) => {
