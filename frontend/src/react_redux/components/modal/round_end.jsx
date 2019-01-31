@@ -1,8 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  shape, number, string, func, arrayOf,
-} from 'prop-types';
 
 class RoundEnd extends React.Component {
   constructor() {
@@ -31,7 +28,8 @@ class RoundEnd extends React.Component {
     const { timer } = this.state;
     // const { playersInfo } = this.props;
 
-    return <div className="modal-body">
+    return (
+      <div className="modal-body">
         {/* <ul>
           {playersInfo.map(player => (
             <li key={player.id}>
@@ -42,20 +40,17 @@ class RoundEnd extends React.Component {
 
         {/* <p>{`New Round In: ${timer} seconds`}</p> */}
         <div className="timer-div">
-          <h2>New Round In: {timer}</h2>
+          <h2>
+New Round In:
+            {' '}
+            {timer}
+          </h2>
         </div>
         <p>Score board is being implemented, please bear with us!</p>
-      </div>;
+      </div>
+    );
   }
 }
-
-RoundEnd.propTypes = {
-  closeModal: func.isRequired,
-  // playersInfo: arrayOf(shape({
-  //   id: string,
-  //   points: number,
-  // })).isRequired,
-};
 
 const mapStateToProps = ({ session: { players } }) => {
   const playersInfo = Object.keys(players).map(playerId => ({

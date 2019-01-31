@@ -7,6 +7,10 @@ import { storeInSession, gameOver } from './socket_actions/store_in_session';
 
 const setupReceivers = (socket, store) => {
   socket.on('startGame', (data) => {
+    // debugger;
+    if (window.location.hash !== '#/game') {
+      window.location.hash = '#/game';
+    }
     handleStartGame(socket, store, data);
   });
 

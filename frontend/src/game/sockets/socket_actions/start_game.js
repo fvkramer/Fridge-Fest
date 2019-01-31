@@ -57,12 +57,12 @@ const handleStartGame = (socket, store, {
   }
 
   window.setTimeout(() => {
-    if (window.game) window.game = undefined;
-    delete window.game;
-    if (window.ctx) window.ctx = undefined;
-    delete window.ctx;
-    if (window.canvas) window.canvas = undefined;
-    delete window.canvas;
+    // if (window.game) window.game = undefined;
+    // delete window.game;
+    // if (window.ctx) window.ctx = undefined;
+    // delete window.ctx;
+    // if (window.canvas) window.canvas = undefined;
+    // delete window.canvas;
 
     window.canvas = document.getElementById('canvas');
     window.ctx = window.canvas.getContext('2d');

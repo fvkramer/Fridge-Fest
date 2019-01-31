@@ -21,9 +21,9 @@ export default class Lobby extends Component {
   }
 
   render() {
-    // if (!window.socket) {
-    //   return <Redirect to="/" />;
-    // }
+    if (!window.socket) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <div className="lobby-container">

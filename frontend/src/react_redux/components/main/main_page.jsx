@@ -44,7 +44,6 @@ class MainPage extends React.Component {
   }
 
   handleLobby(e) {
-    debugger;
     setupGameSockets(window.store);
     window.location.hash = '/lobby';
   }

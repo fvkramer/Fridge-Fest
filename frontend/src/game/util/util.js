@@ -34,11 +34,11 @@ export const isRoundOver = (store, socketId) => {
   const snickerCount = fridge.snicker;
 
   if (
-    iRCount >= 2
-    && donutCount >= 5
-    && pizzaCount >= 5
-    && milkshakeCount >= 3
-    && snickerCount >= 5
+    iRCount >= 1 // 2
+    && donutCount >= 1 // 5
+    && pizzaCount >= 1 // 5
+    && milkshakeCount >= 1 // 3
+    && snickerCount >= 1 // 5
   ) return true;
   return false;
 };
