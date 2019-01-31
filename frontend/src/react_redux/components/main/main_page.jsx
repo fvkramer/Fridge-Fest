@@ -29,7 +29,7 @@ class MainPage extends React.Component {
 
           <Link className="main-page-link" to="/">Home</Link>
           {/* <Link className="main-page-link" to="/lobby">Lobby</Link> */}
-          <button className="lobby-button" onClick={this.handleLobby}>Lobby</button>
+          <button className="lobby-button" onClick={this.handleLobby}>Lobby/Game</button>
           <Link to="/" className="main-page-link" onClick={this.logoutUser}>Logout</Link>
         </div>
       );

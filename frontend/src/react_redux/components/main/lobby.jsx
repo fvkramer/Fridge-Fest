@@ -31,8 +31,10 @@ export default class Lobby extends Component {
             <WaitingForPlayer />
           </div>
           <div className="right-lobby-pos">
-            <LeaderBoard />
-
+            <div className="right-lobby-leader">
+              <button id="start-button">Start Game</button>
+              <LeaderBoard />
+            </div>
             <div className="right-lobby">
               <PlayersLoaded />
               <Chat />
