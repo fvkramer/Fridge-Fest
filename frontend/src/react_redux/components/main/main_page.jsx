@@ -9,7 +9,6 @@ import './main_page.scss';
 
 import { setupGameSockets } from '../../../game/sockets/sockets';
 
-import logo from './logo.svg';
 
 class MainPage extends React.Component {
   constructor() {
@@ -45,6 +44,7 @@ class MainPage extends React.Component {
   }
 
   handleLobby(e) {
+    debugger;
     setupGameSockets(window.store);
     window.location.hash = '/lobby';
   }
