@@ -84,7 +84,7 @@ class MainPage extends React.Component {
           <div className="detail-header">
             <div className="instructions" />
 
-            <Link to="/game"><button className="demo-button" onClick={this.handleDemo}>Demo!</button></Link>
+            <Link to="/demo"><button className="demo-button" onClick={this.handleDemo}>Demo!</button></Link>
 
           </div>
 
