@@ -2,14 +2,11 @@ const setupEmitters = (socket, store) => {
   document.addEventListener('keydown', (event) => {
     const key = event.key;
     const repeat = event.repeat;
-    // debugger;
-    if (key === ' ' && window.location.hash === '#/lobby') {
-      event.preventDefault();
-      return null;
-    }
-    if (key === ' ') event.preventDefault();
     if (repeat) return;
-    socket.emit('keydown', { key });
+    if (key === ' ' && window.location.hash === '#/game') {
+      event.preventDefault();
+      socket.emit('keydown', { key });
+    }
   });
 
   document.addEventListener('keyup', (event) => {
