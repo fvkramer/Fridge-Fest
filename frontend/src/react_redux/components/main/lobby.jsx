@@ -12,14 +12,19 @@ import { setupGameSockets } from '../../../game/sockets/sockets';
 import '../../../assets/css/lobby.scss';
 
 export default class Lobby extends Component {
-  componentDidMount() {
-    // setupGameSockets(window.store);
+  // componentDidMount() {
+  //   // setupGameSockets(window.store);
+  // }
+
+  handleGame(e) {
+    setupGameSockets(window.store);
+    window.startGame();
   }
 
   render() {
-    // if (!window.socket) {
-    //   return <Redirect to="/" />;
-    // }
+    if (!window.socket) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <div className="lobby-container">
@@ -32,7 +37,7 @@ export default class Lobby extends Component {
           </div>
           <div className="right-lobby-pos">
             <div className="right-lobby-leader">
-              <Link to="/game"><button id="start-button">Start Game</button></Link>
+              <Link to="/game"><button id="start-button" onClick={this.handleGame}>Start Game</button></Link>
               <LeaderBoard />
             </div>
             <div className="right-lobby">
