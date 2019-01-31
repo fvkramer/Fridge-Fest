@@ -24,7 +24,6 @@ const setupSockets = io => (
     });
 
     socket.on('startGame', () => {
-      // debugger;
       const {
         instantRamen, pizza, donut, milkshake, snicker,
       } = makeFood();
@@ -33,7 +32,7 @@ const setupSockets = io => (
       } = makeSkills();
       const floor = makeBackground();
       const walls = makeWalls();
-      // debugger;
+
       io.sockets.emit('startGame', {
         fridgeIds,
         instantRamen,
