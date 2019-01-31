@@ -34,8 +34,10 @@ const handleStartGame = (socket, store, {
   for (let i = 0; i < snicker.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_FOOD', food: createSnicker(snicker[i]) });
   }
-  for (let i = 0; i < fridgeIds.length; i += 1) {
-    store.dispatch({ type: 'RECEIVE_FRIDGE', fridge: createFridge(fridgeIds[i]) });
+  for (let j = 0; j < fridgeIds.length; j += 1) {
+    // const positions = [[300, 300], [1700, 300], [1700, 1700], [300, 1700]];
+
+    store.dispatch({ type: 'RECEIVE_FRIDGE', fridge: createFridge(fridgeIds[j], j) });
   }
   for (let i = 0; i < slow.length; i += 1) {
     store.dispatch({ type: 'RECEIVE_SKILL', skill: createSlow(slow[i]) });

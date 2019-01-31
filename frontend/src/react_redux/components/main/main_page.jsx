@@ -48,10 +48,10 @@ class MainPage extends React.Component {
     window.location.hash = '/lobby';
   }
 
-  handleDemo(e) {
-    setupGameSockets(window.store);
-    window.startGame();
-  }
+  // handleDemo(e) {
+  //   setupGameSockets(window.store);
+  //   window.startGame();
+  // }
 
   logoutUser(e) {
     e.preventDefault();
@@ -83,7 +83,7 @@ class MainPage extends React.Component {
           <div className="detail-header">
             <div className="instructions" />
 
-            <Link to="/demo"><button className="demo-button" onClick={this.handleDemo}>Demo!</button></Link>
+            <Link to="/demo"><button className="demo-button">Demo!</button></Link>
 
           </div>
 

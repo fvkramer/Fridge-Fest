@@ -31,22 +31,23 @@ export const fridgeMoveSprite = {
   frameCount: 4,
 };
 
-const createFridge = id => ({
-  [id]: {
-    id,
-    type: 'fridge',
-    physics: new Physics(300, 300),
-    sprite: new Sprite(fridgeStatic, 138, 57, 2, 1),
-    // sprite: new Sprite(fridgeStatic, 96, 161, 2, 4),
-    speed: 20,
-    skill: {},
-    instantRamen: 0,
-    milkshake: 0,
-    snicker: 0,
-    donut: 0,
-    pizza: 0,
-    points: 0,
-  },
-});
-
+// const positions = [[300, 300], [1700, 300], [1700, 1700], [300, 1700]];
+// const position = positions[j];
+const createFridge = (id, j) => ({
+    [id]: {
+      id,
+      type: 'fridge',
+      physics: new Physics(300, 300),
+      sprite: new Sprite(fridgeStatic, 138, 57, 2, 1),
+      // sprite: new Sprite(fridgeStatic, 96, 161, 2, 4),
+      speed: 20,
+      skill: {},
+      instantRamen: 0,
+      milkshake: 0,
+      snicker: 0,
+      donut: 0,
+      pizza: 0,
+      points: 0,
+    },
+  });
 export default createFridge;

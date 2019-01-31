@@ -1,5 +1,44 @@
-.demo-video {
-  width: 300px;
-  height: 300px;
-  z-index: 1;
+.demo-div {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
 }
+
+.vid {
+  margin: 10px auto auto auto;
+}
+
+.demo-title {
+  font-family: 'minecraftmedium';
+  font-size: 50px;
+  margin: 60px auto 50px auto;
+  background: -webkit-linear-gradient(90deg, lightblue, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.demo-div a {
+  margin: auto;
+
+  .home-button {
+    margin: auto;
+    height: 60px;
+    width: 150px;
+    outline: 0;
+    border: 4px solid lightblue;
+    border-radius: 10px;
+    background-color: rgb(196, 196, 196);
+    color: black;
+    font-family: 'minecraftmedium';
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+
+    &:hover {
+      border-color: black;
+      cursor: pointer;
+    }
+  }
+}
+
