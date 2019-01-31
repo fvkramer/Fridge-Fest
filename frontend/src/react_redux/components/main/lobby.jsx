@@ -17,14 +17,13 @@ export default class Lobby extends Component {
   // }
 
   handleGame(e) {
-    setupGameSockets(window.store);
     window.startGame();
   }
 
   render() {
-    if (!window.socket) {
-      return <Redirect to="/" />;
-    }
+    // if (!window.socket) {
+    //   return <Redirect to="/" />;
+    // }
 
     return (
       <div className="lobby-container">
